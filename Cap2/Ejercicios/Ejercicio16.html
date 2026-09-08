@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 2.16 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Retroalimentación de la Visita al Campus</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Formulario de Retroalimentación de Visita</strong></h1>
+        <p>Por favor, llene este formulario para indicarnos cómo fue su experiencia durante su visita a nuestro campus.</p>
+
+        <!-- El formulario envía los datos mediante POST al servidor de Deitel -->
+        <form method="post" action="http://www.deitel.com">
+
+            <!-- Campos de texto para Nombre y Correo electrónico -->
+            <p>
+                <label>Nombre:
+                    <input name="nombre" type="text" size="35" placeholder="Escriba su nombre completo">
+                </label>
+            </p>
+
+            <p>
+                <label>Dirección de correo electrónico:
+                    <input name="email" type="text" size="35" placeholder="ejemplo@dominio.com">
+                </label>
+            </p>
+
+            <!-- Casillas de verificación (Checkboxes) -->
+            <p>
+                <strong>¿Qué fue lo que más le gustó del campus? (Seleccione todas las opciones que apliquen):</strong><br>
+                
+                <label><input name="gustos" type="checkbox" value="campus"> Campus</label><br>
+                <label><input name="gustos" type="checkbox" value="estudiantes"> Estudiantes</label><br>
+                <label><input name="gustos" type="checkbox" value="ubicacion"> Ubicación</label><br>
+                <label><input name="gustos" type="checkbox" value="ambiente"> Ambiente</label><br>
+                <label><input name="gustos" type="checkbox" value="dormitorios"> Dormitorios</label><br>
+                <label><input name="gustos" type="checkbox" value="deportes"> Deportes</label>
+            </p>
+
+            <!-- Botones de opción (Radio buttons) -->
+            <p>
+                <strong>¿Cómo se enteró de nuestra universidad?</strong><br>
+                
+                <label><input name="como_se_entero" type="radio" value="amigos"> Amigos</label>
+                <label><input name="como_se_entero" type="radio" value="television"> Televisión</label>
+                <label><input name="como_se_entero" type="radio" value="internet"> Internet</label>
+                <label><input name="como_se_entero" type="radio" value="otro"> Otro</label>
+            </p>
+
+            <!-- Área de texto (Textarea) -->
+            <p>
+                <label>Comentarios adicionales:<br>
+                    <textarea name="comentarios" rows="5" cols="45">Escriba sus comentarios aquí...</textarea>
+                </label>
+            </p>
+
+            <!-- Botones para enviar y restablecer el formulario -->
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </p>
+
+        </form>
+    
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+</body>
+
+</html>
