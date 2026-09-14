@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 3.8 Creación de un formulario autocomplete con un elemento datalist -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 3.8</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 3.8</strong></h1>
+        <h2><strong>Formulario autocompletado con los d&iacute;as de la semana</strong></h2>
+
+        <!-- Formulario con autocompletado activado y datalist asociado -->
+        <form method="post" action="http://www.deitel.com" autocomplete="on">
+            <p>
+                <label for="campoDia">D&iacute;a de la semana: 
+                    <input type="text" id="campoDia" name="dia" placeholder="Seleccione o escriba un d&iacute;a" list="diasSemana" autofocus required>
+                </label>
+                <datalist id="diasSemana">
+                    <option value="Lunes">
+                    <option value="Martes">
+                    <option value="Mi&eacute;rcoles">
+                    <option value="Jueves">
+                    <option value="Viernes">
+                    <option value="S&aacute;bado">
+                    <option value="Domingo">
+                </datalist>
+            </p>
+
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </p>
+        </form>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+
+</html>

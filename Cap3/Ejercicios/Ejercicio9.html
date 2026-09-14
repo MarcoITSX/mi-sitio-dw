@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 3.9 Disposición de las páginas de nuestro libro en HTML5: creación de las secciones -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 3.9 - Sección 3.2.1 input tipo color</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <!-- Elemento de estructura de página: Encabezado superior -->
+        <header>
+            <h1><strong>Cap&iacute;tulo 3: Introducci&oacute;n a HTML5: parte 2</strong></h1>
+            <h2><strong>3.2 Nuevos tipos input de formularios de HTML5</strong></h2>
+        </header>
+
+        <!-- Elemento de estructura de página: Sección principal del tema -->
+        <section>
+            <!-- Elemento de estructura de página: Artículo independiente con la sección 3.2.1 -->
+            <article>
+                <header>
+                    <h3><strong>3.2.1 input tipo color</strong></h3>
+                </header>
+                
+                <p>El tipo <code>input color</code> permite al usuario introducir un color. Al momento de escribir este libro, algunos navegadores despliegan el tipo <code>input color</code> como un campo de texto en donde el usuario puede introducir un c&oacute;digo hexadecimal o el nombre de un color. Hay dos navegadores, Chrome y Opera, que muestran un selector de color similar al cuadro de di&aacute;logo de colores de Microsoft Windows. En el futuro, cuando haga clic en un elemento <code>input color</code>, es muy probable que el resto de los navegadores muestren un selector de color tambi&eacute;n.</p>
+
+                <!-- Subsección 1: El atributo autofocus -->
+                <section>
+                    <h4><strong>El atributo autofocus</strong></h4>
+                    <p>El atributo <code>autofocus</code> (un atributo opcional que puede usarse s&oacute;lo en un elemento <code>input</code> en un formulario) otorga de manera autom&aacute;tica el enfoque al elemento <code>input</code>, lo que permite al usuario empezar a escribir en ese elemento de inmediato. No necesita incluir <code>autofocus</code> en sus formularios.</p>
+                </section>
+
+                <!-- Subsección 2: Validación -->
+                <section>
+                    <h4><strong>Validaci&oacute;n</strong></h4>
+                    <p>Tradicionalmente ha sido dif&iacute;cil validar la entrada del usuario, como asegurar que se introduzca una direcci&oacute;n de correo electr&oacute;nico, URL, fecha u hora en el formato adecuado. Los nuevos tipos <code>input</code> de HTML5 cuentan con validaci&oacute;n autom&aacute;tica del lado del cliente, con lo que se elimina la necesidad de agregar c&oacute;digo complicado de JavaScript a nuestras p&aacute;ginas Web para validar la entrada del usuario; as&iacute; se reduce la cantidad de datos inv&aacute;lidos que se env&iacute;an y, en consecuencia, disminuye el tr&aacute;fico de Internet entre el servidor y el cliente que se usa para corregir las entradas inv&aacute;lidas. De todas formas el servidor debe validar toda la entrada del usuario.</p>
+                    <p>Cuando un usuario introduce datos en un formulario y luego lo env&iacute;a (en este ejemplo, al hacer clic en el bot&oacute;n Enviar), el navegador verifica de inmediato los elementos de validaci&oacute;n autom&aacute;tica para asegurar que los datos sean correctos. Por ejemplo, si un usuario introduce un valor de color hexadecimal incorrecto al usar un navegador que despliegue los elementos <code>color</code> como un campo de texto (por ejemplo, Internet Explorer), aparecer&aacute; una anotaci&oacute;n para se&ntilde;alar ese elemento e indicar que se introdujo un valor incorrecto.</p>
+                </section>
+            </article>
+        </section>
+
+        <!-- Elemento de estructura de página: Pie de página con derechos y navegación -->
+        <footer>
+            <hr>
+            <p>
+                <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+                <a href="../../Index.html">Portal Principal</a>
+            </p>
+            <p><small>&copy; Internet &amp; World Wide Web: C&oacute;mo Programar, Quinta Edici&oacute;n &mdash; Deitel &amp; Associates, Inc.</small></p>
+        </footer>
+
+    </body>
+
+</html>

@@ -1,0 +1,73 @@
+!DOCTYPE html>
+
+<!-- Ejercicio 3.6 Formulario de registro con encuesta opcional -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 3.6</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 3.6</strong></h1>
+        <h2><strong>Formulario de registro Web con encuesta opcional</strong></h2>
+
+        <!-- Formulario principal de registro -->
+        <form method="post" action="http://www.deitel.com">
+            
+            <p>
+                <label>Primer nombre:
+                    <input type="text" name="primerNombre" placeholder="Primer nombre" required autofocus>
+                </label>
+            </p>
+
+            <p>
+                <label>Apellido:
+                    <input type="text" name="apellido" placeholder="Apellido" required>
+                </label>
+            </p>
+
+            <p>
+                <label>Direcci&oacute;n de correo electr&oacute;nico:
+                    <input type="email" name="email" placeholder="nombre@dominio.com" required>
+                </label>
+            </p>
+
+            <!-- Pregunta de encuesta opcional colocada dentro del elemento details -->
+            <details>
+                <summary>Pregunta de encuesta opcional (Haga clic para desplegar)</summary>
+                <p>
+                    <strong>&iquest;En qu&eacute; a&ntilde;o de la universidad se encuentra actualmente?</strong><br>
+                    <label><input type="radio" name="anoUniversidad" value="primerAno"> Primer a&ntilde;o</label><br>
+                    <label><input type="radio" name="anoUniversidad" value="segundoAno"> Segundo a&ntilde;o</label><br>
+                    <label><input type="radio" name="anoUniversidad" value="tercerAno"> Tercer a&ntilde;o</label><br>
+                    <label><input type="radio" name="anoUniversidad" value="cuartoAno"> Cuarto a&ntilde;o</label>
+                </p>
+            </details>
+
+            <br>
+            <p>
+                <input type="submit" value="Registrarse">
+                <input type="reset" value="Borrar">
+            </p>
+
+        </form>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+
+</html>
+
