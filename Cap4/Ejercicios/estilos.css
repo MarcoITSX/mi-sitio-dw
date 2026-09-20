@@ -1,0 +1,27 @@
+/* Fig. 4.9: estilos.css */
+/* Hoja de estilo externa para el botón de navegación */
+
+.boton-navegacion {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: LightSkyBlue;
+    border: 2px solid Navy;
+    border-radius: 5px;
+}
+
+.boton-navegacion a {
+    color: Navy;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* Cambio de estilos cuando el usuario pasa el ratón (hover) */
+.boton-navegacion:hover {
+    background-color: Navy;
+    border-color: LightSkyBlue;
+}
+
+.boton-navegacion:hover a {
+    color: White;
+}
