@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 5.10 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 5.10 - Capítulo 5</title>
+        <style>
+            .textbox {
+                margin-left: 75px;
+                background: lightgreen;
+                height: 100px;
+                width: 200px;
+                padding: 25px 0;
+                text-align: center;
+                font-size: 200%;
+                border: 3px solid DarkGreen;
+                border-radius: 15px;
+                -webkit-animation: inclinacion30 4s infinite linear;
+                -moz-animation: inclinacion30 4s infinite linear;
+                animation: inclinacion30 4s infinite linear;
+            }
+
+            @-webkit-keyframes inclinacion30 {
+                0%   { -webkit-transform: skewY(0deg) skewX(0deg); }
+                25%  { -webkit-transform: skewY(30deg) skewX(0deg); }
+                50%  { -webkit-transform: skewY(0deg) skewX(0deg); }
+                75%  { -webkit-transform: skewY(0deg) skewX(30deg); }
+                100% { -webkit-transform: skewY(0deg) skewX(0deg); }
+            }
+
+            @-moz-keyframes inclinacion30 {
+                0%   { -moz-transform: skewY(0deg) skewX(0deg); }
+                25%  { -moz-transform: skewY(30deg) skewX(0deg); }
+                50%  { -moz-transform: skewY(0deg) skewX(0deg); }
+                75%  { -moz-transform: skewY(0deg) skewX(30deg); }
+                100% { -moz-transform: skewY(0deg) skewX(0deg); }
+            }
+
+            @keyframes inclinacion30 {
+                0%   { transform: skewY(0deg) skewX(0deg); }
+                25%  { transform: skewY(30deg) skewX(0deg); }
+                50%  { transform: skewY(0deg) skewX(0deg); }
+                75%  { transform: skewY(0deg) skewX(30deg); }
+                100% { transform: skewY(0deg) skewX(0deg); }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 5.10</strong></h1>
+        <p><strong>(Inclinación)</strong> Modifique el ejemplo de inclinación en la figura 5.13 para inclinar el elemento de arriba hacia abajo 30deg, después de izquierda a derecha 30deg, alternando de manera indefinida.</p>
+
+        <h2><strong>Demostración:</strong></h2>
+
+        <div class="textbox">Inclinar 30&deg;</div>
+    
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

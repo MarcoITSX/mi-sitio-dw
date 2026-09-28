@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 5.13 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 5.13 - Capítulo 5</title>
+        <link href="http://fonts.googleapis.com/css?family=Rosario" rel="stylesheet" type="text/css">
+        <style>
+            .flexbox {
+                width: 360px;
+                display: -webkit-box;
+                display: box;
+                display: flex;
+                -webkit-box-orient: vertical;
+                box-orient: vertical;
+                flex-direction: column;
+            }
+
+            .flexbox > div {
+                -webkit-transition: height 1s ease-out;
+                transition: height 1s ease-out;
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                border: 2px solid black;
+                width: 320px;
+                height: 60px;
+                margin: 5px 0px;
+                padding: 15px;
+                box-shadow: 5px 5px 10px dimgrey;
+                overflow: hidden;
+                font-family: "Rosario", sans-serif;
+            }
+
+            .flexbox > div:nth-child(1) { background-color: lightgrey; }
+            .flexbox > div:nth-child(2) { background-color: lightgrey; }
+            .flexbox > div:nth-child(3) { background-color: lightgrey; }
+            .flexbox > div:nth-child(4) { background-color: lightgrey; }
+
+            .flexbox > div:hover {
+                height: 170px;
+                color: white;
+                font-weight: bold;
+            }
+
+            .flexbox > div:nth-child(1):hover { background-color: royalblue; }
+            .flexbox > div:nth-child(2):hover { background-color: crimson; }
+            .flexbox > div:nth-child(3):hover { background-color: crimson; }
+            .flexbox > div:nth-child(4):hover { background-color: darkgreen; }
+
+            .flexbox img {
+                float: left;
+                margin-right: 15px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 5.13</strong></h1>
+        <p><strong>(MDCF)</strong> Modifique el ejemplo de la figura 5.16 para usar una caja flexible vertical.</p>
+
+        <h2><strong>Demostración:</strong></h2>
+
+        <div class="flexbox">
+            <div>
+                <img src="Imagen/GPP.png" alt="Icono de buena práctica de programación">
+                <p>Las buenas pr&aacute;cticas de programaci&oacute;n indican las t&eacute;cnicas que le ayudar&aacute;n a producir programas m&aacute;s claros, comprensibles y f&aacute;ciles de mantener.</p>
+            </div>
+            <div>
+                <img src="Imagen/EPT.png" alt="Icono de tip para prevenir errores">
+                <p>Los tips para prevenir errores contienen sugerencias para exponer errores y eliminarlos de sus programas; muchos describen aspectos de programaci&oacute;n que evitan que los errores entren siquiera a los programas.</p>
+            </div>
+            <div>
+                <img src="Imagen/CPE.png" alt="Icono de error común de programación">
+                <p>Los errores comunes de programaci&oacute;n se&ntilde;alan los errores que cometen los estudiantes con frecuencia. Estos errores comunes reducen la probabilidad de que usted cometa los mismos errores.</p>
+            </div>
+            <div>
+                <img src="Imagen/SEO.png" alt="Icono de observación de ingeniería de software">
+                <p>Las observaciones de ingenier&iacute;a de software resaltan los asuntos de arquitectura y dise&ntilde;o que afectan en la construcci&oacute;n de sistemas de software, en especial los sistemas de gran escala.</p>
+            </div>
+        </div>
+    
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

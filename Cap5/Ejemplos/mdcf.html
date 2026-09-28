@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<!-- Fig. 5.16: mdcf.html -->
+<!-- Módulo de diseño de caja flexible. -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Modelo de diseño de caja flexible</title>
+    <link href="http://fonts.googleapis.com/css?family=Rosario" 
+          rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .flexbox {
+            width: 600px;
+            height: 420px;
+            display: -webkit-box;
+            display: box;
+            -webkit-box-orient: horizontal;
+            box-orient: horizontal;
+        }
+
+        .flexbox > div {
+            -webkit-transition: 1s ease-out;
+            transition: 1s ease-out;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            border: 2px solid black;
+            width: 120px;
+            margin: 10px -10px 10px 0px;
+            padding: 20px;
+            box-shadow: 10px 10px 10px dimgrey;
+        }
+
+        .flexbox > div:nth-child(1) { background-color: lightgrey; }
+        .flexbox > div:nth-child(2) { background-color: lightgrey; }
+        .flexbox > div:nth-child(3) { background-color: lightgrey; }
+        .flexbox > div:nth-child(4) { background-color: lightgrey; }
+
+        .flexbox > div:hover {
+            width: 200px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .flexbox > div:nth-child(1):hover { background-color: royalblue; }
+        .flexbox > div:nth-child(2):hover { background-color: crimson; }
+        .flexbox > div:nth-child(3):hover { background-color: crimson; }
+        .flexbox > div:nth-child(4):hover { background-color: darkgreen; }
+
+        p {
+            height: 250px;
+            overflow: hidden;
+            font-family: "Rosario";
+        }
+    </style>
+</head>
+<body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+    <div class="flexbox">
+        <div>
+            <img src="Imagenes/GPP.png" alt="Icono de buena práctica de programación">
+            <p>Las buenas prácticas de programación indican las técnicas que le ayudarán a producir programas más claros, comprensibles y fáciles de mantener.</p>
+        </div>
+        <div>
+            <img src="Imagenes/EPT.png" alt="Icono de tip para prevenir errores">
+            <p>Los tips para prevenir errores contienen sugerencias para exponer errores y eliminarlos de sus programas; muchos describen aspectos de programación que evitan que los errores entren siquiera a los programas.</p>
+        </div>
+        <div>
+            <img src="Imagenes/CPE.png" alt="Icono de error común de programación">
+            <p>Los errores comunes de programación señalan los errores que cometen los estudiantes con frecuencia. Estos errores comunes reducen la probabilidad de que usted cometa los mismos errores.</p>
+        </div>
+        <div>
+            <img src="Imagenes/SEO.png" alt="Icono de observación de ingeniería de software">
+            <p>Las observaciones de ingeniería de software resaltan los asuntos de arquitectura y diseño que afectan en la construcción de sistemas de software, en especial los sistemas de gran escala.</p>
+        </div>
+    </div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+</body>
+</html>

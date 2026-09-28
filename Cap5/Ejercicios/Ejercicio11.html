@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 5.11 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 5.11 - Capítulo 5</title>
+        <style>
+            #portada {
+                position: relative;
+                width: 200px;
+                height: 250px;
+                margin: 0 auto;
+            }
+
+            #portada img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 200px;
+                height: 250px;
+                -webkit-transition: opacity 3s linear;
+                transition: opacity 3s linear;
+            }
+
+            #portada img:not(:first-child):hover {
+                opacity: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 5.11</strong></h1>
+        <p><strong>(Fusionar imágenes)</strong> Modifique el ejemplo de la figura 5.14 utilizando cinco imágenes. Podría ser interesante probar con imágenes de usted o de un miembro de su familia en distintas edades o en un paisaje en distintos momentos. Establezca el valor de transition-duration en 3s y de transition-timing-function en linear.</p>
+
+        <h2><strong>Demostración:</strong></h2>
+
+        <div id="portada">
+            <img src="Imagen/imagen1.png" alt="Etapa 1 - Imagen base">
+            <img src="Imagen/imagen2.png" alt="Etapa 2">
+            <img src="Imagen/imagen3.png" alt="Etapa 3">
+            <img src="Imagen/imagen4.png" alt="Etapa 4">
+            <img src="Imagen/imagen5.png" alt="Etapa 5 - Capa superior">
+        </div>
+    
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>
