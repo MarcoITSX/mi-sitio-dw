@@ -7,26 +7,27 @@
         <meta charset="utf-8">
         <title>Ejercicio 5.11 - Capítulo 5</title>
         <style>
-            #portada {
-                position: relative;
-                width: 200px;
-                height: 250px;
-                margin: 0 auto;
-            }
+          #portada {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            margin: 0 auto;
+        }
 
-            #portada img {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 200px;
-                height: 250px;
-                -webkit-transition: opacity 3s linear;
-                transition: opacity 3s linear;
-            }
+        #portada img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 250px;
+            -webkit-transition: opacity 3s linear;
+            transition: opacity 3s linear;
+        }
 
-            #portada img:not(:first-child):hover {
-                opacity: 0;
-            }
+        #portada:hover img:nth-child(5) { opacity: 0; }
+        #portada:hover img:nth-child(4) { opacity: 0; }
+        #portada:hover img:nth-child(3) { opacity: 0; }
+        #portada:hover img:nth-child(2) { opacity: 0; }
         </style>
     </head>
 

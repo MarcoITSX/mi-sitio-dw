@@ -22,28 +22,28 @@
                 animation: inclinacion30 4s infinite linear;
             }
 
+            @keyframes inclinacion30 {
+                0%   { transform: skew(0deg, 0deg); }
+                25%  { transform: skewY(30deg); }   /* Arriba / Abajo */
+                50%  { transform: skew(0deg, 0deg); }
+                75%  { transform: skewX(30deg); }   /* Izquierda / Derecha */
+                100% { transform: skew(0deg, 0deg); }
+            }
+
             @-webkit-keyframes inclinacion30 {
-                0%   { -webkit-transform: skewY(0deg) skewX(0deg); }
-                25%  { -webkit-transform: skewY(30deg) skewX(0deg); }
-                50%  { -webkit-transform: skewY(0deg) skewX(0deg); }
-                75%  { -webkit-transform: skewY(0deg) skewX(30deg); }
-                100% { -webkit-transform: skewY(0deg) skewX(0deg); }
+                0%   { -webkit-transform: skew(0deg, 0deg); }
+                25%  { -webkit-transform: skewY(30deg); }
+                50%  { -webkit-transform: skew(0deg, 0deg); }
+                75%  { -webkit-transform: skewX(30deg); }
+                100% { -webkit-transform: skew(0deg, 0deg); }
             }
 
             @-moz-keyframes inclinacion30 {
-                0%   { -moz-transform: skewY(0deg) skewX(0deg); }
-                25%  { -moz-transform: skewY(30deg) skewX(0deg); }
-                50%  { -moz-transform: skewY(0deg) skewX(0deg); }
-                75%  { -moz-transform: skewY(0deg) skewX(30deg); }
-                100% { -moz-transform: skewY(0deg) skewX(0deg); }
-            }
-
-            @keyframes inclinacion30 {
-                0%   { transform: skewY(0deg) skewX(0deg); }
-                25%  { transform: skewY(30deg) skewX(0deg); }
-                50%  { transform: skewY(0deg) skewX(0deg); }
-                75%  { transform: skewY(0deg) skewX(30deg); }
-                100% { transform: skewY(0deg) skewX(0deg); }
+                0%   { -moz-transform: skew(0deg, 0deg); }
+                25%  { -moz-transform: skewY(30deg); }
+                50%  { -moz-transform: skew(0deg, 0deg); }
+                75%  { -moz-transform: skewX(30deg); }
+                100% { -moz-transform: skew(0deg, 0deg); }
             }
         </style>
     </head>
