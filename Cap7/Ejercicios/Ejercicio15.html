@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.15 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 7.15 - Capítulo 7</title>
+        <script>
+            // Declaración e inicialización de las tres variables requeridas
+            var contador = 1; // Contador para controlar el ciclo de 10 números
+            var numero;       // El entero más reciente introducido por el usuario
+            var mayor = 0;    // El número más grande encontrado hasta ahora
+
+            var numeroCadena; // Cadena temporal para recibir la entrada del prompt
+
+            // Ciclo para procesar los 10 números
+            while ( contador <= 10 )
+            {
+                // Solicita el número al usuario
+                numeroCadena = window.prompt( "Vendedor " + contador + " de 10 - Escriba las unidades vendidas:", "0" );
+                numero = parseInt( numeroCadena );
+
+                // Muestra la entrada individual en la página
+                document.writeln( "<p>Vendedor " + contador + ": " + numero + " unidades.</p>" );
+
+                // Determina si el número actual es mayor que el máximo almacenado
+                if ( numero > mayor )
+                {
+                    mayor = numero;
+                }
+
+                // Incrementar contador para pasar al siguiente número
+                ++contador;
+            } // fin de while
+
+            // Muestra el resultado final
+            document.writeln( "<hr>" );
+            document.writeln( "<h2>El ganador es el vendedor con el mayor número de unidades: " + mayor + "</h2>" );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.15</strong></h1>
+        <p><strong>(Encontrar el número más grande)</strong> El proceso de encontrar el valor más grande (es decir, el máximo de un grupo de valores) se utiliza con frecuencia en aplicaciones de computadora. Por ejemplo, una secuencia de datos para determinar el ganador de un concurso de ventas recibe como entrada el número de unidades vendidas por cada vendedor. El que haya vendido más unidades es el que gana el concurso. Escriba un algoritmo en pseudocódigo y después una secuencia de comandos que reciba como entrada una serie de 10 números de un solo dígito como caracteres, determine el mayor de los números y produzca un mensaje que muestre el número más grande. Su secuencia de comandos debe utilizar las siguientes tres variables:</p>
+        <ul>
+            <li><strong>a) contador:</strong> un contador para contar hasta 10 (es decir, para llevar el registro de cuántos números se han introducido, y para determinar que se hayan procesado los 10 números).</li>
+            <li><strong>b) numero:</strong> el entero más reciente introducido por el usuario.</li>
+            <li><strong>c) mayor:</strong> el número más grande encontrado hasta ahora.</li>
+        </ul>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

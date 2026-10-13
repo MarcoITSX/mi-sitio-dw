@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.9 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 7.9 - Capítulo 7</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.9</strong></h1>
+        <p><strong>(Identificación de errores)</strong> Identifique y corrija los errores en cada uno de los siguientes segmentos de código.</p>
+
+        <p><strong>a.-</strong><br>
+        <strong>Error 1:</strong> El punto y coma (<code>;</code>) después de la condición del <code>if</code> crea una instrucción vacía y separa la cláusula <code>else</code>.<br>
+        <strong>Error 2:</strong> Cierre de comillas incorrecto en la cadena del <code>else</code>.<br>
+        <strong>Código corregido:</strong><br>
+        <code>if ( edad &gt;= 65 )<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.writeln( "Edad es mayor o igual que 65" );<br>
+        else<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.writeln( "Edad es menor que 65" );</code></p>
+
+        <p><strong>b.-</strong><br>
+        <strong>Error:</strong> La variable <code>total</code> no está inicializada a 0, lo que provoca resultados igual a <code>NaN</code>.<br>
+        <strong>Código corregido:</strong><br>
+        <code>var x = 1, total = 0;<br>
+        while ( x &lt;= 10 ) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;total += x;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;++x;<br>
+        }</code></p>
+
+        <p><strong>c.-</strong><br>
+        <strong>Error:</strong> Faltan las llaves de bloque en el <code>while</code>, dejando fuera la instrucción <code>++x;</code> y produciendo un ciclo infinito.<br>
+        <strong>Código corregido:</strong><br>
+        <code>var x = 1;<br>
+        var total = 0;<br>
+        while ( x &lt;= 100 ) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;total += x;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;++x;<br>
+        }</code></p>
+
+        <p><strong>d.-</strong><br>
+        <strong>Error:</strong> El incremento <code>++y</code> en lugar de decremento genera un ciclo infinito.<br>
+        <strong>Código corregido:</strong><br>
+        <code>var y = 5;<br>
+        while ( y &gt; 0 ) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.writeln( y );<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;--y;<br>
+        }</code></p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

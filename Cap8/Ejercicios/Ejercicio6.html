@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 8.6 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 8.6 - Capítulo 8</title>
+        <script>
+            var entrada;
+            var numValores;
+            var numero;
+            var menor;
+
+            // Solicita la cantidad de números que el usuario introducirá
+            entrada = window.prompt( "Escriba la cantidad de enteros a procesar:", "5" );
+            numValores = parseInt( entrada );
+
+            // Verifica que se haya ingresado un número de valores válido y mayor que cero
+            if ( !isNaN( numValores ) && numValores > 0 )
+            {
+                // Solicita el primer número para inicializar la variable 'menor'
+                entrada = window.prompt( "Número 1 de " + numValores + " - Escriba un entero no negativo:", "0" );
+                menor = parseInt( entrada );
+
+                document.writeln( "<p>Número 1 introducido: " + menor + "</p>" );
+
+                // Ciclo 'for' para leer los restantes (numValores - 1) números
+                for ( var i = 2; i <= numValores; ++i )
+                {
+                    entrada = window.prompt( "Número " + i + " de " + numValores + " - Escriba un entero no negativo:", "0" );
+                    numero = parseInt( entrada );
+
+                    document.writeln( "<p>Número " + i + " introducido: " + numero + "</p>" );
+
+                    // Determina si el número actual es menor que el menor registrado
+                    if ( numero < menor )
+                    {
+                        menor = numero;
+                    }
+                } // fin de for
+
+                // Muestra el resultado final
+                document.writeln( "<hr>" );
+                document.writeln( "<h2>El menor de los " + numValores + " números introducidos es: " + menor + "</h2>" );
+            }
+            else
+            {
+                document.writeln( "<h2>No se introdujo una cantidad válida de valores.</h2>" );
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 8.6</strong></h1>
+        <p><strong>(Encontrar el menor de varios enteros)</strong> Escriba una secuencia de comandos que encuentre el menor de varios enteros no negativos. Suponga que el primer valor leído especifica el número de valores que el usuario introducirá.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 8.5 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 8.5 - Capítulo 8</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            td {
+                border: 1px solid black;
+                padding: 5px 10px;
+                text-align: center;
+            }
+        </style>
+        <script>
+            // Inicio de la estructura de tabla HTML5
+            document.writeln( "<table>" );
+
+            // Ciclo externo para controlar las 10 filas (i del 1 al 10)
+            for ( var i = 1; i <= 10; i++ )
+            {
+                document.writeln( "<tr>" );
+
+                // Ciclo interno para generar 5 celdas/columnas por cada fila (j del 1 al 5)
+                for ( var j = 1; j <= 5; j++ )
+                {
+                    document.writeln( "<td>(" + i + ", " + j + ")</td>" );
+                }
+
+                document.writeln( "</tr>" );
+            } // fin de for
+
+            document.writeln( "</table>" );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 8.5</strong></h1>
+        <p><strong>¿Qué es lo que hace el siguiente programa?</strong></p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

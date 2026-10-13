@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.12 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 7.12 - Capítulo 7</title>
+        <script>
+            // Declaración de variables para cadenas y valores numéricos
+            var numeroCuentaCadena;
+            var saldoInicialCadena, cargosCadena, creditosCadena, limiteCreditoCadena;
+            var numeroCuenta, saldoInicial, cargos, creditos, limiteCredito, nuevoSaldo;
+
+            // Lee el número de cuenta del primer cliente (o -1 para salir)
+            numeroCuentaCadena = window.prompt( "Escriba el número de cuenta (o -1 para salir):", "0" );
+            numeroCuenta = parseInt( numeroCuentaCadena );
+
+            // Ciclo controlado por centinela (-1)
+            while ( numeroCuenta != -1 )
+            {
+                // Lectura de los datos de la cuenta
+                saldoInicialCadena = window.prompt( "Escriba el saldo al inicio del mes:", "0" );
+                cargosCadena = window.prompt( "Escriba el total de artículos cargados en el mes:", "0" );
+                creditosCadena = window.prompt( "Escriba el total de créditos aplicados en el mes:", "0" );
+                limiteCreditoCadena = window.prompt( "Escriba el límite de crédito permitido:", "0" );
+
+                // Conversión de cadenas a enteros
+                saldoInicial = parseInt( saldoInicialCadena );
+                cargos = parseInt( cargosCadena );
+                creditos = parseInt( creditosCadena );
+                limiteCredito = parseInt( limiteCreditoCadena );
+
+                // Cálculo del nuevo saldo
+                nuevoSaldo = saldoInicial + cargos - creditos;
+
+                // Despliegue de los resultados del cliente
+                document.writeln( "<h3>Número de cuenta: " + numeroCuenta + "</h3>" );
+                document.writeln( "<p><strong>Nuevo saldo:</strong> $" + nuevoSaldo + "</p>" );
+                document.writeln( "<p><strong>Límite de crédito:</strong> $" + limiteCredito + "</p>" );
+
+                // Verificación del límite de crédito
+                if ( nuevoSaldo > limiteCredito )
+                {
+                    document.writeln( "<p style='color: red;'><strong>Se excedió el límite de su crédito</strong></p>" );
+                }
+
+                document.writeln( "<hr>" );
+
+                // Solicita la cuenta del siguiente cliente
+                numeroCuentaCadena = window.prompt( "Escriba el número de cuenta (o -1 para salir):", "0" );
+                numeroCuenta = parseInt( numeroCuentaCadena );
+            } // fin de while
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.12</strong></h1>
+        <p><strong>(Calculador del límite de crédito)</strong> Desarrolle una secuencia de comandos que determine si alguno de los clientes de una tienda de departamentos se ha excedido del límite de crédito en una cuenta. Para cada cliente se tienen los siguientes datos:</p>
+        <ul>
+            <li>a) El número de cuenta.</li>
+            <li>b) El saldo al inicio del mes.</li>
+            <li>c) El total de todos los artículos cargados por el cliente en el mes.</li>
+            <li>d) El total de todos los créditos aplicados a la cuenta del cliente en el mes.</li>
+            <li>e) El límite de crédito permitido.</li>
+        </ul>
+        <p>La secuencia de comandos debe recibir como entrada cada uno de estos datos desde un diálogo <code>prompt</code> como entero, debe calcular el nuevo saldo (<em>= saldo inicial + cargos &minus; créditos</em>), mostrar el nuevo balance y determinar si éste excede el límite de crédito del cliente. Para los clientes cuyo límite de crédito sea excedido, la secuencia de comandos debe producir texto de HTML5 que muestre el mensaje &ldquo;Se excedió el límite de su crédito&rdquo;.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

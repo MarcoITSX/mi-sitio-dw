@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 6.20 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 6.20 - Capítulo 6</title>
+        <script>
+            // Solicita cinco enteros al usuario mediante diálogos prompt
+            var primerNumero = window.prompt( "Escriba el primer entero:", "0" );
+            var segundoNumero = window.prompt( "Escriba el segundo entero:", "0" );
+            var tercerNumero = window.prompt( "Escriba el tercer entero:", "0" );
+            var cuartoNumero = window.prompt( "Escriba el cuarto entero:", "0" );
+            var quintoNumero = window.prompt( "Escriba el quinto entero:", "0" );
+
+            // Convierte los valores introducidos de cadena a números enteros
+            var n1 = parseInt( primerNumero );
+            var n2 = parseInt( segundoNumero );
+            var n3 = parseInt( tercerNumero );
+            var n4 = parseInt( cuartoNumero );
+            var n5 = parseInt( quintoNumero );
+
+            // Determina el número menor del grupo
+            var menor = n1;
+            if ( n2 < menor )
+                menor = n2;
+            if ( n3 < menor )
+                menor = n3;
+            if ( n4 < menor )
+                menor = n4;
+            if ( n5 < menor )
+                menor = n5;
+
+            // Determina el número mayor del grupo
+            var mayor = n1;
+            if ( n2 > mayor )
+                mayor = n2;
+            if ( n3 > mayor )
+                mayor = n3;
+            if ( n4 > mayor )
+                mayor = n4;
+            if ( n5 > mayor )
+                mayor = n5;
+
+            // Muestra los resultados produciendo marcado de HTML5
+            document.writeln( "<h2>Resultados del grupo de números (" + n1 + ", " + n2 + ", " + n3 + ", " + n4 + ", " + n5 + "):</h2>" );
+            document.writeln( "<p><strong>El entero menor es:</strong> " + menor + "</p>" );
+            document.writeln( "<p><strong>El entero mayor es:</strong> " + mayor + "</p>" );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 6.20</strong></h1>
+        <p><strong>(Enteros menor y mayor)</strong> Escriba una secuencia de comandos que lea cinco enteros, determine y produzca marcado que muestre los enteros menor y mayor en el grupo. Use sólo las técnicas de secuencias de comandos que aprendió en este capítulo.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

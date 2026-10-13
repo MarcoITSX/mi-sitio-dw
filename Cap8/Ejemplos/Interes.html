@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!-- Fig. 8.6: Interes.html -->
+<!-- Cálculo del interés compuesto con un ciclo for. -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>C&aacute;lculo del inter&eacute;s compuesto</title>
+    <style type="text/css">
+        table           { width: 300px;
+                          border-collapse: collapse;
+                          background-color: lightblue; }
+        table, td, th   { border: 1px solid black;
+                          padding: 4px; }
+        th              { text-align: left;
+                          color: white;
+                          background-color: darkblue; }
+        tr.filaimpar    { background-color: white; }
+    </style>
+    <script>
+        var monto; // monto actual de dinero
+        var principal = 1000.00; // monto principal
+        var tasa = 0.05; // tasa de interés
+
+        document.writeln( "<table>" ); // comenzar la tabla
+        document.writeln(
+            "<caption>C&aacute;lculo del inter&eacute;s compuesto</caption>" );
+        document.writeln(
+            "<thead><tr><th>A&ntilde;o</th>" ); // encabezado de la columna del año
+        document.writeln(
+            "<th>Monto en dep&oacute;sito</th>" ); // encabezado de la columna del monto
+        document.writeln( "</tr></thead><tbody>" );
+
+        // imprimir una fila de la tabla para cada año
+        for ( var anio = 1; anio <= 10; ++anio )
+        {
+            monto = principal * Math.pow( 1.0 + tasa, anio );
+
+            if ( anio % 2 !== 0 )
+                document.writeln( "<tr class='filaimpar'><td>" + anio +
+                    "</td><td>" + monto.toFixed(2) + "</td></tr>" );
+            else
+                document.writeln( "<tr><td>" + anio +
+                    "</td><td>" + monto.toFixed(2) + "</td></tr>" );
+        } // fin de for
+
+        document.writeln( "</tbody></table>" );
+    </script>
+</head>
+<body>
+
+    <!-- Enlaces de navegación -->
+    <p>
+        <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+        <a href="../../Index.html">Portal Principal</a>
+    </p>
+    <hr>
+
+
+    <hr>
+    <p>
+        <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+        <a href="../../Index.html">Portal Principal</a>
+    </p>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!--Fig 7.11: analisis.html-->
+<!-- Calculo de los resultados de un examen -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>An&aacute;lisis de los resultados de un examen</title>
+    <script>
+
+        // inicializar varables en declaraciones
+        var aprobados = 0; // número de aprobados
+        var reprobados = 0; // número de reprobados
+        var estudiante = 1; // contador de estudiantes
+        var resultado; // el resultado de un examen 
+
+        // procesar 10 estudiantes; ciclo controlado por contador
+        while (estudiante <= 10)
+        {
+            resultado = window.prompt("Escriba el resultado (1=aprobado, 2=reprobado): ", "0");
+
+            if (resultado == "1") 
+                aprobados = aprobados + 1; 
+            else 
+                reprobados = reprobados + 1; 
+
+            estudiante = estudiante + 1; 
+        } // fin del while
+
+        // fase de terminación
+        document.writeln("<h1>Resultados del examen</h1>");
+        document.writeln("<p>Aprobados: " + aprobados + "; Reprobados: " + reprobados + "</p>");
+
+        if (aprobados > 8) 
+            document.writeln("<p>Bono para el instructor</p>");
+    </script>
+</head>
+<body>
+
+    <!-- Enlaces de navegación -->
+    <p>
+        <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+        <a href="../../Index.html">Portal Principal</a>
+    </p>
+    <hr>
+
+
+    <hr>
+    <p>
+        <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+        <a href="../../Index.html">Portal Principal</a>
+    </p>
+
+</body>
+</html>

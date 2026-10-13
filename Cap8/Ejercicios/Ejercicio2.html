@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 2 autoevaluacion 8.2 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Autoevaluaci&oacute;n Capítulo 8 - Parte 2</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Autoevaluación Capítulo 8</strong></h1>
+        <h2><strong>8.2</strong></h2>
+
+        <p><strong>a.-</strong> Sumar los enteros impares entre 1 y 99. Utilice una instrucción <code>for</code>. Suponga que se han declarado las variables <code>suma</code> y <code>cuenta</code> [1, 2].</p>
+        <p><strong>Solución:</strong></p>
+        <pre><code>suma = 0;
+for ( cuenta = 1; cuenta &lt;= 99; cuenta += 2 )
+   suma += cuenta;</code></pre>
+
+        <p><strong>b.-</strong> Calcular el valor de 2.5 elevado a la potencia de 3. Use el método <code>pow</code> [1, 2].</p>
+        <p><strong>Solución:</strong></p>
+        <pre><code>Math.pow( 2.5, 3 );</code></pre>
+
+        <p><strong>c.-</strong> Imprimir los enteros del 1 al 20 mediante el uso de un ciclo <code>while</code> y la variable contador <code>x</code>. Suponga que la variable <code>x</code> se ha declarado, pero no se ha inicializado. Imprima solamente cinco enteros por línea [1, 2].</p>
+        <p><strong>Solución:</strong></p>
+        <pre><code>x = 1;
+document.writeln( "&lt;p&gt;" );
+while ( x &lt;= 20 ) 
+{
+   document.write( x + " " );
+   if ( x % 5 == 0 )
+      document.write( "&lt;/p&gt;&lt;p&gt;" );
+   ++x;
+}</code></pre>
+
+        <p><strong>d.-</strong> Repita el ejercicio 8.2 (c), pero ahora use una instrucción <code>for</code> [2, 3].</p>
+        <p><strong>Solución:</strong></p>
+        <pre><code>document.writeln( "&lt;p&gt;" );
+for ( x = 1; x &lt;= 20; x++ ) 
+{
+   document.write( x + " " );
+   if ( x % 5 == 0 )
+      document.write( "&lt;/p&gt;&lt;p&gt;" );
+}
+document.writeln( "&lt;/p&gt;" );</code></pre>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

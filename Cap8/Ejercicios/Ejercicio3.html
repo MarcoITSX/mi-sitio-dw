@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 3 autoevaluacion 8.3 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Autoevaluaci&oacute;n Capítulo 8 - Parte 3</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Autoevaluación Capítulo 8</strong></h1>
+        <h2><strong>8.3</strong></h2>
+
+        <p><strong>a.-</strong> Encuentre el error en el siguiente segmento de código, y explique cómo corregirlo:</p>
+        <pre><code>x = 1;
+while ( x &lt;= 10 ) ;
+   ++x;
+}</code></pre>
+        <p><strong>Error:</strong> El punto y coma después del encabezado <code>while</code> provoca un ciclo infinito; además falta la llave izquierda de apertura (<code>{</code>) para el bloque del ciclo [1].</p>
+        <p><strong>Corrección:</strong> Reemplazar el punto y coma por una llave izquierda (<code>{</code>), o eliminar tanto el punto y coma (<code>;</code>) como la llave derecha (<code>}</code>) [1].</p>
+
+        <p><strong>b.-</strong> Encuentre el error en el siguiente segmento de código, y explique cómo corregirlo:</p>
+        <pre><code>switch ( n )
+{
+   case 1:
+      document.writeln( "El n&amp;uacute;mero es 1" );
+   case 2:
+      document.writeln( "El n&amp;uacute;mero es 2" );
+      break;
+   default:
+      document.writeln( "El n&amp;uacute;mero no es 1 ni 2" );
+      break;
+}</code></pre>
+        <p><strong>Error:</strong> Falta una instrucción <code>break</code> en las instrucciones del primer <code>case</code> [1].</p>
+        <p><strong>Corrección:</strong> Agregar una instrucción <code>break;</code> al final de las instrucciones para el primer <code>case</code> [1]. <em>(Cabe mencionar que esta omisión no es necesariamente un error si se desea explícitamente que la instrucción del <code>case 2:</code> se ejecute siempre después de la del <code>case 1:</code>)</em> [1].</p>
+
+        <p><strong>c.-</strong> El siguiente código debe imprimir los valores 1 a 10. Encuentre el error y explique cómo corregirlo:</p>
+        <pre><code>n = 1;
+while ( n &lt; 10 )
+   document.writeln( n++ );</code></pre>
+        <p><strong>Error:</strong> Se está utilizando un operador relacional inadecuado (<code>&lt;</code>) en la condición de continuación del ciclo <code>while</code>, lo que provoca que se impriman solo los números del 1 al 9 [2].</p>
+        <p><strong>Corrección:</strong> Usar <code>&lt;=</code> en vez de <code>&lt;</code> (es decir, <code>n &lt;= 10</code>), o cambiar la condición a <code>n &lt; 11</code> [2].</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

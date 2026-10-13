@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 6.23 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 6.23 - Capítulo 6</title>
+        <script>
+            // Solicita tres números al usuario mediante diálogos prompt
+            var primerNumero = window.prompt( "Escriba el primer número:", "0" );
+            var segundoNumero = window.prompt( "Escriba el segundo número:", "0" );
+            var tercerNumero = window.prompt( "Escriba el tercer número:", "0" );
+
+            // Convierte los valores de cadena a números de punto flotante
+            var n1 = parseFloat( primerNumero );
+            var n2 = parseFloat( segundoNumero );
+            var n3 = parseFloat( tercerNumero );
+
+            // Inicializa los contadores para cada categoría
+            var positivos = 0;
+            var negativos = 0;
+            var ceros = 0;
+
+            // Evalúa el primer número
+            if ( n1 > 0 )
+                positivos = positivos + 1;
+            if ( n1 < 0 )
+                negativos = negativos + 1;
+            if ( n1 == 0 )
+                ceros = ceros + 1;
+
+            // Evalúa el segundo número
+            if ( n2 > 0 )
+                positivos = positivos + 1;
+            if ( n2 < 0 )
+                negativos = negativos + 1;
+            if ( n2 == 0 )
+                ceros = ceros + 1;
+
+            // Evalúa el tercer número
+            if ( n3 > 0 )
+                positivos = positivos + 1;
+            if ( n3 < 0 )
+                negativos = negativos + 1;
+            if ( n3 == 0 )
+                ceros = ceros + 1;
+
+            // Muestra los resultados produciendo marcado de HTML5
+            document.writeln( "<h2>Resultados para los números (" + n1 + ", " + n2 + ", " + n3 + "):</h2>" );
+            document.writeln( "<p><strong>Cantidad de números positivos:</strong> " + positivos + "</p>" );
+            document.writeln( "<p><strong>Cantidad de números negativos:</strong> " + negativos + "</p>" );
+            document.writeln( "<p><strong>Cantidad de ceros:</strong> " + ceros + "</p>" );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 6.23</strong></h1>
+        <p><strong>(Contar números positivos, negativos y ceros)</strong> Escriba una secuencia de comandos que reciba tres números, determine y produzca marcado que muestre la cantidad de números negativos, positivos y ceros introducidos.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

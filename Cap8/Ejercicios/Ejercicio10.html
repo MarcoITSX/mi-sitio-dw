@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 8.10 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 8.10 - Cap&iacute;tulo 8</title>
+        <style type="text/css">
+            p.estrofa {
+                background-color: #f9f9f9;
+                border-left: 4px solid #0056b3;
+                padding: 10px 15px;
+                margin-bottom: 15px;
+                line-height: 1.5;
+            }
+        </style>
+        <script>
+            // Ciclo for para recorrer los 12 días de Navidad
+            for ( var dia = 1; dia <= 12; ++dia )
+            {
+                document.write( "<p class='estrofa'>En el " );
+
+                // Primer switch: determina el número ordinal para el día actual
+                switch ( dia )
+                {
+                    case 1:  document.write( "primer" ); break;
+                    case 2:  document.write( "segundo" ); break;
+                    case 3:  document.write( "tercer" ); break;
+                    case 4:  document.write( "cuarto" ); break;
+                    case 5:  document.write( "quinto" ); break;
+                    case 6:  document.write( "sexto" ); break;
+                    case 7:  document.write( "s&eacute;ptimo" ); break;
+                    case 8:  document.write( "octavo" ); break;
+                    case 9:  document.write( "noveno" ); break;
+                    case 10: document.write( "d&eacute;cimo" ); break;
+                    case 11: document.write( "und&eacute;cimo" ); break;
+                    case 12: document.write( "duod&eacute;cimo" ); break;
+                } // fin de switch para el día
+
+                document.writeln( " d&iacute;a de Navidad, mi amor verdadero me envi&oacute;:<br>" );
+
+                // Segundo switch: aprovecha la caída a través (fall-through) sin 'break'
+                // para acumular progresivamente todos los regalos recibidos hasta el día actual
+                switch ( dia )
+                {
+                    case 12: document.writeln( "Doce tamborileros tamborileando,<br>" );
+                    case 11: document.writeln( "Once gaiteros tocando la gaita,<br>" );
+                    case 10: document.writeln( "Diez se&ntilde;ores saltando,<br>" );
+                    case 9:  document.writeln( "Nueve damas bailando,<br>" );
+                    case 8:  document.writeln( "Ocho sirvientas orde&ntilde;ando,<br>" );
+                    case 7:  document.writeln( "Siete cisnes nadando,<br>" );
+                    case 6:  document.writeln( "Seis gansos empollando,<br>" );
+                    case 5:  document.writeln( "Cinco anillos de oro,<br>" );
+                    case 4:  document.writeln( "Cuatro p&aacute;jaros cantando,<br>" );
+                    case 3:  document.writeln( "Tres gallinas francesas,<br>" );
+                    case 2:  document.writeln( "Dos t&oacute;rtolas,<br>" );
+                    case 1:
+                        if ( dia === 1 )
+                            document.writeln( "Una perdiz en un peral." );
+                        else
+                            document.writeln( "Y una perdiz en un peral." );
+                        break; // Salida final tras completar la lista de regalos
+                } // fin de switch para los regalos
+
+                document.writeln( "</p>" );
+            } // fin de for
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 8.10</strong></h1>
+        <p><strong>(Canción &ldquo;Los Doce D&iacute;as de Navidad&rdquo;)</strong> Escriba una secuencia de comandos que utilice estructuras de repetici&oacute;n y un <code>switch</code> para imprimir la canci&oacute;n &ldquo;Los Doce D&iacute;as de Navidad&rdquo;.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

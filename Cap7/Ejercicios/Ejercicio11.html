@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.11 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 7.11 - Capítulo 7</title>
+        <script>
+            // Variables para acumular los totales
+            var totalKilometros = 0.0;
+            var totalLitros = 0.0;
+
+            var kilometrosCadena; // entrada de kilómetros como cadena
+            var litrosCadena;     // entrada de litros como cadena
+            var kilometros;       // valor numérico de kilómetros
+            var litros;           // valor numérico de litros
+            var kplViaje;         // kilómetros por litro del viaje actual
+            var kplTotal;         // kilómetros por litro acumulados
+
+            // Pedir la primera entrada de kilómetros (o -1 para terminar)
+            kilometrosCadena = window.prompt( "Escriba los kilómetros conducidos (o -1 para salir):", "0" );
+            kilometros = parseFloat( kilometrosCadena );
+
+            // Ciclo controlado por centinela (-1)
+            while ( kilometros != -1 )
+            {
+                litrosCadena = window.prompt( "Escriba los litros usados en este viaje:", "0" );
+                litros = parseFloat( litrosCadena );
+
+                if ( litros > 0 )
+                {
+                    // Calcula rendimiento del viaje individual
+                    kplViaje = kilometros / litros;
+                    totalKilometros += kilometros;
+                    totalLitros += litros;
+
+                    // Muestra los resultados en el documento HTML5
+                    document.writeln( "<p><strong>Kilómetros:</strong> " + kilometros + 
+                        " | <strong>Litros:</strong> " + litros + 
+                        " | <strong>Rendimiento del viaje:</strong> " + kplViaje.toFixed(2) + " km/l</p>" );
+
+                    // Calcula y muestra el total acumulado
+                    if ( totalLitros > 0 )
+                    {
+                        kplTotal = totalKilometros / totalLitros;
+                        document.writeln( "<p><em>--> Total acumulado hasta este punto: " + 
+                            kplTotal.toFixed(2) + " km/l</em></p><hr>" );
+                    }
+                }
+                else
+                {
+                    document.writeln( "<p>Los litros introducidos deben ser mayores a cero.</p>" );
+                }
+
+                // Solicita la entrada para el siguiente viaje
+                kilometrosCadena = window.prompt( "Escriba los kilómetros conducidos (o -1 para salir):", "0" );
+                kilometros = parseFloat( kilometrosCadena );
+            } // fin de while
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.11</strong></h1>
+        <p><strong>(Kilometraje de automóviles)</strong> Los conductores se preocupan acerca del kilometraje de sus automóviles. Un conductor ha llevado el control de varios reabastecimientos de gasolina, registrando los kilómetros conducidos y los litros usados en cada viaje. Desarrolle una secuencia de comandos que reciba como entrada los kilómetros conducidos y los litros usados por cada viaje. La secuencia de comandos debe calcular y producir texto de HTML5 que muestre el número de kilómetros por litro obtenidos en cada viaje, y debe imprimir el total de kilómetros por litro obtenidos en todos los reabastecimientos hasta este punto. Use diálogos <code>prompt</code> para obtener los datos del usuario.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

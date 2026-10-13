@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 8.9 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 8.9 - Capítulo 8</title>
+        <style type="text/css">
+            p.histograma {
+                font-family: monospace;
+                font-size: 1.2em;
+                margin: 4px 0;
+            }
+        </style>
+        <script>
+            var entrada;
+            var numero;
+
+            document.writeln( "<h2>Gr&aacute;fico de barras (Histograma)</h2>" );
+
+            // Ciclo para leer 5 números entre 1 y 30
+            for ( var i = 1; i <= 5; ++i )
+            {
+                entrada = window.prompt( 
+                    "Escriba un número entero entre 1 y 30 (Número " + i + " de 5):", "5" );
+                numero = parseInt( entrada );
+
+                // Validación de entrada: asegura que esté dentro del rango 1 a 30
+                while ( isNaN( numero ) || numero < 1 || numero > 30 )
+                {
+                    window.alert( "Entrada inválida. Debe ingresar un entero entre 1 y 30." );
+                    entrada = window.prompt( 
+                        "Escriba un número entero entre 1 y 30 (Número " + i + " de 5):", "5" );
+                    numero = parseInt( entrada );
+                }
+
+                document.write( "<p class='histograma'>" + numero + ": " );
+
+                // Ciclo anidado para imprimir el número de asteriscos correspondiente
+                for ( var j = 1; j <= numero; ++j )
+                {
+                    document.write( "*" );
+                }
+
+                document.writeln( "</p>" );
+            } // fin de for
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 8.9</strong></h1>
+        <p><strong>(Gráficos de barras)</strong> Una aplicación interesante de las computadoras es dibujar gráficos convencionales y de barra (también llamados histogramas). Escriba una secuencia de comandos que lea cinco números entre 1 y 30. Por cada número imprima texto en HTML5 que muestre una línea que contenga el mismo número de asteriscos adyacentes [1].</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

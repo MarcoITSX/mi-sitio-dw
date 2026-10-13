@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.22 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 7.22 - Capítulo 7</title>
+        <script>
+            var entrada;
+            var numero;
+            var d1, d2, d3, d4;
+            var temp;
+
+            // Solicita un número entero de 4 dígitos
+            entrada = window.prompt( "Escriba un número entero de cuatro dígitos a cifrar:", "1234" );
+            numero = parseInt( entrada );
+
+            // Aislamiento de cada dígito
+            d1 = Math.floor( numero / 1000 );
+            d2 = Math.floor( ( numero % 1000 ) / 100 );
+            d3 = Math.floor( ( numero % 100 ) / 10 );
+            d4 = numero % 10;
+
+            // Paso 1: Reemplazar cada dígito con (dígito + 7) % 10
+            d1 = ( d1 + 7 ) % 10;
+            d2 = ( d2 + 7 ) % 10;
+            d3 = ( d3 + 7 ) % 10;
+            d4 = ( d4 + 7 ) % 10;
+
+            // Paso 2: Intercambiar el 1° con el 3° y el 2° con el 4°
+            temp = d1;
+            d1 = d3;
+            d3 = temp;
+
+            temp = d2;
+            d2 = d4;
+            d4 = temp;
+
+            // Despliegue del número cifrado
+            document.writeln( "<h2>Número original: " + entrada + "</h2>" );
+            document.writeln( "<h2>Número cifrado: " + d1 + d2 + d3 + d4 + "</h2>" );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.22</strong></h1>
+        <p><strong>(Cifrado de datos)</strong> Una compañía desea transmitir datos por teléfono, pero le preocupa que sus teléfonos puedan estar intervenidos. Todos sus datos se transmiten como enteros de cuatro dígitos. La compañía le ha pedido a usted que escriba una secuencia de comandos que cifre sus datos, de modo que puedan transmitirse en forma más segura. Su secuencia de comandos debe leer un entero de cuatro dígitos introducido por el usuario en un diálogo <code>prompt</code> y cifrarlo de la siguiente manera: reemplace cada dígito con (<em>la suma de ese dígito más 7</em>) módulo 10. Después intercambie el primer dígito con el tercero, e intercambie el segundo dígito con el cuarto. Luego produzca texto de HTML5 que muestre el entero cifrado.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

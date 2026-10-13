@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.13 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 7.13 - Capítulo 7</title>
+        <script>
+            // Precios constantes de los cuatro artículos y sueldo base
+            var PRECIO1 = 239.99;
+            var PRECIO2 = 129.75;
+            var PRECIO3 = 99.95;
+            var PRECIO4 = 350.89;
+            var SUELDO_BASE = 200.00;
+
+            // Solicita la cantidad vendida de cada artículo
+            var cant1Cadena = window.prompt( "Escriba la cantidad vendida del Artículo 1 ($239.99):", "0" );
+            var cant2Cadena = window.prompt( "Escriba la cantidad vendida del Artículo 2 ($129.75):", "0" );
+            var cant3Cadena = window.prompt( "Escriba la cantidad vendida del Artículo 3 ($99.95):", "0" );
+            var cant4Cadena = window.prompt( "Escriba la cantidad vendida del Artículo 4 ($350.89):", "0" );
+
+            // Convierte los datos ingresados de cadena a entero
+            var cant1 = parseInt( cant1Cadena );
+            var cant2 = parseInt( cant2Cadena );
+            var cant3 = parseInt( cant3Cadena );
+            var cant4 = parseInt( cant4Cadena );
+
+            // Calcula el total de ventas brutas
+            var ventasBrutas = ( cant1 * PRECIO1 ) + ( cant2 * PRECIO2 ) + 
+                               ( cant3 * PRECIO3 ) + ( cant4 * PRECIO4 );
+
+            // Calcula la comisión del 9% y los ingresos totales
+            var comision = 0.09 * ventasBrutas;
+            var ingresosTotales = SUELDO_BASE + comision;
+
+            // Muestra los resultados en el documento de HTML5
+            document.writeln( "<h2>Resumen de Ganancias del Vendedor</h2>" );
+            document.writeln( "<p><strong>Artículos vendidos:</strong></p>" );
+            document.writeln( "<ul>" );
+            document.writeln( "<li>Artículo 1 ($239.99): " + cant1 + " unidad(es)</li>" );
+            document.writeln( "<li>Artículo 2 ($129.75): " + cant2 + " unidad(es)</li>" );
+            document.writeln( "<li>Artículo 3 ($99.95): " + cant3 + " unidad(es)</li>" );
+            document.writeln( "<li>Artículo 4 ($350.89): " + cant4 + " unidad(es)</li>" );
+            document.writeln( "</ul>" );
+            document.writeln( "<p><strong>Total de ventas brutas:</strong> $" + ventasBrutas.toFixed( 2 ) + "</p>" );
+            document.writeln( "<p><strong>Comisión (9%):</strong> $" + comision.toFixed( 2 ) + "</p>" );
+            document.writeln( "<p><strong>Sueldo base semanal:</strong> $" + SUELDO_BASE.toFixed( 2 ) + "</p>" );
+            document.writeln( "<h3><strong>Ingresos totales de la semana:</strong> $" + ingresosTotales.toFixed( 2 ) + "</h3>" );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.13</strong></h1>
+        <p><strong>(Calculadora de comisiones de ventas)</strong> Una empresa grande paga a sus vendedores mediante comisiones. Los vendedores reciben $200 por semana, más el 9 por ciento de sus ventas brutas durante esa semana. Desarrolle una secuencia de comandos que reciba como entrada los artículos vendidos por un vendedor durante la última semana, que calcule los ingresos de ese vendedor y produzca texto de HTML5 para mostrar los ingresos de ese vendedor.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

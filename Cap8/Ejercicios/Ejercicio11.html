@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 8.11: ej08_11.html -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 8.11 - Cap&iacute;tulo 8</title>
+        <style type="text/css">
+            table           { width: 480px;
+                              border-collapse: collapse;
+                              background-color: lightblue;
+                              margin-top: 15px; }
+            table, td, th   { border: 1px solid black;
+                              padding: 6px; }
+            th              { text-align: left;
+                              color: white;
+                              background-color: darkblue; }
+            tr.total        { background-color: #d0e0f0;
+                              font-weight: bold; }
+        </style>
+        <script>
+            var producto;          // Número de producto (1 a 5)
+            var cantidad;          // Cantidad vendida
+            var totalVentas = 0.0; // Acumulador total de ventas
+
+            // Acumuladores de cantidad y subtotal para cada producto
+            var cant1 = 0, cant2 = 0, cant3 = 0, cant4 = 0, cant5 = 0;
+            var sub1 = 0.0, sub2 = 0.0, sub3 = 0.0, sub4 = 0.0, sub5 = 0.0;
+
+            var entrada;
+
+            // Lectura inicial del producto (centinela: -1)
+            entrada = window.prompt( 
+                "Escriba el número de producto (1 a 5) o -1 para terminar e imprimir el total:", "1" );
+            producto = parseInt( entrada );
+
+            // Ciclo controlado por centinela
+            while ( producto !== -1 )
+            {
+                if ( producto >= 1 && producto <= 5 )
+                {
+                    entrada = window.prompt( 
+                        "Escriba la cantidad vendida del producto " + producto + ":", "1" );
+                    cantidad = parseInt( entrada );
+
+                    if ( !isNaN( cantidad ) && cantidad > 0 )
+                    {
+                        // Instrucción switch para determinar el precio unitario de cada producto
+                        switch ( producto )
+                        {
+                            case 1:
+                                cant1 += cantidad;
+                                sub1 += cantidad * 2.98;
+                                break;
+                            case 2:
+                                cant2 += cantidad;
+                                sub2 += cantidad * 4.50;
+                                break;
+                            case 3:
+                                cant3 += cantidad;
+                                sub3 += cantidad * 9.98;
+                                break;
+                            case 4:
+                                cant4 += cantidad;
+                                sub4 += cantidad * 4.49;
+                                break;
+                            case 5:
+                                cant5 += cantidad;
+                                sub5 += cantidad * 6.87;
+                                break;
+                        } // fin de switch
+                    }
+                    else
+                    {
+                        window.alert( "Cantidad inválida. Por favor introduzca un número entero mayor que cero." );
+                    }
+                }
+                else
+                {
+                    window.alert( "Número de producto inválido. Debe estar entre 1 y 5 (o -1 para salir)." );
+                }
+
+                // Solicita el siguiente par de datos
+                entrada = window.prompt( 
+                    "Escriba el número de producto (1 a 5) o -1 para terminar e imprimir el total:", "1" );
+                producto = parseInt( entrada );
+            } // fin de while
+
+            // Suma total de todas las ventas
+            totalVentas = sub1 + sub2 + sub3 + sub4 + sub5;
+
+            // Generación de la tabla resumen de ventas en HTML5
+            document.writeln( "<h2>Resumen de ventas de la semana pasada</h2>" );
+            document.writeln( "<table>" );
+            document.writeln( "<thead><tr><th>Producto</th><th>Precio unitario</th><th>Cantidad vendida</th><th>Total</th></tr></thead>" );
+            document.writeln( "<tbody>" );
+            document.writeln( "<tr><td>Producto 1</td><td>$2.98</td><td>" + cant1 + "</td><td>$" + sub1.toFixed( 2 ) + "</td></tr>" );
+            document.writeln( "<tr><td>Producto 2</td><td>$4.50</td><td>" + cant2 + "</td><td>$" + sub2.toFixed( 2 ) + "</td></tr>" );
+            document.writeln( "<tr><td>Producto 3</td><td>$9.98</td><td>" + cant3 + "</td><td>$" + sub3.toFixed( 2 ) + "</td></tr>" );
+            document.writeln( "<tr><td>Producto 4</td><td>$4.49</td><td>" + cant4 + "</td><td>$" + sub4.toFixed( 2 ) + "</td></tr>" );
+            document.writeln( "<tr><td>Producto 5</td><td>$6.87</td><td>" + cant5 + "</td><td>$" + sub5.toFixed( 2 ) + "</td></tr>" );
+            document.writeln( "<tr class='total'><td colspan='3'>Valor total de ventas</td><td>$" + totalVentas.toFixed( 2 ) + "</td></tr>" );
+            document.writeln( "</tbody></table>" );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 8.11</strong></h1>
+        <p><strong>(Calculador de ventas)</strong> Un vendedor minorista en línea vende cinco productos distintos, cuyos precios de venta son los siguientes: producto 1, $2.98; producto 2, $4.50; producto 3, $9.98; producto 4, $4.49 y producto 5, $6.87 [1]. Escriba una secuencia de comandos que lea una serie de pares de números (número del producto y cantidad vendida) [1]. Su programa debe utilizar una instrucción <code>switch</code> para determinar el precio de venta de cada producto y calcular el valor total de ventas mediante un ciclo controlado por centinela [1].</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

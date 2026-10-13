@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 6.19 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 6.19 - Capítulo 6</title>
+        <script>
+            // Solicita el radio del círculo al usuario
+            var radioCadena = window.prompt( "Escriba el radio del círculo:", "0" );
+
+            // Convierte el valor introducido de cadena a número de punto flotante
+            var radio = parseFloat( radioCadena );
+
+            // Valor constante para pi indicado en el ejercicio
+            var PI = 3.14159;
+
+            // Calcula el diámetro, la circunferencia y el área
+            var diametro = 2 * radio;
+            var circunferencia = 2 * PI * radio;
+            var area = PI * radio * radio;
+
+            // Muestra los resultados en el documento de HTML5
+            document.writeln( "<h2>Resultados para un círculo con radio " + radio + ":</h2>" );
+            document.writeln( "<p><strong>Diámetro:</strong> " + diametro + "</p>" );
+            document.writeln( "<p><strong>Circunferencia:</strong> " + circunferencia + "</p>" );
+            document.writeln( "<p><strong>Área:</strong> " + area + "</p>" );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 6.19</strong></h1>
+        <p><strong>(Círculo: diámetro, circunferencia y área)</strong> Escriba una secuencia de comandos que obtenga del usuario el radio de un círculo y produzca texto de HTML5 que muestre el diámetro, la circunferencia y el área de ese círculo. Use el valor constante 3.14159 para &pi; y las fórmulas: <em>diámetro = 2r</em>, <em>circunferencia = 2&pi;r</em> y <em>área = &pi;r<sup>2</sup></em>.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

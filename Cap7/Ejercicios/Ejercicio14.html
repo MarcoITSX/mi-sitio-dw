@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.14 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 7.14 - Capítulo 7</title>
+        <script>
+            var contadorEmpleados = 1; // Contador para controlar el ciclo de 3 empleados
+
+            var horasCadena;     // Horas introducidas como cadena
+            var tarifaCadena;    // Tarifa introducida como cadena
+            var horas;           // Valor numérico de horas trabajadas
+            var tarifa;          // Valor numérico de tarifa por hora
+            var horasExtra;      // Horas trabajadas por encima de 40
+            var sueldoBruto;     // Sueldo bruto calculado
+
+            // Procesar datos para 3 empleados usando repetición controlada por contador
+            while ( contadorEmpleados <= 3 )
+            {
+                // Lectura de horas y tarifa mediante diálogos prompt
+                horasCadena = window.prompt( "Empleado " + contadorEmpleados + 
+                    " - Escriba el número de horas trabajadas la semana pasada:", "0" );
+                tarifaCadena = window.prompt( "Empleado " + contadorEmpleados + 
+                    " - Escriba la tarifa por hora ($):", "0" );
+
+                // Conversión de cadenas a números decimales
+                horas = parseFloat( horasCadena );
+                tarifa = parseFloat( tarifaCadena );
+
+                // Cálculo del sueldo bruto
+                if ( horas <= 40 )
+                {
+                    sueldoBruto = horas * tarifa;
+                }
+                else
+                {
+                    horasExtra = horas - 40;
+                    sueldoBruto = ( 40 * tarifa ) + ( horasExtra * tarifa * 1.5 );
+                }
+
+                // Despliegue de los resultados en HTML5
+                document.writeln( "<h3>Resultados para el Empleado #" + contadorEmpleados + "</h3>" );
+                document.writeln( "<p><strong>Horas trabajadas:</strong> " + horas + " hrs</p>" );
+                document.writeln( "<p><strong>Tarifa por hora:</strong> $" + tarifa.toFixed( 2 ) + "</p>" );
+                
+                if ( horas > 40 )
+                {
+                    document.writeln( "<p><strong>Horas extra (cuota y media):</strong> " + ( horas - 40 ) + " hrs</p>" );
+                }
+
+                document.writeln( "<p><strong>Sueldo bruto:</strong> $" + sueldoBruto.toFixed( 2 ) + "</p>" );
+                document.writeln( "<hr>" );
+
+                // Incrementar contador para pasar al siguiente empleado
+                contadorEmpleados = contadorEmpleados + 1;
+            } // fin de while
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.14</strong></h1>
+        <p><strong>(Calculador del sueldo bruto)</strong> Desarrolle una secuencia de comandos que determine el sueldo bruto para cada uno de tres empleados. La empresa paga la &ldquo;cuota normal&rdquo; en las primeras 40 horas de trabajo de cada empleado, y paga &ldquo;cuota y media&rdquo; en todas las horas trabajadas que excedan de 40. Usted recibe una lista de los empleados de la empresa, el número de horas que trabajó cada uno la semana pasada y la tarifa por horas de cada empleado. Su programa debe recibir como entrada esta información para cada empleado, determinar el sueldo bruto de cada uno y producir texto de HTML5 que muestre ese sueldo bruto. Utilice diálogos <code>prompt</code> para introducir los datos.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

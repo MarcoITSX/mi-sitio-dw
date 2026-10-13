@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.21 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 7.21 - Capítulo 7</title>
+        <script>
+            var multiplo = 2;
+
+            // Ciclo infinito: la condición 'true' nunca se vuelve falsa
+            while ( true )
+            {
+                document.writeln( "<p>" + multiplo + "</p>" );
+                multiplo *= 2; // Duplica el valor en cada iteración
+            } // fin de while
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.21</strong></h1>
+        <p><strong>(Múltiplos de 2 con ciclo infinito)</strong> Escriba una secuencia de comandos que produzca texto de HTML5 que siga mostrando en la ventana de comandos los múltiplos del entero 2 (a saber, 2, 4, 8, 16, 32, 64, etcétera). Su ciclo no debe terminar (es decir, debe crear un ciclo infinito). ¿Qué ocurre cuando ejecuta este programa?</p>
+
+        <h2><strong>¿Qué ocurre cuando se ejecuta este programa?</strong></h2>
+        <ol>
+            <li><strong>Bloqueo del navegador:</strong> Debido a que el ciclo <code>while ( true )</code> no posee condición de salida, la secuencia de comandos consume continuamente el hilo principal de ejecución. Esto provoca que la página web se congele y deje de responder a las interacciones del usuario.</li>
+            <li><strong>Advertencia de script colgado:</strong> Los navegadores web detectan que la secuencia de comandos ha entrado en un ciclo infinito y muestran un diálogo de alerta preguntando al usuario si desea detener o finalizar la ejecución del script [2].</li>
+            <li><strong>Desbordamiento numérico (<code>Infinity</code>):</strong> Si el código pudiera ejecutarse indefinidamente, la variable superaría el valor máximo representable en JavaScript (<code>Number.MAX_VALUE</code> &approx; 1.79 &times; 10<sup>308</sup>), convirtiéndose en el valor especial <code>Infinity</code>.</li>
+        </ol>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

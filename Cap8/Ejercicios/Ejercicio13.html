@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 8.13: ej08_13.html -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 8.13 - Cap&iacute;tulo 8</title>
+        <style type="text/css">
+            table           { width: 400px;
+                              border-collapse: collapse;
+                              background-color: lightblue;
+                              margin-top: 15px; }
+            table, td, th   { border: 1px solid black;
+                              padding: 6px; }
+            th              { text-align: left;
+                              color: white;
+                              background-color: darkblue; }
+            tr.filaimpar    { background-color: white; }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 8</strong></h1>
+        <h2><strong>8.13</strong></h2>
+
+        <p>Dada la siguiente instrucción <code>switch</code>:</p>
+
+        <pre><code>switch ( k )
+{
+   case 1:
+      break;
+   case 2:
+   case 3:
+      ++k;
+      break;
+   case 4:
+      --k;
+      break;
+   default:
+      k *= 3;
+} // fin de switch
+
+x = k;</code></pre>
+
+        <p><strong>¿Qué valores se asignan a <code>x</code> cuando <code>k</code> tiene valores de 1, 2, 3, 4 y 10?</strong></p>
+
+        <hr>
+
+        <h3><strong>Análisis paso a paso:</strong></h3>
+
+        <p><strong>1. Cuando <code>k = 1</code>:</strong></p>
+        <ul>
+            <li>Coincide con <code>case 1:</code>. Se ejecuta la instrucción <code>break;</code> y se sale inmediatamente de la estructura <code>switch</code>.</li>
+            <li>El valor de <code>k</code> no cambia (sigue siendo <code>1</code>).</li>
+            <li><strong>Resultado:</strong> A <code>x</code> se le asigna el valor <strong><code>1</code></strong>.</li>
+        </ul>
+
+        <p><strong>2. Cuando <code>k = 2</code>:</strong></p>
+        <ul>
+            <li>Coincide con <code>case 2:</code>. Al no haber instrucciones ni <code>break</code> en este caso, cae en cascada (<em>fall-through</em>) hacia el <code>case 3:</code>.</li>
+            <li>Se ejecuta el pre-incremento <code>++k;</code>, por lo que <code>k</code> incrementa de 2 a 3.</li>
+            <li>Se ejecuta <code>break;</code> y sale del <code>switch</code>.</li>
+            <li><strong>Resultado:</strong> A <code>x</code> se le asigna el valor <strong><code>3</code></strong>.</li>
+        </ul>
+
+        <p><strong>3. Cuando <code>k = 3</code>:</strong></p>
+        <ul>
+            <li>Coincide directamente con <code>case 3:</code>.</li>
+            <li>Se ejecuta el pre-incremento <code>++k;</code>, por lo que <code>k</code> incrementa de 3 a 4.</li>
+            <li>Se ejecuta <code>break;</code> y sale del <code>switch</code>.</li>
+            <li><strong>Resultado:</strong> A <code>x</code> se le asigna el valor <strong><code>4</code></strong>.</li>
+        </ul>
+
+        <p><strong>4. Cuando <code>k = 4</code>:</strong></p>
+        <ul>
+            <li>Coincide con <code>case 4:</code>.</li>
+            <li>Se ejecuta el pre-decremento <code>--k;</code>, por lo que <code>k</code> decrementa de 4 a 3.</li>
+            <li>Se ejecuta <code>break;</code> y sale del <code>switch</code>.</li>
+            <li><strong>Resultado:</strong> A <code>x</code> se le asigna el valor <strong><code>3</code></strong>.</li>
+        </ul>
+
+        <p><strong>5. Cuando <code>k = 10</code>:</strong></p>
+        <ul>
+            <li>No coincide con ningún <code>case</code> (1, 2, 3 o 4), por lo que pasa a la sección <code>default:</code>.</li>
+            <li>Se ejecuta la asignación multiplicativa <code>k *= 3;</code> (equivalente a <code>10 * 3</code>), resultando en <code>30</code>.</li>
+            <li><strong>Resultado:</strong> A <code>x</code> se le asigna el valor <strong><code>30</code></strong>.</li>
+        </ul>
+
+        <hr>
+
+        <h3><strong>Tabla resumen de resultados:</strong></h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Valor inicial de <code>k</code></th>
+                    <th>Caso ejecutado</th>
+                    <th>Valor final de <code>x</code></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="filaimpar">
+                    <td>1</td>
+                    <td><code>case 1</code></td>
+                    <td><strong>1</strong></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><code>case 2</code> &rarr; <code>case 3</code> (caída)</td>
+                    <td><strong>3</strong></td>
+                </tr>
+                <tr class="filaimpar">
+                    <td>3</td>
+                    <td><code>case 3</code></td>
+                    <td><strong>4</strong></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><code>case 4</code></td>
+                    <td><strong>3</strong></td>
+                </tr>
+                <tr class="filaimpar">
+                    <td>10</td>
+                    <td><code>default</code></td>
+                    <td><strong>30</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

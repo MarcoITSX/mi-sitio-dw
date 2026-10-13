@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.18: ej07_18.html -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Secuencia de comandos misteriosa</title>
+        <script>
+            var fila = 10;
+            var columna;
+
+            while ( fila >= 1 )
+            {
+                columna = 1;
+                document.writeln( "<p>" );
+
+                while ( columna <= 10 )
+                {
+                    document.write( fila % 2 == 1 ? "<" : ">" );
+                    ++columna;
+                } // end while
+
+                --fila;
+                document.writeln( "</p>" );
+            } // end while
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.18</strong></h1>
+        <p><strong>(Secuencia de comandos misteriosa)</strong> Sin ejecutar la siguiente secuencia de comandos, determine lo que imprime.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

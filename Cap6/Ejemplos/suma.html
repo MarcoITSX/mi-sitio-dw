@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!--Fig.6.7: suma.html-->
+<!--Secuencia de comanddos de suma-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Uso de cuadros prompt y alert</title>
+    <script>
+        
+        var primerNumero; //primera cadena introducida por el usuario
+        var segundoNumero; //segunda cadena introducida por el usuario
+        var numero1; //primer número a sumar
+        var numero2; //segundo número a sumar
+        var suma; // suma de numero1 y numero2
+
+        //lee el primer número del usuario como una cadena 
+        primerNumero= window.prompt("Escriba el primer entero");
+        //lee el segundo número del usuario como una cadena
+        segundoNumero = window.prompt("Escriba el segundo entero");
+
+        //convierte los números de cadernas a enteros
+        numero1 = parseInt(primerNumero);
+        numero2 = parseInt(segundoNumero);
+
+        suma = numero1 + numero2; //suma los números
+
+        //muestra los resultados
+        document.writeln("<h1>La suma es "+suma+"</h1>")
+                                                                        
+
+    </script>
+</head>
+<body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+</body>
+</html>

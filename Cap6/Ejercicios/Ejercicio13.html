@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 6.13 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 6.13 - Cap&iacute;tulo 6</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 6.13</strong></h1>
+        <p><strong>(Evaluación de expresiones algebraicas)</strong> Dada la ecuación <em>y = ax<sup>3</sup> + 7</em>, &iquest;cu&aacute;les de las siguientes instrucciones de JavaScript son correctas para esta ecuaci&oacute;n?</p>
+
+        <p><strong>a.-</strong> <code>y = a * x * x * x + 7;</code><br>
+        <strong>Correcta.</strong> Eval&uacute;a primero las multiplicaciones de izquierda a derecha (<em>a &middot; x &middot; x &middot; x = ax<sup>3</sup></em>) y finalmente suma 7.</p>
+
+        <p><strong>b.-</strong> <code>y = a * x * x * (x + 7);</code><br>
+        <strong>Incorrecta.</strong> Multiplica <em>ax<sup>2</sup></em> por la expresión <em>(x + 7)</em>, lo que equivale a <em>ax<sup>3</sup> + 7ax<sup>2</sup></em>.</p>
+
+        <p><strong>c.-</strong> <code>y = (a * x) * x * (x + 7);</code><br>
+        <strong>Incorrecta.</strong> Multiplica <em>ax<sup>2</sup></em> por <em>(x + 7)</em>, resultando en <em>ax<sup>3</sup> + 7ax<sup>2</sup></em>.</p>
+
+        <p><strong>d.-</strong> <code>y = (a * x) * x * x + 7;</code><br>
+        <strong>Correcta.</strong> Los par&eacute;ntesis agrupan la multiplicaci&oacute;n inicial <em>ax</em>, que luego se multiplica por <em>x<sup>2</sup></em> y se le suma 7, dando como resultado <em>ax<sup>3</sup> + 7</em>.</p>
+
+        <p><strong>e.-</strong> <code>y = a * (x * x * x) + 7;</code><br>
+        <strong>Correcta.</strong> Calcula el cubo de <em>x</em> primero dentro del par&eacute;ntesis (<em>x<sup>3</sup></em>), lo multiplica por <em>a</em> y le suma 7.</p>
+
+        <p><strong>f.-</strong> <code>y = a * x * (x * x + 7);</code><br>
+        <strong>Incorrecta.</strong> Equivale a <em>ax(x<sup>2</sup> + 7) = ax<sup>3</sup> + 7ax</em>.</p>
+
+        <p><strong>Conclusi&oacute;n:</strong> Las instrucciones correctas son los incisos <strong>a)</strong>, <strong>d)</strong> y <strong>e)</strong>.</p>
+    
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!---Fig. 7.9: promedio2.html-->
+<!-- Repetición controlada por centinela para calcular el promedio de una clase-->
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Programa del promedio de una clase: repetición controlada por centinela</title>
+    <script>
+        
+        var total; // suma de calificaciones
+        var contadorCalificaciones; // número de calificaciones introducidas
+        var calificacion; // calificación escrita por el usuario (como una cadena)
+        var valorCalificacion; // valor de la calificación (convertida en entero)
+        var promedio; // promedio de todas las calificaciones
+
+        //Fase de inicialización
+        total = 0; // borrar el total
+        contadorCalificaciones = 0; // preparar para iterar 
+
+        //Fase de procesamiento
+        // pedir la entrada y leer la calificación del usuario
+        calificacion = window.prompt("Escriba la calificación entera o -1 para terminar: ","0");
+        
+        while (calificacion != "-1")  // centinela es -1
+        {
+            //convertir la calificación de cadena a entero);
+            valorCalificacion = parseInt(calificacion);
+
+            // sumar valorCalificacion a total
+            total = total + valorCalificacion;
+
+            //agregar 1 a contadorCalificaciones
+            contadorCalificaciones = contadorCalificaciones + 1;
+
+            //pedir la entrada y leer la calificación del usuario
+            calificacion = window.prompt("Escriba la calificación entera o -1 para terminar: ","0");
+        }//fin del while
+
+        //Fase de terminación
+        if (contadorCalificaciones != 0) 
+        {
+            promedio = total / contadorCalificaciones; // calcular el promedio 
+
+            //mostrar. el promedio de las calificaciones de los exámenes
+            document.writeln("<h1>Promedio de la clase es: " + promedio + "</h1>");
+        }
+        else 
+            document.writeln("<p>No se introdujeron calificaciones</p>");
+
+        
+    </script>
+</head>
+<body>
+
+    <!-- Enlaces de navegación -->
+    <p>
+        <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+        <a href="../../Index.html">Portal Principal</a>
+    </p>
+    <hr>
+
+
+    <hr>
+    <p>
+        <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+        <a href="../../Index.html">Portal Principal</a>
+    </p>
+
+</body>
+</html>

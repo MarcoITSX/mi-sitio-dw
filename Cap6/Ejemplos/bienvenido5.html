@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<!--Fig.6.14: bienvenido5.html-->
+<!--Uso de operadores de igualdad y relacionales.-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Uso de operadores relacionales</title>
+    <script>
+        
+       var nombre;
+       var ahora = new Date(); // <--- Se corrigió 'Daye' por 'Date'
+       var hora = ahora.getHours(); // hora actual (0-23)
+
+       // lee el nombre del cuadro indicador como una cadena 
+       nombre = window.prompt("Escriba su nombre");
+
+       // determina si es de mañana
+       if (hora < 12)
+            document.write("<h1>Buenos d&iacute;as, ");
+
+        // determina si la hora es PM
+        if (hora >= 12)
+        {
+            // convierte a reloj de 12 horas
+            hora = hora - 12;
+
+            // determina si es antes de las 6 PM
+            if (hora < 6)
+                document.write("<h1>Buenas tardes, ");
+
+            // determina si es despues de las 6 PM
+            if (hora >= 6)
+                document.write("<h1>Buenas noches, ");
+        } // end if
+
+        document.writeln(nombre + 
+        ", bienvenido a la programaci&oacute;n en JavaScript!</h1>");
+
+    </script>
+</head>
+<body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+</body>
+</html>

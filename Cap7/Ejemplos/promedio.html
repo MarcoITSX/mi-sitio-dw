@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<!---Fig. 7.7: promedio.html-->
+<!-- Repetición controlada por contador para calcular el promedio de una clase-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Programa del promedio de una clase</title>
+    <script>
+
+        var total; //suma de calificaciones
+        var contadorCalificaciones; // número de calificaciones introducidas
+        var calificacion; // calificación escrita por el usuario (como una cadena)
+        var valorCalificacion; // valor de la calificación (convertida en entero)
+        var promedio; // promedio de todas las calificaciones
+
+        //Fase de inicialización
+        total = 0; // borrar el total
+        contadorCalificaciones = 1; // preparar para iterar 
+
+        //Fase de procesamiento
+        while (contadorCalificaciones <= 10)  // iterar 10 veces
+        {
+            //pedir la entrada y leer la calificación del usuario
+            calificacion = window.prompt("Escriba la calificación entera: ","0");
+        
+            //convertir la calificación de cadena a entero);
+            valorCalificacion = parseInt(calificacion);
+
+            // sumar valorCalificacion a total
+            total = total + valorCalificacion;
+
+            //agregar 1 a contadorCalificaciones
+            contadorCalificaciones = contadorCalificaciones + 1;
+        }//fin del while
+
+        //Fase de terminación
+        promedio = total / 10; // calcular el promedio 
+
+        //mostrar. el promedio de las calificaciones de los exámenes
+        document.writeln("<h1>Promedio de la clase es: " + promedio + "</h1>");
+    </script>
+</head>
+<body>
+
+    <!-- Enlaces de navegación -->
+    <p>
+        <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+        <a href="../../Index.html">Portal Principal</a>
+    </p>
+    <hr>
+
+
+    <hr>
+    <p>
+        <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+        <a href="../../Index.html">Portal Principal</a>
+    </p>
+
+</body>
+</html>

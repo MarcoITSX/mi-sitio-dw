@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.20 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 7.20 - Capítulo 7</title>
+        <script>
+            var entrada;
+            var numero;
+            var d1, d2, d3, d4, d5;
+
+            // Solicita un número entero de 5 dígitos
+            entrada = window.prompt( "Escriba un número entero de cinco dígitos:", "12321" );
+            numero = parseInt( entrada );
+
+            // Validación: repetir diálogo si no es un entero de 5 dígitos (entre 10000 y 99999)
+            while ( isNaN( numero ) || numero < 10000 || numero > 99999 )
+            {
+                window.alert( "Error: El número introducido no es un entero de cinco dígitos." );
+                entrada = window.prompt( "Escriba un número entero de cinco dígitos:", "12321" );
+                numero = parseInt( entrada );
+            }
+
+            // Descomposición de cada dígito usando división y el operador residuo (%)
+            d1 = Math.floor( numero / 10000 );
+            d2 = Math.floor( ( numero % 10000 ) / 1000 );
+            d3 = Math.floor( ( numero % 1000 ) / 100 );
+            d4 = Math.floor( ( numero % 100 ) / 10 );
+            d5 = numero % 10;
+
+            // Comprobación de palíndromo
+            if ( d1 == d5 && d2 == d4 )
+            {
+                document.writeln( "<h2>El número " + numero + " ES un palíndromo.</h2>" );
+            }
+            else
+            {
+                document.writeln( "<h2>El número " + numero + " NO es un palíndromo.</h2>" );
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.20</strong></h1>
+        <p><strong>(Palíndromos)</strong> Un palíndromo es un número o una frase de texto que se lee igual al derecho y al revés. Por ejemplo, cada uno de los siguientes enteros de cinco dígitos es un palíndromo: 12321, 55555, 45554 y 11611. Escriba una secuencia de comandos que lea un entero de cinco dígitos y determine si es un palíndromo. Si el número no es de cinco dígitos, muestre un diálogo <code>alert</code> que indique el problema al usuario y le permita introducir un nuevo valor después de cerrar el diálogo <code>alert</code>.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

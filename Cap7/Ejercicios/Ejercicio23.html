@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7.23 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 7.23 - Capítulo 7</title>
+        <script>
+            var entrada;
+            var numero;
+            var d1, d2, d3, d4;
+            var temp;
+
+            // Solicita un número entero de 4 dígitos cifrado
+            entrada = window.prompt( "Escriba el número entero de cuatro dígitos a descifrar:", "0189" );
+            numero = parseInt( entrada );
+
+            // Aislamiento de cada dígito
+            d1 = Math.floor( numero / 1000 );
+            d2 = Math.floor( ( numero % 1000 ) / 100 );
+            d3 = Math.floor( ( numero % 100 ) / 10 );
+            d4 = numero % 10;
+
+            // Paso 1: Invertir el intercambio (1° con 3° y 2° con 4°)
+            temp = d1;
+            d1 = d3;
+            d3 = temp;
+
+            temp = d2;
+            d2 = d4;
+            d4 = temp;
+
+            // Paso 2: Revertir la operación matemática sumando 3 módulo 10
+            d1 = ( d1 + 3 ) % 10;
+            d2 = ( d2 + 3 ) % 10;
+            d3 = ( d3 + 3 ) % 10;
+            d4 = ( d4 + 3 ) % 10;
+
+            // Despliegue del número descifrado
+            document.writeln( "<h2>Número cifrado introducido: " + entrada + "</h2>" );
+            document.writeln( "<h2>Número descifrado (original): " + d1 + d2 + d3 + d4 + "</h2>" );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 7.23</strong></h1>
+        <p><strong>(Descifrado de datos)</strong> Escriba una secuencia de comandos que reciba como entrada un entero cifrado de cuatro dígitos (del ejercicio 7.22) y lo descifre para formar el número original.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

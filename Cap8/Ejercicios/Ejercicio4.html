@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 8.4 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Capítulo 8 - Ejercicio 8.4</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 8</strong></h1>
+        <h2><strong>8.4</strong></h2>
+
+        <p>Encuentre el error en cada uno de los siguientes segmentos de código. [<em>Nota: puede haber más de un error</em>].</p>
+
+        <p><strong>a.-</strong></p>
+        <pre><code>For ( x = 100, x &gt;= 1, ++x )
+   document.writeln( x );</code></pre>
+        <p><strong>Errores:</strong></p>
+        <ul>
+            <li>La palabra clave <code>For</code> comienza con mayúscula; JavaScript distingue entre mayúsculas y minúsculas y requiere <code>for</code>.</li>
+            <li>Se utilizaron comas (<code>,</code>) en lugar de puntos y comas (<code>;</code>) para separar las tres expresiones del encabezado del ciclo <code>for</code>.</li>
+            <li>Para contar de manera descendente del 100 al 1, la expresión de actualización debe decrementar la variable de control (por ejemplo, <code>--x</code>), en lugar de incrementarla (<code>++x</code>), lo que provocaría un ciclo infinito.</li>
+        </ul>
+        <p><strong>Corrección:</strong></p>
+        <pre><code>for ( x = 100; x &gt;= 1; --x )
+   document.writeln( x );</code></pre>
+
+        <p><strong>b.-</strong> El siguiente código debe imprimirse sin importar si el valor entero es par o impar:</p>
+        <pre><code>switch ( valor % 2 )
+{
+   case 0:
+      document.writeln( "Entero par" );
+   case 1:
+      document.writeln( "Entero impar" );
+}</code></pre>
+        <p><strong>Error:</strong> Falta la instrucción <code>break;</code> al final del <code>case 0:</code>. Sin ella, cuando <code>valor % 2</code> sea <code>0</code>, se ejecutará la instrucción del <code>case 0:</code> y continuará la ejecución directamente en el <code>case 1:</code>, imprimiendo ambos mensajes ("Entero par" y "Entero impar").</p>
+        <p><strong>Corrección:</strong></p>
+        <pre><code>switch ( valor % 2 )
+{
+   case 0:
+      document.writeln( "Entero par" );
+      break;
+   case 1:
+      document.writeln( "Entero impar" );
+      break;
+}</code></pre>
+
+        <p><strong>c.-</strong> El siguiente código debe imprimir los enteros impares del 19 al 1:</p>
+        <pre><code>for ( x = 19; x &gt;= 1; x += 2 )
+   document.writeln( x );</code></pre>
+        <p><strong>Error:</strong> La expresión de actualización <code>x += 2</code> suma 2 en cada iteración en lugar de restarlo. Para contar de manera descendente de 19 a 1 en pasos de 2, debe restar 2 (<code>x -= 2</code>). De lo contrario, la condición <code>x &gt;= 1</code> siempre será verdadera y se generará un ciclo infinito.</p>
+        <p><strong>Corrección:</strong></p>
+        <pre><code>for ( x = 19; x &gt;= 1; x -= 2 )
+   document.writeln( x );</code></pre>
+
+        <p><strong>d.-</strong> El siguiente código debe imprimir los enteros pares del 2 al 100:</p>
+        <pre><code>contador = 2;
+do {
+   document.writeln( contador );
+   contador += 2;
+} While ( contador &lt;= 100 );</code></pre>
+        <p><strong>Error:</strong> La palabra clave <code>While</code> está escrita con la 'W' mayúscula. En JavaScript debe escribirse completamente en minúsculas (<code>while</code>).</p>
+        <p><strong>Corrección:</strong></p>
+        <pre><code>contador = 2;
+do {
+   document.writeln( contador );
+   contador += 2;
+} while ( contador &lt;= 100 );</code></pre>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

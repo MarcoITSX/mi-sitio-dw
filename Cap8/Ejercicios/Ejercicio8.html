@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 8.8: ej08_08.html -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 8.8 - Capítulo 8</title>
+        <style type="text/css">
+            table           { width: 300px;
+                              border-collapse: collapse;
+                              background-color: lightblue;
+                              margin-bottom: 20px; }
+            table, td, th   { border: 1px solid black;
+                              padding: 4px; }
+            th              { text-align: left;
+                              color: white;
+                              background-color: darkblue; }
+            tr.filaimpar    { background-color: white; }
+        </style>
+        <script>
+            var monto; // monto actual de dinero
+            var principal = 1000.00; // monto principal
+
+            // Ciclo exterior 'for' para variar la tasa de interés del 5% al 10% (0.05 a 0.10)
+            for ( var tasaEntera = 5; tasaEntera <= 10; ++tasaEntera )
+            {
+                var tasa = tasaEntera / 100.0; // Convierte el entero a tasa decimal (ej. 5 -> 0.05)
+
+                // Comenzar la tabla para la tasa actual
+                document.writeln( "<table>" );
+                document.writeln(
+                    "<caption>C&aacute;lculo del inter&eacute;s compuesto (Tasa del " + 
+                    tasaEntera + "%)</caption>" );
+                document.writeln(
+                    "<thead><tr><th>A&ntilde;o</th>" );
+                document.writeln(
+                    "<th>Monto en dep&oacute;sito</th>" );
+                document.writeln( "</tr></thead><tbody>" );
+
+                // Ciclo interior 'for' para calcular e imprimir la fila de cada año (1 a 10)
+                for ( var anio = 1; anio <= 10; ++anio )
+                {
+                    monto = principal * Math.pow( 1.0 + tasa, anio );
+
+                    // Alterna el formato de filas impares mediante CSS
+                    if ( anio % 2 !== 0 )
+                    {
+                        document.writeln( "<tr class='filaimpar'><td>" + anio +
+                            "</td><td>" + monto.toFixed(2) + "</td></tr>" );
+                    }
+                    else
+                    {
+                        document.writeln( "<tr><td>" + anio +
+                            "</td><td>" + monto.toFixed(2) + "</td></tr>" );
+                    }
+                } // fin de for interior
+
+                document.writeln( "</tbody></table>" );
+            } // fin de for exterior
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicio 8.8</strong></h1>
+        <p><strong>(Modificación del programa de interés compuesto)</strong> Modifique el programa de interés compuesto de la figura 8.6, repitiendo sus pasos para las tasas de interés del 5, 6, 7, 8, 9 y 10 por ciento. Use una instrucción <code>for</code> para variar la tasa de interés. Use una tabla separada para cada tasa.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>
