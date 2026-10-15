@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 6 autoevaluacion 9.6 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Autoevaluaci&oacute;n Cap&iacute;tulo 9 - Parte 6</title>
+        <script>
+            // Registrar el componente de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var boton = document.getElementById( "botonCalcular" );
+                boton.addEventListener( "click", mostrarVolumen, false );
+            } // fin de la función iniciar
+
+            // Obtener la entrada del usuario y calcular el resultado
+            function mostrarVolumen()
+            {
+                var campoEntrada = document.getElementById( "campoRadio" );
+                var radio = parseFloat( campoEntrada.value );
+                var resultado = document.getElementById( "resultado" );
+                resultado.innerHTML = "El volumen de la esfera es: " + volumenEsfera( radio );
+            } // fin de la función mostrarVolumen
+
+            // Función para calcular el volumen de una esfera dado su radio
+            function volumenEsfera( radio )
+            {
+                return ( 4.0 / 3.0 ) * Math.PI * Math.pow( radio, 3 );
+            } // fin de la función volumenEsfera
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Autoevaluación Capítulo 9</strong></h1>
+        <h2><strong>9.6</strong></h2>
+
+        <p><strong>Escriba un programa de JavaScript completo para pedir al usuario el radio de una esfera y luego llame a la función <code>volumenEsfera</code> para calcular y mostrar el volumen de la esfera. Use la instrucción:</strong></p>
+        <p><code>volumen = ( 4.0 / 3.0 ) * Math.PI * Math.pow( radio, 3 );</code></p>
+        <p><strong>para calcular el volumen. El usuario debe introducir el radio en el elemento <code>input</code> de HTML del tipo <code>"number"</code> en un elemento <code>form</code>. Proporcione al elemento <code>input</code> el valor de <code>id="campoRadio"</code>.</strong></p>
+
+        <hr>
+
+        <!-- Formulario interactivo para recibir el radio y ejecutar el cálculo -->
+        <form action="#">
+            <p>
+                <label>Radio:
+                    <input id="campoRadio" type="number">
+                </label>
+                <input id="botonCalcular" type="button" value="Calcular">
+            </p>
+        </form>
+        <p id="resultado"></p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.12 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.12 - Cap&iacute;tulo 9</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.12</strong></h2>
+
+        <p><strong>Para cada uno de los siguientes conjuntos de enteros, escriba una sola instrucción que imprima un número al azar del conjunto:</strong></p>
+
+        <p><strong>a) 2, 4, 6, 8, 10.</strong></p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>document.writeln( 2 * Math.floor( 1 + Math.random() * 5 ) );</code></pre>
+
+        <p><strong>b) 3, 5, 7, 9, 11.</strong></p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>document.writeln( 2 * Math.floor( 1 + Math.random() * 5 ) + 1 );</code></pre>
+
+        <p><strong>c) 6, 10, 14, 18, 22.</strong></p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>document.writeln( 6 + 4 * Math.floor( Math.random() * 5 ) );</code></pre>
+
+        <hr>
+
+        <h3><strong>Explicaci&oacute;n de las f&oacute;rmulas:</strong></h3>
+        <ul>
+            <li><strong>a) {2, 4, 6, 8, 10}:</strong> El conjunto se compone de 5 enteros pares. Generamos un entero del 1 al 5 mediante <code>Math.floor( 1 + Math.random() * 5 )</code> y multiplicamos por 2 para obtener el rango deseado.</li>
+            <li><strong>b) {3, 5, 7, 9, 11}:</strong> Es la misma secuencia par del inciso anterior trasladada un número hacia arriba; por lo que basta con sumar 1 al resultado generado en el inciso a).</li>
+            <li><strong>c) {6, 10, 14, 18, 22}:</strong> Es una progresión aritmética con 5 elementos, un valor inicial de 6 y un incremento de 4 entre cada elemento. Se aplica la fórmula <code>inicio + paso * Math.floor( Math.random() * cantidad )</code>.</li>
+        </ul>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

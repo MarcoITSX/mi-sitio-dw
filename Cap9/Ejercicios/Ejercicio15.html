@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.15 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.15 - Cap&iacute;tulo 9</title>
+        <script>
+            // Registrar el componente de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var boton = document.getElementById( "botonEvaluar" );
+                boton.addEventListener( "click", procesarNumeros, false );
+            } // fin de la función iniciar
+
+            // Función esPar que utiliza el operador módulo (%) para determinar si un entero es par
+            function esPar( numero )
+            {
+                return numero % 2 === 0;
+            } // fin de la función esPar
+
+            // Obtener enteros mediante diálogos prompt usando un ciclo controlado por centinela
+            function procesarNumeros()
+            {
+                var entrada; // Cadena introducida en el diálogo prompt
+                var valor;   // Entero convertido
+                var resultadosDiv = document.getElementById( "resultados" );
+                var salida = "<h3>Resultados de la evaluaci&oacute;n:</h3><ul>";
+
+                // Primer diálogo prompt
+                entrada = window.prompt( "Escriba un entero (o haga clic en Cancelar / ingrese un valor no num\u00e9rico para terminar):", "0" );
+
+                // Ciclo controlado por centinela
+                while ( entrada !== null && entrada !== "" && !isNaN( parseInt( entrada, 10 ) ) )
+                {
+                    valor = parseInt( entrada, 10 );
+
+                    if ( esPar( valor ) )
+                    {
+                        salida += "<li>El entero <strong>" + valor + "</strong> es <strong>PAR</strong> (devuelve <code>true</code>).</li>";
+                    }
+                    else
+                    {
+                        salida += "<li>El entero <strong>" + valor + "</strong> es <strong>IMPAR</strong> (devuelve <code>false</code>).</li>";
+                    }
+
+                    // Siguiente diálogo prompt para continuar la lectura o salir
+                    entrada = window.prompt( "Escriba el siguiente entero (o haga clic en Cancelar / valor no num\u00e9rico para terminar):", "0" );
+                } // fin del ciclo while
+
+                salida += "</ul><p><em>Procesamiento finalizado.</em></p>";
+                resultadosDiv.innerHTML = salida;
+            } // fin de la función procesarNumeros
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.15</strong></h2>
+
+        <p><strong>(Enteros pares e impares)</strong> Escriba una secuencia de comandos que reciba enteros (uno a la vez) y los pase a la funci&oacute;n <code>esPar</code>, que utiliza el operador m&oacute;dulo para determinar si un entero es par. La funci&oacute;n debe recibir un argumento entero y devolver <code>true</code> si el entero es par, y <code>false</code> en caso contrario. Use los ciclos controlados por centinela y un di&aacute;logo <code>prompt</code>.</p>
+
+        <hr>
+
+        <!-- Formulario interactivo para iniciar la captura mediante diálogos prompt -->
+        <form action="#">
+            <p>
+                <input id="botonEvaluar" type="button" value="Iniciar Evaluaci&oacute;n de Enteros">
+            </p>
+        </form>
+
+        <div id="resultados"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

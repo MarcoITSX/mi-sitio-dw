@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.29: ej09_29.html -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.29 - Cap&iacute;tulo 9</title>
+        <style type="text/css">
+            .panel-calculo { background-color: #f8f9fa;
+                             border: 1px solid #dcdfe6;
+                             padding: 15px;
+                             border-radius: 5px;
+                             max-width: 550px; }
+            .resultado     { font-size: 1.2em;
+                             font-weight: bold;
+                             color: #1b4f72;
+                             margin-top: 15px; }
+        </style>
+        <script>
+            // Registrar los componentes de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var botonCalcular = document.getElementById( "botonCalcular" );
+                botonCalcular.addEventListener( "click", calcularPotencia, false );
+            } // fin de la función iniciar
+
+            // Función recursiva potencia( base, exponente )
+            function potencia( base, exponente )
+            {
+                // Condición de terminación (caso base): base^1 = base
+                if ( exponente === 1 )
+                {
+                    return base;
+                }
+                else // Paso de recursividad: base * potencia( base, exponente - 1 )
+                {
+                    return base * potencia( base, exponente - 1 );
+                }
+            } // fin de la función recursiva potencia
+
+            // Obtiene los valores del formulario, valida e invoca la función recursiva
+            function calcularPotencia()
+            {
+                var campoBase = document.getElementById( "campoBase" );
+                var campoExponente = document.getElementById( "campoExponente" );
+
+                var baseVal = parseInt( campoBase.value, 10 );
+                var exponenteVal = parseInt( campoExponente.value, 10 );
+
+                var divResultado = document.getElementById( "resultado" );
+
+                if ( !isNaN( baseVal ) && !isNaN( exponenteVal ) && exponenteVal >= 1 )
+                {
+                    var res = potencia( baseVal, exponenteVal );
+                    divResultado.innerHTML = "<p class='resultado'>" + baseVal + "<sup>" + 
+                        exponenteVal + "</sup> = <strong>" + res + "</strong></p>";
+                }
+                else
+                {
+                    divResultado.innerHTML = "<span style='color: red;'>Por favor, introduzca una base entera y un exponente entero mayor o igual a 1.</span>";
+                }
+            } // fin de la función calcularPotencia
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.29</strong></h2>
+
+        <p><strong>(Potencia recursiva)</strong> Escriba una funci&oacute;n recursiva llamada <code>potencia( base, exponente )</code> que, cuando se invoque, devuelva <code>base<sup>exponente</sup></code>; por ejemplo, <code>potencia( 3, 4 ) = 3 * 3 * 3 * 3</code>. Suponga que <code>exponente</code> es un entero mayor o igual a 1. El paso de recursividad utilizar&iacute;a la siguiente relaci&oacute;n:</p>
+        <p><code>base<sup>exponente</sup> = base * base<sup>exponente - 1</sup></code></p>
+        <p>y la condici&oacute;n de terminaci&oacute;n ocurre cuando <code>exponente</code> es igual a 1, ya que</p>
+        <p><code>base<sup>1</sup> = base</code></p>
+        <p>Incorpore esta funci&oacute;n en una secuencia de comandos que permita al usuario introducir la <code>base</code> y el <code>exponente</code>.</p>
+
+        <hr>
+
+        <!-- Formulario interactivo -->
+        <div class="panel-calculo">
+            <form action="#">
+                <p>
+                    <label for="campoBase"><strong>Base:</strong></label>
+                    <input id="campoBase" type="number" value="3">
+                </p>
+                <p>
+                    <label for="campoExponente"><strong>Exponente (&ge; 1):</strong></label>
+                    <input id="campoExponente" type="number" min="1" value="4">
+                </p>
+                <p>
+                    <input id="botonCalcular" type="button" value="Calcular Potencia (Recursivo)">
+                </p>
+            </form>
+
+            <div id="resultado"></div>
+        </div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

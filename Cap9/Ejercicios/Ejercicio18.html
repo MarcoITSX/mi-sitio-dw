@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.18 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.18 - Cap&iacute;tulo 9</title>
+        <script>
+            // Registrar el componente de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var boton = document.getElementById( "botonCalcular" );
+                boton.addEventListener( "click", determinarMinimo, false );
+            } // fin de la función iniciar
+
+            // Función que devuelve el menor de tres números de punto flotante usando Math.min
+            function minimo3( x, y, z )
+            {
+                return Math.min( x, Math.min( y, z ) );
+            } // fin de la función minimo3
+
+            // Obtener los datos del formulario y mostrar el valor mínimo
+            function determinarMinimo()
+            {
+                var campo1 = document.getElementById( "campoValor1" );
+                var campo2 = document.getElementById( "campoValor2" );
+                var campo3 = document.getElementById( "campoValor3" );
+
+                var val1 = parseFloat( campo1.value );
+                var val2 = parseFloat( campo2.value );
+                var val3 = parseFloat( campo3.value );
+
+                var resultado = document.getElementById( "resultado" );
+
+                if ( !isNaN( val1 ) && !isNaN( val2 ) && !isNaN( val3 ) )
+                {
+                    var valorMin = minimo3( val1, val2, val3 );
+                    resultado.innerHTML = "<p>Primer valor: <strong>" + val1 + "</strong></p>" +
+                        "<p>Segundo valor: <strong>" + val2 + "</strong></p>" +
+                        "<p>Tercer valor: <strong>" + val3 + "</strong></p>" +
+                        "<p>El menor de los tres n&uacute;meros es: <strong>" + valorMin + "</strong></p>";
+                }
+                else
+                {
+                    resultado.innerHTML = "<span style='color: red;'>Por favor, introduzca tres valores num&eacute;ricos v&aacute;lidos.</span>";
+                }
+            } // fin de la función determinarMinimo
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.18</strong></h2>
+
+        <p><strong>(El menor de tres n&uacute;meros)</strong> Escriba una funci&oacute;n llamada <code>minimo3</code> que devuelva el menor de tres n&uacute;meros de punto flotante. Use la funci&oacute;n <code>Math.min</code> para implementar <code>minimo3</code>. Incorpore la funci&oacute;n en una secuencia de comandos que lea tres valores del usuario y determine el valor m&aacute;s peque&ntilde;o.</p>
+
+        <hr>
+
+        <!-- Formulario interactivo para recibir los tres valores de punto flotante -->
+        <form action="#">
+            <p>
+                <label>Primer n&uacute;mero: <input id="campoValor1" type="number" step="any"></label>
+            </p>
+            <p>
+                <label>Segundo n&uacute;mero: <input id="campoValor2" type="number" step="any"></label>
+            </p>
+            <p>
+                <label>Tercer n&uacute;mero: <input id="campoValor3" type="number" step="any"></label>
+            </p>
+            <p>
+                <input id="botonCalcular" type="button" value="Determinar M&iacute;nimo">
+            </p>
+        </form>
+
+        <div id="resultado"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

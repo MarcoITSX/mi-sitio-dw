@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.26 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.26 - Cap&iacute;tulo 9</title>
+        <style type="text/css">
+            .mensaje-alto   { color: #c0392b; font-weight: bold; }
+            .mensaje-bajo   { color: #d35400; font-weight: bold; }
+            .mensaje-exito  { color: #27ae60; font-weight: bold; font-size: 1.1em; }
+            .panel-juego    { background-color: #f8f9fa;
+                              border: 1px solid #dcdfe6;
+                              padding: 15px;
+                              border-radius: 5px;
+                              max-width: 600px; }
+            .panel-contador { font-weight: bold;
+                              color: #2c3e50;
+                              margin-bottom: 10px; }
+            .explicacion    { background-color: #eef7fc;
+                              border-left: 4px solid #3498db;
+                              padding: 12px;
+                              margin-top: 15px; }
+        </style>
+        <script>
+            var numeroSecreto = 0;    // Número aleatorio a adivinar (1 a 1000)
+            var contadorIntentos = 0; // Contador de intentos del jugador
+
+            // Registrar los componentes de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var botonEnviar = document.getElementById( "botonEnviar" );
+                var botonReiniciar = document.getElementById( "botonReiniciar" );
+
+                botonEnviar.addEventListener( "click", evaluarIntento, false );
+                botonReiniciar.addEventListener( "click", nuevoJuego, false );
+
+                nuevoJuego(); // Iniciar un nuevo juego al cargar la página
+            } // fin de la función iniciar
+
+            // Genera un nuevo número aleatorio entre 1 y 1000 y reinicia contadores e interfaz
+            function nuevoJuego()
+            {
+                numeroSecreto = Math.floor( 1 + Math.random() * 1000 );
+                contadorIntentos = 0;
+
+                var campoIntento = document.getElementById( "campoIntento" );
+                campoIntento.value = "";
+                campoIntento.disabled = false;
+
+                document.getElementById( "botonEnviar" ).disabled = false;
+                document.getElementById( "mensaje" ).innerHTML = "";
+                actualizarContador();
+                campoIntento.focus();
+            } // fin de la función nuevoJuego
+
+            // Actualiza en la interfaz la cantidad de intentos realizados
+            function actualizarContador()
+            {
+                document.getElementById( "contador" ).innerHTML = "Intentos realizados: <strong>" + 
+                    contadorIntentos + "</strong>";
+            } // fin de la función actualizarContador
+
+            // Evalúa el intento introducido por el usuario y cuenta los intentos
+            function evaluarIntento()
+            {
+                var campoIntento = document.getElementById( "campoIntento" );
+                var intento = parseInt( campoIntento.value, 10 );
+                var divMensaje = document.getElementById( "mensaje" );
+
+                if ( !isNaN( intento ) && intento >= 1 && intento <= 1000 )
+                {
+                    ++contadorIntentos;
+                    actualizarContador();
+
+                    if ( intento > numeroSecreto )
+                    {
+                        divMensaje.className = "mensaje-alto";
+                        divMensaje.innerHTML = "Demasiado alto. Intente de nuevo.";
+                        campoIntento.value = "";
+                        campoIntento.focus();
+                    }
+                    else if ( intento < numeroSecreto )
+                    {
+                        divMensaje.className = "mensaje-bajo";
+                        divMensaje.innerHTML = "Demasiado bajo. Intente de nuevo.";
+                        campoIntento.value = "";
+                        campoIntento.focus();
+                    }
+                    else
+                    {
+                        divMensaje.className = "mensaje-exito";
+                        
+                        // Evaluar desempeño según el número de intentos realizados
+                        var mensajeEvaluacion = "";
+                        if ( contadorIntentos < 10 )
+                        {
+                            mensajeEvaluacion = "&iexcl;Conoce el secreto o tuvo suerte!";
+                        }
+                        else if ( contadorIntentos === 10 )
+                        {
+                            mensajeEvaluacion = "&iexcl;Entonces s&iacute; conoce el secreto!";
+                        }
+                        else
+                        {
+                            mensajeEvaluacion = "&iexcl;Deber&iacute;a poder hacerlo mejor!";
+                        }
+
+                        divMensaje.innerHTML = "<p>Felicidades. &iexcl;Adivin&oacute; el n&uacute;mero en " + 
+                            contadorIntentos + " intento(s)!</p><p><strong>" + 
+                            mensajeEvaluacion + "</strong></p>";
+
+                        campoIntento.value = "";
+                        campoIntento.disabled = true;
+                        document.getElementById( "botonEnviar" ).disabled = true;
+                    }
+                }
+                else
+                {
+                    divMensaje.className = "";
+                    divMensaje.innerHTML = "<span style='color: red;'>Por favor, introduzca un n&uacute;mero entero v&aacute;lido entre 1 y 1000.</span>";
+                }
+            } // fin de la función evaluarIntento
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.26</strong></h2>
+
+        <p><strong>(Adivinar el n&uacute;mero con conteo de intentos)</strong> Modifique el programa del ejercicio 9.25 para que cuente el n&uacute;mero de intentos realizados por el jugador. Si el n&uacute;mero es menor a 10, muestre <code>&iexcl;Conoce el secreto o tuvo suerte!</code> Si el jugador adivina el n&uacute;mero en 10 intentos, muestre <code>&iexcl;Entonces s&iacute; conoce el secreto!</code> Si el jugador realiza m&aacute;s de 10 intentos, muestre <code>&iexcl;Deber&iacute;a poder hacerlo mejor!</code></p>
+
+        <hr>
+
+        <!-- Panel interactivo del juego -->
+        <div class="panel-juego">
+            <div id="contador" class="panel-contador">Intentos realizados: 0</div>
+            <form action="#">
+                <p>
+                    <label for="campoIntento"><strong>Adivine un n&uacute;mero entre 1 y 1000:</strong></label>
+                    <input id="campoIntento" type="number" min="1" max="1000">
+                    <input id="botonEnviar" type="button" value="Enviar intento">
+                    <input id="botonReiniciar" type="button" value="Jugar de nuevo">
+                </p>
+            </form>
+            <div id="mensaje"></div>
+        </div>
+
+        <hr>
+
+        <!-- Explicación de la búsqueda binaria -->
+        <div class="explicacion">
+            <h3><strong>&iquest;Por qu&eacute; es posible adivinar cualquier n&uacute;mero entre 1 y 1000 en 10 intentos o menos?</strong></h3>
+            <p>Este problema se basa en el principio de la <strong>b&uacute;squeda binaria</strong> [1, 2]. En cada intento, al seleccionar el valor medio del rango restante, la retroalimentaci&oacute;n del programa (alto/bajo) permite descartar la mitad de las opciones posibles:</p>
+            <ul>
+                <li><strong>Intento 1:</strong> Probar 500 &rarr; descarta la mitad y reduce el rango a 500 opciones.</li>
+                <li><strong>Intento 2:</strong> Probar el centro del nuevo intervalo &rarr; reduce a 250 opciones.</li>
+                <li><strong>Intento 3:</strong> Reduce a 125 opciones.</li>
+                <li><strong>Intento 4:</strong> Reduce a 63 opciones.</li>
+                <li><strong>Intento 5:</strong> Reduce a 32 opciones.</li>
+                <li><strong>Intento 6:</strong> Reduce a 16 opciones.</li>
+                <li><strong>Intento 7:</strong> Reduce a 8 opciones.</li>
+                <li><strong>Intento 8:</strong> Reduce a 4 opciones.</li>
+                <li><strong>Intento 9:</strong> Reduce a 2 opciones.</li>
+                <li><strong>Intento 10:</strong> Permite aislar y encontrar la respuesta exacta de manera garantizada.</li>
+            </ul>
+            <p>Matem&aacute;ticamente, \\(2^{10} = 1024\\), lo cual supera el total de 1000 posibilidades. Por lo tanto, con una estrategia de búsqueda binaria óptima, nunca se requerirán más de 10 intentos.</p>
+        </div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.21 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.21 - Cap&iacute;tulo 9</title>
+        <style type="text/css">
+            table           { width: 380px;
+                              border-collapse: collapse;
+                              background-color: #f0f4f8;
+                              margin-top: 15px; }
+            table, td, th   { border: 1px solid #b0c4de;
+                              padding: 8px;
+                              text-align: center; }
+            th              { color: white;
+                              background-color: darkblue; }
+            .moneda-resultado { font-size: 1.4em;
+                              font-weight: bold;
+                              color: darkgreen;
+                              margin-top: 10px; }
+        </style>
+        <script>
+            var contadorCaras = 0;      // Contador de caras
+            var contadorCruces = 0;     // Contador de cruces
+            var totalLanzamientos = 0;  // Total de lanzamientos realizados
+
+            // Registrar el componente de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var boton = document.getElementById( "botonLanzar" );
+                boton.addEventListener( "click", lanzarMoneda, false );
+            } // fin de la función iniciar
+
+            // Función arrojar: devuelve true para cara y false para cruz
+            function arrojar()
+            {
+                return Math.random() < 0.5;
+            } // fin de la función arrojar
+
+            // Simula el lanzamiento de la moneda y actualiza los contadores e interfaz
+            function lanzarMoneda()
+            {
+                var esCara = arrojar();
+                ++totalLanzamientos;
+
+                var resultadoDiv = document.getElementById( "resultadoLanzamiento" );
+                var celdaCaras = document.getElementById( "celdaCaras" );
+                var celdaCruces = document.getElementById( "celdaCruces" );
+                var celdaPorcentajeCaras = document.getElementById( "celdaPorcentajeCaras" );
+                var celdaPorcentajeCruces = document.getElementById( "celdaPorcentajeCruces" );
+                var celdaTotal = document.getElementById( "celdaTotal" );
+
+                if ( esCara )
+                {
+                    ++contadorCaras;
+                    resultadoDiv.innerHTML = "<p class='moneda-resultado'>&iexcl;Sali&oacute; CARA!</p>";
+                }
+                else
+                {
+                    ++contadorCruces;
+                    resultadoDiv.innerHTML = "<p class='moneda-resultado'>&iexcl;Sali&oacute; CRUZ!</p>";
+                }
+
+                // Actualizar contadores en la tabla
+                celdaCaras.innerHTML = contadorCaras;
+                celdaCruces.innerHTML = contadorCruces;
+                celdaTotal.innerHTML = totalLanzamientos;
+
+                // Calcular y mostrar porcentajes
+                var porcCaras = ( ( contadorCaras / totalLanzamientos ) * 100 ).toFixed( 2 );
+                var porcCruces = ( ( contadorCruces / totalLanzamientos ) * 100 ).toFixed( 2 );
+
+                celdaPorcentajeCaras.innerHTML = porcCaras + "%";
+                celdaPorcentajeCruces.innerHTML = porcCruces + "%";
+            } // fin de la función lanzarMoneda
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.21</strong></h2>
+
+        <p><strong>(Lanzamiento de monedas)</strong> Escriba una secuencia de comandos que simule el lanzamiento de monedas. Deje que el programa lance la moneda cada vez que el usuario haga clic en el bot&oacute;n <strong>Lanzar</strong>. Cuente el n&uacute;mero de veces que aparezca cada lado de la moneda. Muestre los resultados. El programa deber&aacute; llamar a una funci&oacute;n separada de nombre <code>arrojar</code>, que no reciba argumentos y devuelva <code>false</code> para cruz y <code>true</code> para cara. <em>[Nota: si el programa simula de manera realista el lanzamiento de monedas, cada lado de la moneda deber&aacute; aparecer aproximadamente la mitad del tiempo].</em></p>
+
+        <hr>
+
+        <!-- Formulario interactivo para lanzar la moneda -->
+        <form action="#">
+            <p>
+                <input id="botonLanzar" type="button" value="Lanzar moneda">
+            </p>
+        </form>
+
+        <div id="resultadoLanzamiento"></div>
+
+        <h3><strong>Estad&iacute;sticas de lanzamientos:</strong></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Lado</th>
+                    <th>Frecuencia</th>
+                    <th>Porcentaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cara (<code>true</code>)</td>
+                    <td id="celdaCaras">0</td>
+                    <td id="celdaPorcentajeCaras">0.00%</td>
+                </tr>
+                <tr>
+                    <td>Cruz (<code>false</code>)</td>
+                    <td id="celdaCruces">0</td>
+                    <td id="celdaPorcentajeCruces">0.00%</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Total</th>
+                    <th id="celdaTotal">0</th>
+                    <th>100.00%</th>
+                </tr>
+            </tfoot>
+        </table>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

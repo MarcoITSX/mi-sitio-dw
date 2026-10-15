@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.13 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.13 - Cap&iacute;tulo 9</title>
+        <script>
+            // Registrar el componente de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var boton = document.getElementById( "botonCalcular" );
+                boton.addEventListener( "click", calcularPotencia, false );
+            } // fin de la función iniciar
+
+            // Función para calcular base^exponente usando un ciclo iterativo for
+            function potenciaEntera( base, exponente )
+            {
+                var resultado = 1;
+
+                for ( var i = 1; i <= exponente; ++i )
+                {
+                    resultado *= base;
+                }
+
+                return resultado;
+            } // fin de la función potenciaEntera
+
+            // Obtener los datos del formulario y mostrar el resultado
+            function calcularPotencia()
+            {
+                var campoBase = document.getElementById( "campoBase" );
+                var campoExponente = document.getElementById( "campoExponente" );
+
+                var base = parseInt( campoBase.value, 10 );
+                var exponente = parseInt( campoExponente.value, 10 );
+
+                var resultado = document.getElementById( "resultado" );
+
+                if ( !isNaN( base ) && !isNaN( exponente ) && exponente >= 0 )
+                {
+                    var res = potenciaEntera( base, exponente );
+                    resultado.innerHTML = base + "<sup>" + exponente + 
+                        "</sup> es igual a: <strong>" + res + "</strong>";
+                }
+                else
+                {
+                    resultado.innerHTML = "<span style='color: red;'>Por favor, introduzca valores enteros v&aacute;lidos (el exponente debe ser mayor o igual a 0).</span>";
+                }
+            } // fin de la función calcularPotencia
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.13</strong></h2>
+
+        <p><strong>(Potencia entera)</strong> Escriba una funci&oacute;n llamada <code>potenciaEntera( base, exponente )</code> que devuelva el valor de <code>base<sup>exponente</sup></code>. Por ejemplo, <code>potenciaEntera( 3, 4 ) = 3 * 3 * 3 * 3</code>. Suponga que <code>exponente</code> y <code>base</code> son enteros. La funci&oacute;n <code>potenciaEntera</code> deber&iacute;a usar una instrucci&oacute;n <code>for</code> o <code>while</code> para controlar el c&aacute;lculo. Incorpore esta funci&oacute;n en una secuencia de comandos que lea valores enteros de un formulario de HTML5 para base y exponente, y que realice el c&aacute;lculo con la funci&oacute;n <code>potenciaEntera</code>. El formulario de HTML5 deber&aacute; consistir de dos campos de texto y un bot&oacute;n para iniciar el c&aacute;lculo. El usuario debe interactuar con el programa, escribiendo n&uacute;meros en ambos campos de texto y luego haciendo clic en el bot&oacute;n.</p>
+
+        <hr>
+
+        <!-- Formulario interactivo para recibir la base y el exponente -->
+        <form action="#">
+            <p>
+                <label>Base: <input id="campoBase" type="number"></label>
+            </p>
+            <p>
+                <label>Exponente: <input id="campoExponente" type="number" min="0"></label>
+            </p>
+            <p>
+                <input id="botonCalcular" type="button" value="Calcular Potencia">
+            </p>
+        </form>
+
+        <p id="resultado"></p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

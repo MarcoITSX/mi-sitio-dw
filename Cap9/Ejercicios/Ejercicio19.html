@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.19 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.19 - Cap&iacute;tulo 9</title>
+        <style type="text/css">
+            textarea { width: 100%;
+                       max-width: 650px;
+                       height: 220px;
+                       font-family: monospace;
+                       font-size: 0.95em; }
+            .estadisticas { background-color: #f0f4f8;
+                            border: 1px solid #b0c4de;
+                            padding: 12px;
+                            margin-top: 15px;
+                            max-width: 650px; }
+        </style>
+        <script>
+            // Registrar los componentes de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var botonRaiz = document.getElementById( "botonCalcularRaiz" );
+                var botonMitad = document.getElementById( "botonCalcularMitad" );
+
+                botonRaiz.addEventListener( "click", function() { generarPrimos( true ); }, false );
+                botonMitad.addEventListener( "click", function() { generarPrimos( false ); }, false );
+            } // fin de la función iniciar
+
+            // a) Función para determinar si un número es primo
+            function esPrimo( numero, usarRaiz )
+            {
+                if ( numero <= 1 )
+                    return { esPrimo: false, divisiones: 0 };
+
+                // Establece el límite superior de evaluación (sqrt(n) o n/2)
+                var limite = usarRaiz ? Math.floor( Math.sqrt( numero ) ) : Math.floor( numero / 2 );
+                var divisiones = 0;
+
+                for ( var i = 2; i <= limite; ++i )
+                {
+                    ++divisiones;
+                    if ( numero % i === 0 ) // Si es divisible, no es primo
+                        return { esPrimo: false, divisiones: divisiones };
+                }
+
+                return { esPrimo: true, divisiones: divisiones };
+            } // fin de la función esPrimo
+
+            // b) y c) Generar números primos entre 1 y 10,000 e imprimir estadísticas
+            function generarPrimos( usarRaiz )
+            {
+                var areaTexto = document.getElementById( "areaPrimos" );
+                var divEstadisticas = document.getElementById( "estadisticas" );
+
+                var salida = "";
+                var totalPrimos = 0;
+                var totalDivisiones = 0;
+
+                var tiempoInicio = performance.now();
+
+                for ( var n = 1; n <= 10000; ++n )
+                {
+                    var resultado = esPrimo( n, usarRaiz );
+                    totalDivisiones += resultado.divisiones;
+
+                    if ( resultado.esPrimo )
+                    {
+                        ++totalPrimos;
+                        salida += n + ( totalPrimos % 10 === 0 ? "\n" : "\t" );
+                    }
+                }
+
+                var tiempoFin = performance.now();
+                var tiempoTotal = ( tiempoFin - tiempoInicio ).toFixed( 2 );
+
+                areaTexto.value = salida;
+
+                var metodo = usarRaiz ? "Ra&iacute;z cuadrada (&radic;n)" : "L&iacute;mite n / 2";
+                divEstadisticas.innerHTML = "<h3><strong>Estad&iacute;sticas de evaluaci&oacute;n (" + metodo + "):</strong></h3>" +
+                    "<p><strong>Primos encontrados entre 1 y 10,000:</strong> " + totalPrimos + "</p>" +
+                    "<p><strong>Total de divisiones/comprobaciones realizadas:</strong> " + totalDivisiones.toLocaleString() + "</p>" +
+                    "<p><strong>Tiempo de ejecuci&oacute;n estimado:</strong> " + tiempoTotal + " ms</p>";
+            } // fin de la función generarPrimos
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.19</strong></h2>
+
+        <p><strong>(N&uacute;meros primos) Se dice que un entero es primo si es mayor que 1 y se puede dividir s&oacute;lo entre 1 y s&iacute; mismo. Por ejemplo, 2, 3, 5 y 7 son primos pero 4, 6, 8 y 9 no.</strong></p>
+        <p><strong>a)</strong> Escriba una funci&oacute;n que determine si un n&uacute;mero es primo.</p>
+        <p><strong>b)</strong> Use esta funci&oacute;n en una secuencia de comandos que determine e imprima todos los n&uacute;meros primos entre 1 y 10,000. Muestre los resultados en un elemento <code>&lt;textarea&gt;</code>.</p>
+        <p><strong>c)</strong> En un principio podr&iacute;amos pensar que <code>n / 2</code> es el l&iacute;mite superior con el que debemos probar para ver si un n&uacute;mero es primo, pero s&oacute;lo necesitamos llegar hasta la ra&iacute;z cuadrada de <code>n</code>. &iquest;Por qu&eacute;? Vuelva a escribir el programa usando el m&eacute;todo <code>Math.sqrt</code> para calcular la ra&iacute;z cuadrada y ejec&uacute;telo de las dos formas. Estime la mejora en el rendimiento.</p>
+
+        <hr>
+
+        <!-- Botones de prueba y ejecucion -->
+        <form action="#">
+            <p>
+                <input id="botonCalcularRaiz" type="button" value="Calcular con Math.sqrt(n) [Optimizado]">
+                <input id="botonCalcularMitad" type="button" value="Calcular con n / 2 [Tradicional]">
+            </p>
+            <p>
+                <label for="areaPrimos"><strong>N&uacute;meros primos encontrados:</strong></label><br>
+                <textarea id="areaPrimos" readonly placeholder="Haga clic en uno de los botones para generar los números primos..."></textarea>
+            </p>
+        </form>
+
+        <div id="estadisticas" class="estadisticas">
+            <p><em>Seleccione un m&eacute;todo arriba para comparar el n&uacute;mero total de divisiones requeridas.</em></p>
+        </div>
+
+        <hr>
+
+        <h3><strong>Explicaci&oacute;n te&oacute;rica (Parte c):</strong></h3>
+        <p><strong>&iquest;Por qu&eacute; basta con evaluar hasta &radic;n?</strong></p>
+        <p>Si un n&uacute;mero compuesto <code>n</code> se puede factorizar como el producto de dos enteros <code>a &times; b = n</code>, al menos uno de los factores debe ser menor o igual a <code>&radic;n</code> (y el otro mayor o igual a <code>&radic;n</code>). Si ambos factores fueran mayores a <code>&radic;n</code>, su producto ser&iacute;a mayor que <code>n</code>. Por lo tanto, si no encontramos ning&uacute;n divisor menor o igual a <code>&radic;n</code>, garantizamos que el n&uacute;mero es primo sin necesidad de probar divisores m&aacute;s grandes.</p>
+        <p><strong>Mejora en el rendimiento:</strong> Evaluar hasta <code>n / 2</code> para 10,000 n&uacute;meros requiere alrededor de <strong>millones de divisiones</strong>, mientras que evaluar hasta <code>&radic;n</code> reduce el esfuerzo a aproximadamente <strong>118,000 divisiones</strong>, logrando una aceleraci&oacute;n dr&aacute;stica en el tiempo de procesamiento.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

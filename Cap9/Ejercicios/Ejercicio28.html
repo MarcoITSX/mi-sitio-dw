@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.28 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.28 - Cap&iacute;tulo 9</title>
+        <style type="text/css">
+            .panel-banco    { background-color: #eef7fc;
+                              border: 1px solid #b0c4de;
+                              padding: 15px;
+                              border-radius: 5px;
+                              max-width: 580px;
+                              margin-bottom: 15px; }
+            .saldo-destacado{ font-size: 1.3em;
+                              color: #1b4f72;
+                              font-weight: bold; }
+            .mensaje-conversacion { font-style: italic;
+                                  color: #7d3c98;
+                                  font-size: 1.1em;
+                                  margin-top: 10px;
+                                  font-weight: bold; }
+            .mensaje-bancarrota   { color: #c0392b;
+                                  font-weight: bold;
+                                  font-size: 1.3em;
+                                  background-color: #fadbd8;
+                                  padding: 10px;
+                                  border-radius: 5px;
+                                  border: 1px solid #e74c3c; }
+            .mensaje-ganado       { color: #27ae60; font-weight: bold; }
+            .mensaje-perdido      { color: #c0392b; font-weight: bold; }
+            .dado-caja            { font-size: 1.3em;
+                                  margin: 5px;
+                                  display: inline-block;
+                                  padding: 8px 12px;
+                                  background-color: #f4f6f7;
+                                  border: 2px solid #34495e;
+                                  border-radius: 6px; }
+        </style>
+        <script>
+            var saldoBanco = 1000;    // Saldo inicial del banco ($1000)
+            var apuestaActual = 0;    // Monto de la apuesta actual
+            var miPunto = 0;          // Punto establecido en el primer tiro
+            var juegoEnCurso = false; // Indica si hay una ronda de tiros en curso
+
+            // Registrar componentes de escucha al cargar la página
+            function iniciar()
+            {
+                var botonJugar = document.getElementById( "botonJugar" );
+                var botonTirar = document.getElementById( "botonTirar" );
+                var botonReiniciar = document.getElementById( "botonReiniciar" );
+
+                botonJugar.addEventListener( "click", iniciarJuego, false );
+                botonTirar.addEventListener( "click", tirarSubsiguiente, false );
+                botonReiniciar.addEventListener( "click", reiniciarBanco, false );
+
+                actualizarInterfaz();
+            } // fin de la función iniciar
+
+            // Reinicia el saldo y el estado del juego
+            function reiniciarBanco()
+            {
+                saldoBanco = 1000;
+                apuestaActual = 0;
+                miPunto = 0;
+                juegoEnCurso = false;
+
+                document.getElementById( "campoApuesta" ).disabled = false;
+                document.getElementById( "botonJugar" ).disabled = false;
+                document.getElementById( "botonTirar" ).disabled = true;
+                document.getElementById( "mensajes" ).className = "";
+                document.getElementById( "mensajes" ).innerHTML = "&iexcl;Nuevo juego iniciado! Introduzca su apuesta.";
+                document.getElementById( "conversacion" ).innerHTML = "";
+                document.getElementById( "dadosProcesados" ).innerHTML = "";
+                actualizarInterfaz();
+            } // fin de la función reiniciarBanco
+
+            // Muestra en la GUI el saldo actual del banco
+            function actualizarInterfaz()
+            {
+                document.getElementById( "celdaSaldo" ).innerHTML = "$" + saldoBanco.toFixed( 2 );
+            } // fin de la función actualizarInterfaz
+
+            // Selecciona una frase conversacional al azar
+            function obtenerFraseConversacional()
+            {
+                var opcion = Math.floor( 1 + Math.random() * 5 );
+
+                switch ( opcion )
+                {
+                    case 1:
+                        return "&iquest;As&iacute; que se va a quedar en bancarrota?";
+                    case 2:
+                        return "&iexcl;Vamos, arri&eacute;sguese!";
+                    case 3:
+                        return "&iexcl;Est&aacute; teniendo &eacute;xito! &iexcl;Ahora es momento de cambiar sus fichas!";
+                    case 4:
+                        return "&iexcl;La marea de la fortuna podr&iacute;a cambiar en cualquier momento!";
+                    case 5:
+                        return "&iexcl;Siga apostando fuerte, la suerte favorece a los audaces!";
+                }
+            } // fin de la función obtenerFraseConversacional
+
+            // Muestra un mensaje conversacional aleatorio en pantalla
+            function mostrarConversacion()
+            {
+                var divConversacion = document.getElementById( "conversacion" );
+                divConversacion.innerHTML = obtenerFraseConversacional();
+            } // fin de la función mostrarConversacion
+
+            // Simula el tiro de dos dados de 6 lados y devuelve su suma
+            function tirarDados()
+            {
+                var dado1 = Math.floor( 1 + Math.random() * 6 );
+                var dado2 = Math.floor( 1 + Math.random() * 6 );
+                var suma = dado1 + dado2;
+
+                document.getElementById( "dadosProcesados" ).innerHTML = 
+                    "<span class='dado-caja'>Dado 1: <strong>" + dado1 + "</strong></span>" +
+                    "<span class='dado-caja'>Dado 2: <strong>" + dado2 + "</strong></span>" +
+                    "<p>Suma de los dados: <strong>" + suma + "</strong></p>";
+
+                return suma;
+            } // fin de la función tirarDados
+
+            // Valida la apuesta e inicia la primera tirada del juego
+            function iniciarJuego()
+            {
+                var campoApuesta = document.getElementById( "campoApuesta" );
+                var apuestaInput = parseFloat( campoApuesta.value );
+                var divMensajes = document.getElementById( "mensajes" );
+
+                // Validar si la apuesta es menor o igual a saldoBanco
+                if ( isNaN( apuestaInput ) || apuestaInput <= 0 || apuestaInput > saldoBanco )
+                {
+                    divMensajes.className = "mensaje-perdido";
+                    divMensajes.innerHTML = "Apuesta no v&aacute;lida. Ingrese un monto entre $1 y $" + saldoBanco.toFixed( 2 ) + ".";
+                    campoApuesta.focus();
+                    return;
+                }
+
+                apuestaActual = apuestaInput;
+                campoApuesta.disabled = true;
+                document.getElementById( "botonJugar" ).disabled = true;
+
+                mostrarConversacion();
+
+                var suma = tirarDados();
+
+                // Evaluar reglas del primer tiro de Craps
+                switch ( suma )
+                {
+                    case 7: 
+                    case 11: // Gana en el primer tiro
+                        saldoBanco += apuestaActual;
+                        divMensajes.className = "mensaje-ganado";
+                        divMensajes.innerHTML = "&iexcl;Ha ganado el tiro inicial! Se acreditan $" + apuestaActual.toFixed( 2 ) + ".";
+                        finalizarRonda();
+                        break;
+
+                    case 2: 
+                    case 3: 
+                    case 12: // Craps (pierde en el primer tiro)
+                        saldoBanco -= apuestaActual;
+                        divMensajes.className = "mensaje-perdido";
+                        divMensajes.innerHTML = "&iexcl;Craps! Ha perdido su apuesta de $" + apuestaActual.toFixed( 2 ) + ".";
+                        finalizarRonda();
+                        break;
+
+                    default: // Establecer el punto del jugador
+                        miPunto = suma;
+                        juegoEnCurso = true;
+                        divMensajes.className = "";
+                        divMensajes.innerHTML = "Su punto es <strong>" + miPunto + "</strong>. Haga clic en <strong>Tirar dados</strong> para continuar.";
+                        document.getElementById( "botonTirar" ).disabled = false;
+                        break;
+                }
+
+                actualizarInterfaz();
+                verificarBancarrota();
+            } // fin de la función iniciarJuego
+
+            // Realiza los tiros subsiguientes hasta hacer su punto o sacar un 7
+            function tirarSubsiguiente()
+            {
+                var divMensajes = document.getElementById( "mensajes" );
+                mostrarConversacion();
+
+                var suma = tirarDados();
+
+                if ( suma === miPunto ) // Gana al sacar nuevamente su punto
+                {
+                    saldoBanco += apuestaActual;
+                    divMensajes.className = "mensaje-ganado";
+                    divMensajes.innerHTML = "&iexcl;Hizo su punto (" + miPunto + ")! &iexcl;Ha ganado $" + apuestaActual.toFixed( 2 ) + "!";
+                    finalizarRonda();
+                }
+                else if ( suma === 7 ) // Pierde al sacar un 7 antes de su punto
+                {
+                    saldoBanco -= apuestaActual;
+                    divMensajes.className = "mensaje-perdido";
+                    divMensajes.innerHTML = "Sac&oacute; un 7 antes de su punto. Ha perdido $" + apuestaActual.toFixed( 2 ) + ".";
+                    finalizarRonda();
+                }
+                else
+                {
+                    divMensajes.className = "";
+                    divMensajes.innerHTML = "Suma: <strong>" + suma + "</strong>. Su punto sigue siendo <strong>" + miPunto + "</strong>. Siga tirando.";
+                }
+
+                actualizarInterfaz();
+                verificarBancarrota();
+            } // fin de la función tirarSubsiguiente
+
+            // Concluye la ronda actual permitiendo realizar una nueva apuesta
+            function finalizarRonda()
+            {
+                juegoEnCurso = false;
+                document.getElementById( "botonTirar" ).disabled = true;
+                document.getElementById( "campoApuesta" ).disabled = false;
+                document.getElementById( "botonJugar" ).disabled = false;
+                document.getElementById( "campoApuesta" ).focus();
+            } // fin de la función finalizarRonda
+
+            // Comprueba si el saldo llegó a cero para declarar bancarrota
+            function verificarBancarrota()
+            {
+                if ( saldoBanco <= 0 )
+                {
+                    saldoBanco = 0;
+                    actualizarInterfaz();
+                    
+                    var divMensajes = document.getElementById( "mensajes" );
+                    divMensajes.className = "mensaje-bancarrota";
+                    divMensajes.innerHTML = "&iexcl;Lo siento. Est&aacute; en bancarrota!";
+
+                    document.getElementById( "campoApuesta" ).disabled = true;
+                    document.getElementById( "botonJugar" ).disabled = true;
+                    document.getElementById( "botonTirar" ).disabled = true;
+                }
+            } // fin de la función verificarBancarrota
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.28</strong></h2>
+
+        <p><strong>(Juego de Craps con apuestas)</strong> Modifique el programa de Craps de la figura 9.7 para permitir las apuestas. Inicialice la variable <code>saldoBanco</code> en 1000 d&oacute;lares. Pida al jugador que introduzca una apuesta. Revise si la apuesta es menor o igual que <code>saldoBanco</code> y, si no es as&iacute;, haga que el usuario vuelva a introducir la apuesta hasta que se introduzca una v&aacute;lida. Despu&eacute;s de introducir una apuesta v&aacute;lida, ejecute un juego de Craps. Si el jugador gana, aumente el <code>saldoBanco</code> con base en la apuesta, imprima el nuevo <code>saldoBanco</code>, revise si <code>saldoBanco</code> es cero y, de ser as&iacute;, imprima el mensaje <code>&iexcl;Lo siento. Est&aacute; en bancarrota!</code>. A medida que el juego progrese, imprima varios mensajes para crear conversaci&oacute;n, como <code>&iquest;As&iacute; que se va a quedar en bancarrota?</code>, <code>&iexcl;Vamos, arri&eacute;sguese!</code> o <code>&iexcl;Est&aacute; teniendo &eacute;xito! &iexcl;Ahora es momento de cambiar sus fichas!</code>. Implemente la conversaci&oacute;n como una funci&oacute;n separada que seleccione al azar la cadena a mostrar.</p>
+
+        <hr>
+
+        <!-- Panel de control del Banco y Apuestas -->
+        <div class="panel-banco">
+            <h3><strong>Mesa de Casino - Craps</strong></h3>
+            <p class="saldo-destacado">Saldo en Banco: <span id="celdaSaldo">$1000.00</span></p>
+
+            <form action="#">
+                <p>
+                    <label for="campoApuesta"><strong>Monto de su apuesta ($):</strong></label>
+                    <input id="campoApuesta" type="number" min="1" step="any" value="100">
+                    <input id="botonJugar" type="button" value="Apostar y Primer Tiro">
+                    <input id="botonTirar" type="button" value="Tirar dados" disabled>
+                    <input id="botonReiniciar" type="button" value="Reiniciar Banco ($1000)">
+                </p>
+            </form>
+
+            <p id="conversacion" class="mensaje-conversacion"></p>
+        </div>
+
+        <div id="dadosProcesados"></div>
+        <p id="mensajes">&iexcl;Bienvenido! Introduzca su apuesta y haga clic en Apostar.</p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

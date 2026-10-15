@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.27 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.27 - Cap&iacute;tulo 9</title>
+        <style type="text/css">
+            .panel-config { background-color: #eef2f7;
+                            border: 1px solid #c3d1e0;
+                            padding: 15px;
+                            margin-bottom: 15px;
+                            border-radius: 5px;
+                            max-width: 600px; }
+            .panel-estado { background-color: #f8f9fa;
+                            border: 1px solid #dcdfe6;
+                            padding: 10px 15px;
+                            margin-bottom: 15px;
+                            border-radius: 5px;
+                            max-width: 600px; }
+            .mensaje-final { font-size: 1.2em;
+                             padding: 12px;
+                             margin-top: 15px;
+                             border-radius: 5px;
+                             max-width: 600px; }
+            .aprobado      { background-color: #d4edda;
+                             color: #155724;
+                             border: 1px solid #c3e6cb; }
+            .reprobado     { background-color: #f8d7da;
+                             color: #721c24;
+                             border: 1px solid #f5c6cb; }
+        </style>
+        <script>
+            var num1 = 0;                 // Primer operando
+            var num2 = 0;                 // Segundo operando
+            var respuestaCorrectaActual = 0; // Respuesta matemática esperada
+            var operacionActual = "";     // Símbolo o palabra de la operación actual
+            var preguntasRespondidas = 0; // Contador de preguntas procesadas (hasta 10)
+            var respuestasCorrectas = 0;  // Contador de aciertos
+            var respuestasIncorrectas = 0;// Contador de errores
+
+            // Registrar los componentes de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var botonResponder = document.getElementById( "botonResponder" );
+                var botonReiniciar = document.getElementById( "botonReiniciar" );
+                var selectNivel = document.getElementById( "selectNivel" );
+                var selectOperacion = document.getElementById( "selectOperacion" );
+
+                botonResponder.addEventListener( "click", responder, false );
+                botonReiniciar.addEventListener( "click", reiniciarCuestionario, false );
+                selectNivel.addEventListener( "change", reiniciarCuestionario, false );
+                selectOperacion.addEventListener( "change", reiniciarCuestionario, false );
+
+                reiniciarCuestionario(); // Iniciar el primer cuestionario al cargar
+            } // fin de la función iniciar
+
+            // Reinicia los contadores e inicia un nuevo grupo de 10 preguntas
+            function reiniciarCuestionario()
+            {
+                preguntasRespondidas = 0;
+                respuestasCorrectas = 0;
+                respuestasIncorrectas = 0;
+
+                document.getElementById( "campoRespuesta" ).disabled = false;
+                document.getElementById( "botonResponder" ).disabled = false;
+                document.getElementById( "resultadoFinal" ).innerHTML = "";
+                document.getElementById( "mensaje" ).innerHTML = "";
+
+                actualizarEstado();
+                nuevaPregunta();
+            } // fin de la función reiniciarCuestionario
+
+            // Genera operandos según el nivel de grado y determina la operación según el tipo elegido
+            function nuevaPregunta()
+            {
+                var nivelGrad = parseInt( document.getElementById( "selectNivel" ).value, 10 );
+                var tipoOp = parseInt( document.getElementById( "selectOperacion" ).value, 10 );
+
+                // Determina el límite superior según el nivel (Nivel 1: 9, Nivel 2: 99, Nivel 3: 999)
+                var maxValor = Math.pow( 10, nivelGrad ) - 1;
+
+                // Si se elige la opción 5 (Entremezclar), selecciona un tipo de 1 a 4 al azar
+                var opSeleccionada = ( tipoOp === 5 ) ? Math.floor( 1 + Math.random() * 4 ) : tipoOp;
+
+                switch ( opSeleccionada )
+                {
+                    case 1: // Suma
+                        num1 = Math.floor( 1 + Math.random() * maxValor );
+                        num2 = Math.floor( 1 + Math.random() * maxValor );
+                        respuestaCorrectaActual = num1 + num2;
+                        operacionActual = "m&aacute;s";
+                        break;
+
+                    case 2: // Resta
+                        num1 = Math.floor( 1 + Math.random() * maxValor );
+                        num2 = Math.floor( 1 + Math.random() * maxValor );
+                        // Evita resultados negativos invirtiendo operandos si es necesario
+                        if ( num1 < num2 )
+                        {
+                            var temp = num1;
+                            num1 = num2;
+                            num2 = temp;
+                        }
+                        respuestaCorrectaActual = num1 - num2;
+                        operacionActual = "menos";
+                        break;
+
+                    case 3: // Multiplicación
+                        num1 = Math.floor( 1 + Math.random() * maxValor );
+                        num2 = Math.floor( 1 + Math.random() * maxValor );
+                        respuestaCorrectaActual = num1 * num2;
+                        operacionActual = "por";
+                        break;
+
+                    case 4: // División
+                        num2 = Math.floor( 1 + Math.random() * maxValor );
+                        var cociente = Math.floor( 1 + Math.random() * maxValor );
+                        num1 = num2 * cociente; // Asegura división exacta con entero
+                        respuestaCorrectaActual = cociente;
+                        operacionActual = "entre";
+                        break;
+                }
+
+                var elementoPregunta = document.getElementById( "pregunta" );
+                elementoPregunta.innerHTML = "&iquest;Cu&aacute;nto es " + num1 + " " + 
+                    operacionActual + " " + num2 + "?";
+
+                var campo = document.getElementById( "campoRespuesta" );
+                campo.value = "";
+                campo.focus();
+            } // fin de la función nuevaPregunta
+
+            // Actualiza el indicador de progreso en pantalla
+            function actualizarEstado()
+            {
+                var divEstado = document.getElementById( "estadoProgreso" );
+                divEstado.innerHTML = "<strong>Progreso:</strong> Pregunta " + 
+                    ( preguntasRespondidas < 10 ? preguntasRespondidas + 1 : 10 ) + " de 10 | " +
+                    "<strong>Correctas:</strong> " + respuestasCorrectas + " | " +
+                    "<strong>Incorrectas:</strong> " + respuestasIncorrectas;
+            } // fin de la función actualizarEstado
+
+            // Genera una respuesta positiva aleatoria
+            function generarRespuestaCorrecta()
+            {
+                var opcion = Math.floor( 1 + Math.random() * 4 );
+                switch ( opcion )
+                {
+                    case 1: return "&iexcl;Muy bien!";
+                    case 2: return "&iexcl;Excelente!";
+                    case 3: return "&iexcl;Buen trabajo!";
+                    case 4: return "&iexcl;Siga as&iacute;!";
+                }
+            } // fin de la función generarRespuestaCorrecta
+
+            // Genera un mensaje de aliento aleatorio
+            function generarRespuestaIncorrecta()
+            {
+                var opcion = Math.floor( 1 + Math.random() * 4 );
+                switch ( opcion )
+                {
+                    case 1: return "No. Intente de nuevo.";
+                    case 2: return "Equivocado. Trate una vez m&aacute;s.";
+                    case 3: return "No se d&eacute; por vencido.";
+                    case 4: return "No. Siga intentando.";
+                }
+            } // fin de la función generarRespuestaIncorrecta
+
+            // Evalúa la respuesta introducida por el estudiante
+            function responder()
+            {
+                var campoRespuesta = document.getElementById( "campoRespuesta" );
+                var respuestaUsuario = parseInt( campoRespuesta.value, 10 );
+                var mensaje = document.getElementById( "mensaje" );
+
+                if ( !isNaN( respuestaUsuario ) )
+                {
+                    ++preguntasRespondidas;
+
+                    if ( respuestaUsuario === respuestaCorrectaActual )
+                    {
+                        ++respuestasCorrectas;
+                        mensaje.innerHTML = "<span style='color: green; font-weight: bold;'>" + 
+                            generarRespuestaCorrecta() + "</span>";
+                    }
+                    else
+                    {
+                        ++respuestasIncorrectas;
+                        mensaje.innerHTML = "<span style='color: red; font-weight: bold;'>" + 
+                            generarRespuestaIncorrecta() + "</span>";
+                    }
+
+                    actualizarEstado();
+
+                    if ( preguntasRespondidas === 10 )
+                    {
+                        evaluarRendimiento();
+                    }
+                    else
+                    {
+                        nuevaPregunta();
+                    }
+                }
+                else
+                {
+                    mensaje.innerHTML = "<span style='color: red;'>Por favor, introduzca un valor num&eacute;rico v&aacute;lido.</span>";
+                }
+            } // fin de la función responder
+
+            // Calcula el porcentaje de rendimiento tras 10 preguntas
+            function evaluarRendimiento()
+            {
+                var porcentaje = ( respuestasCorrectas / 10.0 ) * 100;
+                var divResultado = document.getElementById( "resultadoFinal" );
+
+                document.getElementById( "campoRespuesta" ).disabled = true;
+                document.getElementById( "botonResponder" ).disabled = true;
+
+                if ( porcentaje < 75 )
+                {
+                    divResultado.className = "mensaje-final reprobado";
+                    divResultado.innerHTML = "<p><strong>Porcentaje de aciertos: " + porcentaje.toFixed( 0 ) + 
+                        "%</strong></p><p>Pida ayuda adicional a su instructor.</p>";
+                }
+                else
+                {
+                    divResultado.className = "mensaje-final aprobado";
+                    divResultado.innerHTML = "<p><strong>Porcentaje de aciertos: " + porcentaje.toFixed( 0 ) + 
+                        "%</strong></p><p>&iexcl;Felicidades! Est&aacute; listo para pasar al siguiente nivel.</p>";
+                }
+            } // fin de la función evaluarRendimiento
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.27</strong></h2>
+
+        <p><strong>(Proyecto: Instrucci&oacute;n asistida por computadora)</strong> Los ejercicios 9.22 al 9.24 desarrollaron un programa de instrucci&oacute;n asistida por computadora para ense&ntilde;ar a un estudiante de primaria a multiplicar. Este ejercicio sugiere mejoras a ese programa.</p>
+        <p><strong>a)</strong> Modifique el programa para que permita al usuario introducir la capacidad de nivel de grado. Un nivel de grado de 1 significa que usa d&iacute;gitos de un solo n&uacute;mero en los problemas, un nivel de grado de 2 significa que usa n&uacute;meros de hasta dos d&iacute;gitos, y as&iacute; en lo sucesivo.</p>
+        <p><strong>b)</strong> Modifique el programa para permitir al usuario elegir el tipo de problemas aritm&eacute;ticos que desea estudiar. Una opci&oacute;n de 1 significa s&oacute;lo problemas de suma, 2 significa s&oacute;lo problemas de resta, 3 significa s&oacute;lo problemas de multiplicaci&oacute;n, 4 significa s&oacute;lo problemas de divisi&oacute;n y 5 significa entremezclar al azar problemas de todos estos tipos.</p>
+
+        <hr>
+
+        <!-- Panel de Configuración -->
+        <div class="panel-config">
+            <h3><strong>Configuraci&oacute;n del Cuestionario</strong></h3>
+            <p>
+                <label for="selectNivel"><strong>a) Nivel de grado:</strong></label>
+                <select id="selectNivel">
+                    <option value="1" selected>Nivel 1 (1 d&iacute;gito: 1 a 9)</option>
+                    <option value="2">Nivel 2 (Hasta 2 d&iacute;gitos: 1 a 99)</option>
+                    <option value="3">Nivel 3 (Hasta 3 d&iacute;gitos: 1 a 999)</option>
+                </select>
+            </p>
+            <p>
+                <label for="selectOperacion"><strong>b) Tipo de problema aritm&eacute;tico:</strong></label>
+                <select id="selectOperacion">
+                    <option value="1">1 - S&oacute;lo problemas de suma</option>
+                    <option value="2">2 - S&oacute;lo problemas de resta</option>
+                    <option value="3" selected>3 - S&oacute;lo problemas de multiplicaci&oacute;n</option>
+                    <option value="4">4 - S&oacute;lo problemas de divisi&oacute;n</option>
+                    <option value="5">5 - Entremezclar todos los tipos al azar</option>
+                </select>
+            </p>
+        </div>
+
+        <!-- Panel de progreso e interfaz interactiva -->
+        <div id="estadoProgreso" class="panel-estado"></div>
+
+        <form action="#">
+            <p id="pregunta" style="font-size: 1.25em; font-weight: bold;"></p>
+            <p>
+                <label>Su respuesta:
+                    <input id="campoRespuesta" type="number">
+                </label>
+                <input id="botonResponder" type="button" value="Enviar respuesta">
+                <input id="botonReiniciar" type="button" value="Nuevo Cuestionario">
+            </p>
+        </form>
+
+        <p id="mensaje"></p>
+        <div id="resultadoFinal"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

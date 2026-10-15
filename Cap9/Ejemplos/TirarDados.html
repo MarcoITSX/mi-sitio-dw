@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<!-- Fig. 9.5: TirarDados.html -->
+<!-- Generación de imágenes aleatorias de dados usando Math.random. -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Im&aacute;genes aleatorias de dados</title>
+    <style type="text/css">
+        li { display: inline; margin-right: 10px; }
+        ul { margin: 0; }
+    </style>
+    <script>
+        // variables utilizadas para interactuar con los elementos img
+        var imagenDado1;
+        var imagenDado2;
+        var imagenDado3;
+        var imagenDado4;
+
+        // registrar componente de escucha del botón y obtener los elementos img
+        function iniciar()
+        {
+            var boton = document.getElementById( "botonTirar" );
+            boton.addEventListener( "click", tirarDados, false );
+            imagenDado1 = document.getElementById( "dado1" );
+            imagenDado2 = document.getElementById( "dado2" );
+            imagenDado3 = document.getElementById( "dado3" );
+            imagenDado4 = document.getElementById( "dado4" );
+        } // fin de la función iniciar
+
+        // tirar los dados
+        function tirarDados()
+        {
+            establecerImagen( imagenDado1 );
+            establecerImagen( imagenDado2 );
+            establecerImagen( imagenDado3 );
+            establecerImagen( imagenDado4 );
+        } // fin de la función tirarDados
+
+        // seleccionar el origen de la imagen de un dado
+        function establecerImagen( imgDado )
+        {
+            var valorDado = Math.floor( 1 + Math.random() * 6 );
+            imgDado.setAttribute( "src", "Imagenes/dado" + valorDado + ".png" );
+            imgDado.setAttribute( "alt", 
+                "imagen de un dado con " + valorDado + " punto(s)" );
+        } // fin de la función establecerImagen
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+
+    <!-- Enlaces de navegación -->
+    <p>
+        <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+        <a href="../../Index.html">Portal Principal</a>
+    </p>
+    <hr>
+
+    <form action="#">
+        <input id="botonTirar" type="button" value="Tirar dados">
+    </form>
+    <ol>
+        <li><img id="dado1" src="Imagenes/blanco.png" alt="imagen en blanco"></li>
+        <li><img id="dado2" src="Imagenes/blanco.png" alt="imagen en blanco"></li>
+        <li><img id="dado3" src="Imagenes/blanco.png" alt="imagen en blanco"></li>
+        <li><img id="dado4" src="Imagenes/blanco.png" alt="imagen en blanco"></li>
+    </ol>
+
+    <hr>
+    <p>
+        <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+        <a href="../../Index.html">Portal Principal</a>
+    </p>
+
+</body>
+</html>

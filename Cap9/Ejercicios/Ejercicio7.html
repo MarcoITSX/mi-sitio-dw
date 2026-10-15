@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.7 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.7 - Cap&iacute;tulo 9</title>
+        <script>
+            // Registrar el componente de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var boton = document.getElementById( "botonCalcular" );
+                boton.addEventListener( "click", mostrarArea, false );
+            } // fin de la función iniciar
+
+            // Obtener la entrada del usuario y mostrar el resultado
+            function mostrarArea()
+            {
+                var campoEntrada = document.getElementById( "campoRadio" );
+                var radio = parseFloat( campoEntrada.value );
+                var resultado = document.getElementById( "resultado" );
+                
+                if ( !isNaN( radio ) && radio >= 0 )
+                {
+                    resultado.innerHTML = "El &aacute;rea del c&iacute;rculo con radio " + 
+                        radio + " es: " + areaCirculo( radio ).toFixed( 2 );
+                }
+                else
+                {
+                    resultado.innerHTML = "Por favor, introduzca un valor num&eacute;rico v&aacute;lido mayor o igual a cero.";
+                }
+            } // fin de la función mostrarArea
+
+            // Función para calcular el área de un círculo dado su radio
+            function areaCirculo( radio )
+            {
+                return Math.PI * Math.pow( radio, 2 );
+            } // fin de la función areaCirculo
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.7</strong></h2>
+
+        <p><strong>Escriba una secuencia de comandos que use un formulario (<code>form</code>) para obtener el radio de un c&iacute;rculo del usuario y despu&eacute;s llame a la funci&oacute;n <code>areaCirculo</code> para calcular el &aacute;rea del c&iacute;rculo y mostrar el resultado en un p&aacute;rrafo en la p&aacute;gina.</strong></p>
+
+        <hr>
+
+        <!-- Formulario interactivo para recibir el radio -->
+        <form action="#">
+            <p>
+                <label>Radio del c&iacute;rculo:
+                    <input id="campoRadio" type="number" step="any">
+                </label>
+                <input id="botonCalcular" type="button" value="Calcular &Aacute;rea">
+            </p>
+        </form>
+        <p id="resultado"></p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

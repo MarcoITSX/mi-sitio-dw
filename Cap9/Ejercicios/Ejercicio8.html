@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.8 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.8 - Cap&iacute;tulo 9</title>
+        <style type="text/css">
+            table           { width: 450px;
+                              border-collapse: collapse;
+                              background-color: lightblue;
+                              margin-top: 15px; }
+            table, td, th   { border: 1px solid black;
+                              padding: 6px; }
+            th              { text-align: left;
+                              color: white;
+                              background-color: darkblue; }
+            tr.total        { background-color: #d0e0f0;
+                              font-weight: bold; }
+        </style>
+        <script>
+            var totalRecibos = 0.0;   // Acumulador del total corriente de los recibos
+            var contadorClientes = 0; // Contador de clientes procesados
+
+            // Registrar el componente de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var boton = document.getElementById( "botonCalcular" );
+                boton.addEventListener( "click", procesarCliente, false );
+            } // fin de la función iniciar
+
+            // Función para determinar el cargo según las horas estacionado
+            function calcularCargos( horas )
+            {
+                var cargoMinimo = 2.00;
+                var cuotaAdicional = 0.50;
+                var cargoMaximo = 10.00;
+
+                if ( horas <= 3.0 )
+                {
+                    return cargoMinimo;
+                }
+                else
+                {
+                    // $0.50 adicionales por cada hora o fracción que exceda las 3 horas
+                    var cargo = cargoMinimo + Math.ceil( horas - 3.0 ) * cuotaAdicional;
+                    return Math.min( cargo, cargoMaximo );
+                }
+            } // fin de la función calcularCargos
+
+            // Procesa los datos del cliente actual y actualiza el total corriente
+            function procesarCliente()
+            {
+                var campoHoras = document.getElementById( "campoHoras" );
+                var horas = parseFloat( campoHoras.value );
+                var resultado = document.getElementById( "resultado" );
+                var tablaCargos = document.getElementById( "cuerpoTabla" );
+
+                if ( !isNaN( horas ) && horas > 0 && horas <= 24 )
+                {
+                    var cargoCliente = calcularCargos( horas );
+                    totalRecibos += cargoCliente;
+                    ++contadorClientes;
+
+                    // Despliega el cargo individual y el acumulado general
+                    resultado.innerHTML = "<p><strong>Cliente " + contadorClientes + ":</strong> Horas = " + 
+                        horas.toFixed( 1 ) + " | Cargo actual = <strong>$" + cargoCliente.toFixed( 2 ) + 
+                        "</strong></p><p><strong>Total corriente de recibos: $" + 
+                        totalRecibos.toFixed( 2 ) + "</strong></p>";
+
+                    // Agrega la fila correspondiente a la tabla resumen
+                    var nuevaFila = "<tr><td>Cliente " + contadorClientes + "</td><td>" + 
+                        horas.toFixed( 1 ) + " hrs</td><td>$" + cargoCliente.toFixed( 2 ) + "</td></tr>";
+                    tablaCargos.innerHTML += nuevaFila;
+
+                    document.getElementById( "celdaTotal" ).innerHTML = "$" + totalRecibos.toFixed( 2 );
+
+                    // Limpia el campo para ingresar el siguiente cliente
+                    campoHoras.value = "";
+                }
+                else
+                {
+                    resultado.innerHTML = "<p style='color: red;'>Por favor, introduzca un número de horas válido entre 0.1 y 24.</p>";
+                }
+            } // fin de la función procesarCliente
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.8</strong></h2>
+
+        <p><strong>(Cargos de estacionamiento)</strong> Un estacionamiento cobra una cuota m&iacute;nima de $2 por estacionarse hasta tres horas. El estacionamiento cobra $0.50 adicionales por cada hora o fracci&oacute;n que exceda las tres horas. El cargo m&aacute;ximo por un periodo de 24 horas es de $10.00. Suponga que no hay autos que se estacionen por m&aacute;s de 24 horas a la vez. Escriba una secuencia de comandos que calcule y muestre los cargos de estacionamiento por cada cliente que haya estacionado su auto en este lote ayer. Debe usar un elemento <code>form</code> para recibir del usuario las horas que se estacion&oacute; cada cliente. El programa debe mostrar el cargo para el cliente actual; adem&aacute;s debe calcular y mostrar el total corriente de los recibos de ayer. El programa debe usar la funci&oacute;n <code>calcularCargos</code> para determinar el cargo para cada cliente.</p>
+
+        <hr>
+
+        <!-- Formulario interactivo para ingresar las horas -->
+        <form action="#">
+            <p>
+                <label>Horas estacionado (m&aacute;x. 24):
+                    <input id="campoHoras" type="number" step="any" min="0.1" max="24">
+                </label>
+                <input id="botonCalcular" type="button" value="Calcular Cargo">
+            </p>
+        </form>
+
+        <div id="resultado"></div>
+
+        <h3><strong>Resumen de recibos</strong></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Horas</th>
+                    <th>Cargo</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+            </tbody>
+            <tfoot>
+                <tr class="total">
+                    <td colspan="2">Total Corriente Acumulado</td>
+                    <td id="celdaTotal">$0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

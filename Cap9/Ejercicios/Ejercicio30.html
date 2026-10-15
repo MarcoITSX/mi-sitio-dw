@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.30: ej09_30.html -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.30 - Cap&iacute;tulo 9</title>
+        <style type="text/css">
+            .panel-codigo   { background-color: #272822;
+                              color: #f8f8f2;
+                              padding: 12px;
+                              border-radius: 5px;
+                              font-family: monospace;
+                              font-size: 1.05em;
+                              max-width: 600px; }
+            .panel-calculo  { background-color: #f8f9fa;
+                              border: 1px solid #dcdfe6;
+                              padding: 15px;
+                              border-radius: 5px;
+                              max-width: 600px;
+                              margin-top: 15px; }
+            .traza-stack    { background-color: #eef7fc;
+                              border-left: 4px solid #3498db;
+                              padding: 12px;
+                              margin-top: 15px;
+                              max-width: 600px; }
+            .resultado      { font-size: 1.2em;
+                              font-weight: bold;
+                              color: #1b4f72;
+                              margin-top: 10px; }
+        </style>
+        <script>
+            // Registrar el componente de escucha al cargar la ventana
+            function iniciar()
+            {
+                var botonCalcular = document.getElementById( "botonCalcular" );
+                botonCalcular.addEventListener( "click", probarMisterio, false );
+            } // fin de la función iniciar
+
+            // Función recursiva misterio(a, b) proporcionada en el ejercicio
+            // El parámetro b debe ser entero positivo para evitar recursividad infinita
+            function misterio( a, b )
+            {
+                if ( b == 1 )
+                    return a;
+                else
+                    return a + misterio( a, b - 1 );
+            } // fin de la función misterio
+
+            // Función para probar la ejecución e imprimir la traza de llamadas
+            function probarMisterio()
+            {
+                var campoA = document.getElementById( "campoA" );
+                var campoB = document.getElementById( "campoB" );
+
+                var valA = parseInt( campoA.value, 10 );
+                var valB = parseInt( campoB.value, 10 );
+
+                var divResultado = document.getElementById( "resultado" );
+                var divTraza = document.getElementById( "traza" );
+
+                if ( !isNaN( valA ) && !isNaN( valB ) && valB >= 1 )
+                {
+                    var res = misterio( valA, valB );
+
+                    divResultado.innerHTML = "<p class='resultado'>misterio( " + valA + 
+                        ", " + valB + " ) = <strong>" + res + "</strong></p>";
+
+                    // Generar la traza paso a paso del desapilamiento recursivo
+                    var trazaTexto = "<h3><strong>Traza de ejecuci&oacute;n paso a paso:</strong></h3><ul>";
+                    for ( var i = valB; i > 1; --i )
+                    {
+                        trazaTexto += "<li>misterio(" + valA + ", " + i + ") = " + valA + 
+                            " + misterio(" + valA + ", " + (i - 1) + ")</li>";
+                    }
+                    trazaTexto += "<li><strong>Caso base:</strong> misterio(" + valA + ", 1) devuelve " + valA + "</li></ul>";
+                    
+                    trazaTexto += "<p><strong>Evaluaci&oacute;n final (sumas acumuladas):</strong> ";
+                    var sumandos = [];
+                    for ( var k = 0; k < valB; ++k )
+                    {
+                        sumandos.push( valA );
+                    }
+                    trazaTexto += sumandos.join( " + " ) + " = <strong>" + res + "</strong></p>";
+
+                    divTraza.innerHTML = trazaTexto;
+                }
+                else
+                {
+                    divResultado.innerHTML = "<span style='color: red;'>Por favor, introduzca enteros v&aacute;lidos (el valor de 'b' debe ser mayor o igual a 1).</span>";
+                    divTraza.innerHTML = "";
+                }
+            } // fin de la función probarMisterio
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.30</strong></h2>
+
+        <p><strong>&iquest;Qu&eacute; hace la siguiente funci&oacute;n?</strong></p>
+
+        <!-- Código de la función presentado en el texto -->
+        <div class="panel-codigo">
+<pre><code>// El parámetro b debe ser entero
+// positivo para evitar recursividad infinita
+function misterio( a, b )
+{
+    if ( b == 1 )
+        return a;
+    else
+        return a + misterio( a, b - 1 );
+}</code></pre>
+        </div>
+
+        <hr>
+
+        <h3><strong>Respuesta:</strong></h3>
+        <p>La funci&oacute;n <code>misterio( a, b )</code> calcula el <strong>producto o multiplicaci&oacute;n entera de dos n&uacute;meros (<code>a &times; b</code>)</strong> mediante el uso de <strong>sumas sucesivas recursivas</strong>.</p>
+
+        <p><strong>Explicaci&oacute;n del funcionamiento:</strong></p>
+        <ul>
+            <li><strong>Caso base (condici&oacute;n de terminaci&oacute;n):</strong> Cuando <code>b == 1</code>, la funci&oacute;n devuelve el valor de <code>a</code>.</li>
+            <li><strong>Paso de recursividad:</strong> Si <code>b &gt; 1</code>, la funci&oacute;n suma <code>a</code> al resultado devuelto por la llamada recursiva <code>misterio( a, b - 1 )</code>.</li>
+            <li>En efecto, la funci&oacute;n suma el valor de <code>a</code> a s&iacute; mismo un total de <code>b</code> veces. Por esta raz&oacute;n, el argumento <code>b</code> debe ser un entero positivo (<code>b &ge; 1</code>) para garantizar que el valor se reduzca progresivamente hasta alcanzar el caso base y evitar un ciclo de recursividad infinita.</li>
+        </ul>
+
+        <hr>
+
+        <!-- Demostración interactiva de la función -->
+        <div class="panel-calculo">
+            <h3><strong>Demostraci&oacute;n interactiva:</strong></h3>
+            <form action="#">
+                <p>
+                    <label for="campoA"><strong>Valor de 'a':</strong></label>
+                    <input id="campoA" type="number" value="3">
+                </p>
+                <p>
+                    <label for="campoB"><strong>Valor de 'b' (&ge; 1):</strong></label>
+                    <input id="campoB" type="number" min="1" value="4">
+                </p>
+                <p>
+                    <input id="botonCalcular" type="button" value="Probar función misterio(a, b)">
+                </p>
+            </form>
+
+            <div id="resultado"></div>
+        </div>
+
+        <div id="traza" class="traza-stack"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html> 

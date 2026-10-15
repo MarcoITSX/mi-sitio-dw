@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.14 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.14 - Cap&iacute;tulo 9</title>
+        <script>
+            // Registrar el componente de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var boton = document.getElementById( "botonCalcular" );
+                boton.addEventListener( "click", evaluarMultiplo, false );
+            } // fin de la función iniciar
+
+            // Función que evalúa si el segundo entero es múltiplo del primero
+            function multiplo( primerEntero, segundoEntero )
+            {
+                return segundoEntero % primerEntero === 0;
+            } // fin de la función multiplo
+
+            // Obtener los datos del formulario y mostrar el resultado
+            function evaluarMultiplo()
+            {
+                var campoPrimer = document.getElementById( "campoPrimerEntero" );
+                var campoSegundo = document.getElementById( "campoSegundoEntero" );
+
+                var num1 = parseInt( campoPrimer.value, 10 );
+                var num2 = parseInt( campoSegundo.value, 10 );
+
+                var resultado = document.getElementById( "resultado" );
+
+                if ( !isNaN( num1 ) && !isNaN( num2 ) )
+                {
+                    if ( num1 === 0 )
+                    {
+                        resultado.innerHTML = "<span style='color: red;'>El primer número no puede ser cero (no se puede dividir entre cero).</span>";
+                    }
+                    else if ( multiplo( num1, num2 ) )
+                    {
+                        resultado.innerHTML = "El número <strong>" + num2 + 
+                            "</strong> SÍ es múltiplo de <strong>" + num1 + "</strong>.";
+                    }
+                    else
+                    {
+                        resultado.innerHTML = "El número <strong>" + num2 + 
+                            "</strong> NO es múltiplo de <strong>" + num1 + "</strong>.";
+                    }
+                }
+                else
+                {
+                    resultado.innerHTML = "<span style='color: red;'>Por favor, introduzca dos números enteros válidos.</span>";
+                }
+            } // fin de la función evaluarMultiplo
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.14</strong></h2>
+
+        <p><strong>(M&uacute;ltiplos)</strong> Escriba una funci&oacute;n llamada <code>multiplo</code> que determine para un par de enteros si el segundo es m&uacute;ltiplo del primero. La funci&oacute;n debe recibir dos argumentos enteros y devolver <code>true</code> si el segundo es m&uacute;ltiplo del primero, y <code>false</code> en caso contrario. Incorpore esta funci&oacute;n en una secuencia de comandos que reciba como entrada una serie de pares de enteros (un par a la vez). El formulario de HTML5 debe consistir en dos campos de texto y un bot&oacute;n para iniciar el c&aacute;lculo. El usuario debe interactuar con el programa escribiendo n&uacute;meros en ambos textos y luego haciendo clic en el bot&oacute;n.</p>
+
+        <hr>
+
+        <!-- Formulario interactivo para recibir los dos enteros -->
+        <form action="#">
+            <p>
+                <label>Primer entero (divisor): <input id="campoPrimerEntero" type="number"></label>
+            </p>
+            <p>
+                <label>Segundo entero (m&uacute;ltiplo a evaluar): <input id="campoSegundoEntero" type="number"></label>
+            </p>
+            <p>
+                <input id="botonCalcular" type="button" value="Evaluar M&uacute;ltiplo">
+            </p>
+        </form>
+
+        <p id="resultado"></p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

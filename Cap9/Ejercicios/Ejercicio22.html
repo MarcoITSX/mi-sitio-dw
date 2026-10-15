@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.22 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.22 - Cap&iacute;tulo 9</title>
+        <script>
+            var num1 = 0; // Primer operando aleatorio
+            var num2 = 0; // Segundo operando aleatorio
+
+            // Registrar los componentes de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var botonResponder = document.getElementById( "botonResponder" );
+                botonResponder.addEventListener( "click", responder, false );
+                nuevaPregunta(); // Llamada inicial para generar la primera pregunta
+            } // fin de la función iniciar
+
+            // Función separada para generar cada pregunta nueva
+            function nuevaPregunta()
+            {
+                // Genera dos enteros positivos de un solo dígito (de 1 a 9)
+                num1 = Math.floor( 1 + Math.random() * 9 );
+                num2 = Math.floor( 1 + Math.random() * 9 );
+
+                var elementoPregunta = document.getElementById( "pregunta" );
+                elementoPregunta.innerHTML = "&iquest;Cu&aacute;nto es " + num1 + " por " + num2 + "?";
+
+                // Limpiar respuesta previa y restablecer foco en el campo
+                document.getElementById( "campoRespuesta" ).value = "";
+                document.getElementById( "campoRespuesta" ).focus();
+            } // fin de la función nuevaPregunta
+
+            // Verifica la respuesta introducida por el estudiante
+            function responder()
+            {
+                var campoRespuesta = document.getElementById( "campoRespuesta" );
+                var respuestaUsuario = parseInt( campoRespuesta.value, 10 );
+                var mensaje = document.getElementById( "mensaje" );
+
+                if ( !isNaN( respuestaUsuario ) )
+                {
+                    if ( respuestaUsuario === ( num1 * num2 ) )
+                    {
+                        mensaje.innerHTML = "<span style='color: green; font-weight: bold;'>&iexcl;Muy bien!</span>";
+                        nuevaPregunta(); // Generar nueva pregunta al responder correctamente
+                    }
+                    else
+                    {
+                        mensaje.innerHTML = "<span style='color: red; font-weight: bold;'>No. Intente de nuevo.</span>";
+                        campoRespuesta.focus();
+                    }
+                }
+                else
+                {
+                    mensaje.innerHTML = "<span style='color: red;'>Por favor, introduzca un valor num&eacute;rico v&aacute;lido.</span>";
+                }
+            } // fin de la función responder
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.22</strong></h2>
+
+        <p><strong>(Instrucci&oacute;n asistida por computadora)</strong> Las computadoras desempe&ntilde;an un papel cada vez mayor en la educaci&oacute;n. Escriba un programa que ayude a un estudiante de primaria para que aprenda a multiplicar. Use <code>Math.random</code> para producir dos enteros positivos de un d&iacute;gito. Despu&eacute;s deber&aacute; mostrar una pregunta tal como:</p>
+        <p><code>&iquest;Cu&aacute;nto es 6 por 7?</code></p>
+        <p>A continuaci&oacute;n, el estudiante escribir&aacute; la respuesta en un campo de texto. Su programa deber&aacute; verificar la respuesta del estudiante. Si es correcta, muestre la cadena <code>"&iexcl;Muy bien!"</code> y genere una nueva pregunta. Si la respuesta es equivocada, muestre la cadena <code>"No. Intente de nuevo."</code> y deje que el estudiante intente la misma pregunta otra vez en forma repetida, hasta que por fin la saque bien. Deber&aacute; usarse una funci&oacute;n separada para generar cada pregunta nueva. Esta funci&oacute;n deber&aacute; llamarse una vez cuando la secuencia de comandos empiece su ejecuci&oacute;n y cada vez que el usuario responda de manera correcta a la pregunta.</p>
+
+        <hr>
+
+        <!-- Formulario interactivo para la instrucción CAI -->
+        <form action="#">
+            <p id="pregunta" style="font-size: 1.2em; font-weight: bold;"></p>
+            <p>
+                <label>Su respuesta:
+                    <input id="campoRespuesta" type="number">
+                </label>
+                <input id="botonResponder" type="button" value="Enviar respuesta">
+            </p>
+        </form>
+
+        <p id="mensaje"></p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

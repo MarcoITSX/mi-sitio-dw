@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.23 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.23 - Cap&iacute;tulo 9</title>
+        <script>
+            var num1 = 0; // Primer operando aleatorio
+            var num2 = 0; // Segundo operando aleatorio
+
+            // Registrar los componentes de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var botonResponder = document.getElementById( "botonResponder" );
+                botonResponder.addEventListener( "click", responder, false );
+                nuevaPregunta(); // Generar la primera pregunta al cargar la página
+            } // fin de la función iniciar
+
+            // Genera una nueva pregunta con operandos aleatorios
+            function nuevaPregunta()
+            {
+                num1 = Math.floor( 1 + Math.random() * 9 );
+                num2 = Math.floor( 1 + Math.random() * 9 );
+
+                var elementoPregunta = document.getElementById( "pregunta" );
+                elementoPregunta.innerHTML = "&iquest;Cu&aacute;nto es " + num1 + " por " + num2 + "?";
+
+                document.getElementById( "campoRespuesta" ).value = "";
+                document.getElementById( "campoRespuesta" ).focus();
+            } // fin de la función nuevaPregunta
+
+            // Selecciona aleatoriamente un mensaje positivo mediante switch
+            function generarRespuestaCorrecta()
+            {
+                var opcion = Math.floor( 1 + Math.random() * 4 );
+
+                switch ( opcion )
+                {
+                    case 1:
+                        return "&iexcl;Muy bien!";
+                    case 2:
+                        return "&iexcl;Excelente!";
+                    case 3:
+                        return "&iexcl;Buen trabajo!";
+                    case 4:
+                        return "&iexcl;Siga as&iacute;!";
+                }
+            } // fin de la función generarRespuestaCorrecta
+
+            // Selecciona aleatoriamente un mensaje de aliento mediante switch
+            function generarRespuestaIncorrecta()
+            {
+                var opcion = Math.floor( 1 + Math.random() * 4 );
+
+                switch ( opcion )
+                {
+                    case 1:
+                        return "No. Intente de nuevo.";
+                    case 2:
+                        return "Equivocado. Trate una vez m&aacute;s.";
+                    case 3:
+                        return "No se d&eacute; por vencido.";
+                    case 4:
+                        return "No. Siga intentando.";
+                }
+            } // fin de la función generarRespuestaIncorrecta
+
+            // Evalúa la respuesta enviada por el estudiante
+            function responder()
+            {
+                var campoRespuesta = document.getElementById( "campoRespuesta" );
+                var respuestaUsuario = parseInt( campoRespuesta.value, 10 );
+                var mensaje = document.getElementById( "mensaje" );
+
+                if ( !isNaN( respuestaUsuario ) )
+                {
+                    if ( respuestaUsuario === ( num1 * num2 ) )
+                    {
+                        mensaje.innerHTML = "<span style='color: green; font-weight: bold;'>" + 
+                            generarRespuestaCorrecta() + "</span>";
+                        nuevaPregunta();
+                    }
+                    else
+                    {
+                        mensaje.innerHTML = "<span style='color: red; font-weight: bold;'>" + 
+                            generarRespuestaIncorrecta() + "</span>";
+                        campoRespuesta.focus();
+                    }
+                }
+                else
+                {
+                    mensaje.innerHTML = "<span style='color: red;'>Por favor, introduzca un valor num&eacute;rico v&aacute;lido.</span>";
+                }
+            } // fin de la función responder
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.23</strong></h2>
+
+        <p><strong>(Instrucci&oacute;n asistida por computadora: respuestas variadas)</strong> El uso de las computadoras en la educaci&oacute;n se conoce como <em>instrucci&oacute;n asistida por computadora (CAI)</em>. Un problema que se desarrolla en los entornos CAI es la fatiga de los estudiantes. Este problema puede eliminarse si se var&iacute;a el di&aacute;logo de la computadora para mantener la atenci&oacute;n del estudiante. Modifique el programa del ejercicio 9.22 para que imprima una variedad de contenido para cada respuesta correcta y cada respuesta incorrecta. Use la generaci&oacute;n de n&uacute;meros aleatorios para elegir un n&uacute;mero del 1 al 4 que se utilice para seleccionar una respuesta apropiada a cada cuesti&oacute;n. Use una instrucci&oacute;n <code>switch</code> para emitir las respuestas.</p>
+
+        <hr>
+
+        <!-- Formulario interactivo CAI -->
+        <form action="#">
+            <p id="pregunta" style="font-size: 1.2em; font-weight: bold;"></p>
+            <p>
+                <label>Su respuesta:
+                    <input id="campoRespuesta" type="number">
+                </label>
+                <input id="botonResponder" type="button" value="Enviar respuesta">
+            </p>
+        </form>
+
+        <p id="mensaje"></p>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

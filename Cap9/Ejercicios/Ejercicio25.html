@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.25 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.25 - Cap&iacute;tulo 9</title>
+        <style type="text/css">
+            .mensaje-alto  { color: #c0392b; font-weight: bold; }
+            .mensaje-bajo  { color: #d35400; font-weight: bold; }
+            .mensaje-exito { color: #27ae60; font-weight: bold; font-size: 1.2em; }
+            .panel-juego   { background-color: #f8f9fa;
+                             border: 1px solid #dcdfe6;
+                             padding: 15px;
+                             border-radius: 5px;
+                             max-width: 580px; }
+        </style>
+        <script>
+            var numeroSecreto = 0; // Número aleatorio a adivinar (entre 1 y 1000)
+
+            // Registrar los componentes de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var botonEnviar = document.getElementById( "botonEnviar" );
+                var botonReiniciar = document.getElementById( "botonReiniciar" );
+
+                botonEnviar.addEventListener( "click", evaluarIntento, false );
+                botonReiniciar.addEventListener( "click", nuevoJuego, false );
+
+                nuevoJuego(); // Iniciar el primer juego al cargar
+            } // fin de la función iniciar
+
+            // Genera un nuevo número aleatorio entre 1 y 1000 y reinicia la interfaz
+            function nuevoJuego()
+            {
+                numeroSecreto = Math.floor( 1 + Math.random() * 1000 );
+
+                var campoIntento = document.getElementById( "campoIntento" );
+                campoIntento.value = "";
+                campoIntento.disabled = false;
+
+                document.getElementById( "botonEnviar" ).disabled = false;
+                document.getElementById( "mensaje" ).innerHTML = "";
+                campoIntento.focus();
+            } // fin de la función nuevoJuego
+
+            // Evalúa el intento introducido por el usuario
+            function evaluarIntento()
+            {
+                var campoIntento = document.getElementById( "campoIntento" );
+                var intento = parseInt( campoIntento.value, 10 );
+                var divMensaje = document.getElementById( "mensaje" );
+
+                if ( !isNaN( intento ) && intento >= 1 && intento <= 1000 )
+                {
+                    if ( intento > numeroSecreto )
+                    {
+                        divMensaje.className = "mensaje-alto";
+                        divMensaje.innerHTML = "Demasiado alto. Intente de nuevo.";
+                        campoIntento.value = ""; // Borrar el campo para el siguiente intento
+                        campoIntento.focus();
+                    }
+                    else if ( intento < numeroSecreto )
+                    {
+                        divMensaje.className = "mensaje-bajo";
+                        divMensaje.innerHTML = "Demasiado bajo. Intente de nuevo.";
+                        campoIntento.value = ""; // Borrar el campo para el siguiente intento
+                        campoIntento.focus();
+                    }
+                    else
+                    {
+                        divMensaje.className = "mensaje-exito";
+                        divMensaje.innerHTML = "Felicidades. &iexcl;Adivin&oacute; el n&uacute;mero!";
+                        campoIntento.value = ""; // Borrar el campo de texto
+                        campoIntento.disabled = true; // Bloquear hasta iniciar un nuevo juego
+                        document.getElementById( "botonEnviar" ).disabled = true;
+                    }
+                }
+                else
+                {
+                    divMensaje.className = "";
+                    divMensaje.innerHTML = "<span style='color: red;'>Por favor, introduzca un n&uacute;mero entero v&aacute;lido entre 1 y 1000.</span>";
+                }
+            } // fin de la función evaluarIntento
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.25</strong></h2>
+
+        <p><strong>(Adivinar el n&uacute;mero)</strong> Escriba una secuencia de comandos que juegue a &quot;adivinar el n&uacute;mero&quot; de la siguiente manera: su programa debe elegir el n&uacute;mero a adivinar, para lo cual se selecciona un entero aleatorio en el rango de 1 a 1000. La secuencia de comandos muestra el indicador <code>Adivine un n&uacute;mero entre 1 y 1000</code> enseguida de un campo de texto. El jugador escribe su primer intento en el campo de texto y hace clic en un bot&oacute;n para enviarlo a la secuencia de comandos. Si el intento del jugador es incorrecto, su programa deber&aacute; mostrar los mensajes <code>Demasiado alto. Intente de nuevo.</code> o <code>Demasiado bajo. Intente de nuevo.</code> para ayudar al jugador a &quot;acercarse&quot; a la respuesta correcta y deber&aacute; borrar el campo de texto para que el usuario pueda introducir el siguiente intento. Cuando el usuario introduzca la respuesta correcta, muestre el mensaje <code>Felicidades. &iexcl;Adivin&oacute; el n&uacute;mero!</code> y borre el campo de texto para que el usuario pueda jugar otra vez.</p>
+
+        <hr>
+
+        <!-- Panel interactivo del juego -->
+        <div class="panel-juego">
+            <form action="#">
+                <p>
+                    <label for="campoIntento"><strong>Adivine un n&uacute;mero entre 1 y 1000:</strong></label>
+                    <input id="campoIntento" type="number" min="1" max="1000">
+                    <input id="botonEnviar" type="button" value="Enviar intento">
+                    <input id="botonReiniciar" type="button" value="Jugar de nuevo">
+                </p>
+            </form>
+            <p id="mensaje"></p>
+        </div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

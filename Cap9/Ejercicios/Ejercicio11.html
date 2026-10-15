@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.11 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.11 - Cap&iacute;tulo 9</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.11</strong></h2>
+
+        <p><strong>Escriba instrucciones que asignen enteros aleatorios a la variable <code>n</code> en los siguientes rangos:</strong></p>
+
+        <p><strong>a) 1 &le; n &le; 2</strong></p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>n = Math.floor( 1 + Math.random() * 2 );</code></pre>
+
+        <p><strong>b) 1 &le; n &le; 100</strong></p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>n = Math.floor( 1 + Math.random() * 100 );</code></pre>
+
+        <p><strong>c) 0 &le; n &le; 9</strong></p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>n = Math.floor( Math.random() * 10 );</code></pre>
+
+        <p><strong>d) 1000 &le; n &le; 1112</strong></p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>n = Math.floor( 1000 + Math.random() * 113 );</code></pre>
+
+        <p><strong>e) -1 &le; n &le; 1</strong></p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>n = Math.floor( -1 + Math.random() * 3 );</code></pre>
+
+        <p><strong>f) -3 &le; n &le; 11</strong></p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>n = Math.floor( -3 + Math.random() * 15 );</code></pre>
+
+        <hr>
+
+        <h3><strong>Explicaci&oacute;n general:</strong></h3>
+        <p>Para generar un entero aleatorio dentro del rango <code>a &le; n &le; (a + b - 1)</code>, se utiliza la f&oacute;rmula general:</p>
+        <pre><code>n = Math.floor( a + Math.random() * b );</code></pre>
+        <p>donde:</p>
+        <ul>
+            <li><code>a</code> es el <em>valor de desplazamiento</em> (el límite inferior del rango).</li>
+            <li><code>b</code> es el <em>factor de escala</em> (la cantidad total de números enteros posibles dentro del intervalo, calculado como <code>m&aacute;x - m&iacute;n + 1</code>).</li>
+        </ul>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

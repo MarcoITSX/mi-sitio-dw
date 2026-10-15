@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9.24 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 9.24 - Cap&iacute;tulo 9</title>
+        <style type="text/css">
+            .panel-estado { background-color: #f4f6f9;
+                             border: 1px solid #d0d7de;
+                             padding: 10px 15px;
+                             margin-bottom: 15px;
+                             border-radius: 5px;
+                             max-width: 500px; }
+            .mensaje-final { font-size: 1.2em;
+                             padding: 12px;
+                             margin-top: 15px;
+                             border-radius: 5px;
+                             max-width: 500px; }
+            .aprobado      { background-color: #d4edda;
+                             color: #155724;
+                             border: 1px solid #c3e6cb; }
+            .reprobado     { background-color: #f8d7da;
+                             color: #721c24;
+                             border: 1px solid #f5c6cb; }
+        </style>
+        <script>
+            var num1 = 0;                 // Primer operando aleatorio
+            var num2 = 0;                 // Segundo operando aleatorio
+            var preguntasRespondidas = 0; // Contador de preguntas procesadas (hasta 10)
+            var respuestasCorrectas = 0;  // Contador de respuestas acertadas
+            var respuestasIncorrectas = 0;// Contador de respuestas erróneas
+
+            // Registrar los componentes de escucha de eventos al cargar la ventana
+            function iniciar()
+            {
+                var botonResponder = document.getElementById( "botonResponder" );
+                var botonReiniciar = document.getElementById( "botonReiniciar" );
+
+                botonResponder.addEventListener( "click", responder, false );
+                botonReiniciar.addEventListener( "click", reiniciarCuestionario, false );
+
+                reiniciarCuestionario(); // Iniciar el primer test
+            } // fin de la función iniciar
+
+            // Reinicia los contadores para permitir que otro estudiante realice el cuestionario
+            function reiniciarCuestionario()
+            {
+                preguntasRespondidas = 0;
+                respuestasCorrectas = 0;
+                respuestasIncorrectas = 0;
+
+                document.getElementById( "campoRespuesta" ).disabled = false;
+                document.getElementById( "botonResponder" ).disabled = false;
+                document.getElementById( "resultadoFinal" ).innerHTML = "";
+                document.getElementById( "mensaje" ).innerHTML = "";
+
+                actualizarEstado();
+                nuevaPregunta();
+            } // fin de la función reiniciarCuestionario
+
+            // Genera operandos aleatorios para una nueva pregunta
+            function nuevaPregunta()
+            {
+                num1 = Math.floor( 1 + Math.random() * 9 );
+                num2 = Math.floor( 1 + Math.random() * 9 );
+
+                var elementoPregunta = document.getElementById( "pregunta" );
+                elementoPregunta.innerHTML = "&iquest;Cu&aacute;nto es " + num1 + " por " + num2 + "?";
+
+                var campo = document.getElementById( "campoRespuesta" );
+                campo.value = "";
+                campo.focus();
+            } // fin de la función nuevaPregunta
+
+            // Muestra en pantalla el progreso actual (preguntas respondidas de 10)
+            function actualizarEstado()
+            {
+                var divEstado = document.getElementById( "estadoProgreso" );
+                divEstado.innerHTML = "<strong>Progreso:</strong> Pregunta " + 
+                    ( preguntasRespondidas < 10 ? preguntasRespondidas + 1 : 10 ) + " de 10 | " +
+                    "<strong>Correctas:</strong> " + respuestasCorrectas + " | " +
+                    "<strong>Incorrectas:</strong> " + respuestasIncorrectas;
+            } // fin de la función actualizarEstado
+
+            // Selecciona aleatoriamente un mensaje de felicitación usando switch
+            function generarRespuestaCorrecta()
+            {
+                var opcion = Math.floor( 1 + Math.random() * 4 );
+
+                switch ( opcion )
+                {
+                    case 1:
+                        return "&iexcl;Muy bien!";
+                    case 2:
+                        return "&iexcl;Excelente!";
+                    case 3:
+                        return "&iexcl;Buen trabajo!";
+                    case 4:
+                        return "&iexcl;Siga as&iacute;!";
+                }
+            } // fin de la función generarRespuestaCorrecta
+
+            // Selecciona aleatoriamente un mensaje de aliento usando switch
+            function generarRespuestaIncorrecta()
+            {
+                var opcion = Math.floor( 1 + Math.random() * 4 );
+
+                switch ( opcion )
+                {
+                    case 1:
+                        return "No. Intente de nuevo.";
+                    case 2:
+                        return "Equivocado. Trate una vez m&aacute;s.";
+                    case 3:
+                        return "No se d&eacute; por vencido.";
+                    case 4:
+                        return "No. Siga intentando.";
+                }
+            } // fin de la función generarRespuestaIncorrecta
+
+            // Procesa la respuesta enviada por el estudiante y evalúa al llegar a 10 preguntas
+            function responder()
+            {
+                var campoRespuesta = document.getElementById( "campoRespuesta" );
+                var respuestaUsuario = parseInt( campoRespuesta.value, 10 );
+                var mensaje = document.getElementById( "mensaje" );
+
+                if ( !isNaN( respuestaUsuario ) )
+                {
+                    ++preguntasRespondidas;
+
+                    if ( respuestaUsuario === ( num1 * num2 ) )
+                    {
+                        ++respuestasCorrectas;
+                        mensaje.innerHTML = "<span style='color: green; font-weight: bold;'>" + 
+                            generarRespuestaCorrecta() + "</span>";
+                    }
+                    else
+                    {
+                        ++respuestasIncorrectas;
+                        mensaje.innerHTML = "<span style='color: red; font-weight: bold;'>" + 
+                            generarRespuestaIncorrecta() + "</span>";
+                    }
+
+                    actualizarEstado();
+
+                    // Si ya se respondieron las 10 preguntas, se evalúa el rendimiento
+                    if ( preguntasRespondidas === 10 )
+                    {
+                        evaluarRendimiento();
+                    }
+                    else
+                    {
+                        nuevaPregunta();
+                    }
+                }
+                else
+                {
+                    mensaje.innerHTML = "<span style='color: red;'>Por favor, introduzca un valor num&eacute;rico v&aacute;lido.</span>";
+                }
+            } // fin de la función responder
+
+            // Evalúa si el porcentaje de aciertos alcanza el mínimo requerido (75%)
+            function evaluarRendimiento()
+            {
+                var porcentaje = ( respuestasCorrectas / 10.0 ) * 100;
+                var divResultado = document.getElementById( "resultadoFinal" );
+
+                document.getElementById( "campoRespuesta" ).disabled = true;
+                document.getElementById( "botonResponder" ).disabled = true;
+
+                if ( porcentaje < 75 )
+                {
+                    divResultado.className = "mensaje-final reprobado";
+                    divResultado.innerHTML = "<p><strong>Porcentaje de aciertos: " + porcentaje.toFixed( 0 ) + 
+                        "%</strong></p><p>Pida ayuda adicional a su instructor.</p>" +
+                        "<p><em>El cuestionario se ha reiniciado. Otro estudiante puede intentarlo ahora.</em></p>";
+                }
+                else
+                {
+                    divResultado.className = "mensaje-final aprobado";
+                    divResultado.innerHTML = "<p><strong>Porcentaje de aciertos: " + porcentaje.toFixed( 0 ) + 
+                        "%</strong></p><p>&iexcl;Felicidades! Est&aacute; listo para pasar al siguiente nivel.</p>";
+                }
+            } // fin de la función evaluarRendimiento
+
+            window.addEventListener( "load", iniciar, false );
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 9</strong></h1>
+        <h2><strong>9.24</strong></h2>
+
+        <p><strong>(Monitoreo del rendimiento de CAI)</strong> Los sistemas m&aacute;s sofisticados de instrucci&oacute;n asistida por computadora monitorean el rendimiento del estudiante durante cierto tiempo. La decisi&oacute;n de comenzar un nuevo tema se basa a menudo en el &eacute;xito del estudiante con los temas anteriores. Modifique el programa del ejercicio 9.23 para contar el n&uacute;mero de respuestas correctas e incorrectas que escribi&oacute; el estudiante. Una vez que el estudiante responda 10 preguntas, usted deber&aacute; calcular el porcentaje de respuestas correctas. Si el porcentaje es menor del 75 por ciento, muestre <code>Pida ayuda adicional a su instructor</code> y reinicie el cuestionario para que otro estudiante pueda intentarlo.</p>
+
+        <hr>
+
+        <!-- Panel de progreso e interfaz interactiva -->
+        <div id="estadoProgreso" class="panel-estado"></div>
+
+        <form action="#">
+            <p id="pregunta" style="font-size: 1.2em; font-weight: bold;"></p>
+            <p>
+                <label>Su respuesta:
+                    <input id="campoRespuesta" type="number">
+                </label>
+                <input id="botonResponder" type="button" value="Enviar respuesta">
+                <input id="botonReiniciar" type="button" value="Reiniciar test">
+            </p>
+        </form>
+
+        <p id="mensaje"></p>
+        <div id="resultadoFinal"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>
