@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 5 autoevaluacion 10.5 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Autoevaluaci&oacute;n Cap&iacute;tulo 10 - Parte 5</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+        <hr>
+
+        <h1><strong>Autoevaluación Capítulo 10</strong></h1>
+        <h2><strong>10.5</strong></h2>
+
+        <p>Encuentre el o los errores en cada uno de los siguientes segmentos de programa y corr&iacute;jalos:</p>
+
+        <p><strong>a.-</strong></p>
+        <pre><code>var b = new Array( 10 );
+var longitud = b.length;
+
+for ( var i = 0; i &lt;= longitud; ++i )
+   b[ i ] = i;</code></pre>
+
+        <p><strong>Respuesta:</strong></p>
+        <p><strong>Error:</strong> Se hace referencia al elemento de un arreglo fuera de los l&iacute;mites del arreglo (<code>b[ 10 ]</code>). <em>[Nota: en realidad &eacute;ste es un error l&oacute;gico y no sint&aacute;ctico]</em>.</p>
+        <p><strong>Correcci&oacute;n:</strong> Cambiar el operador <code>&lt;=</code> a <code>&lt;</code> en el encabezado del ciclo <code>for</code> (<code>for ( var i = 0; i &lt; longitud; ++i )</code>).</p>
+
+        <br>
+
+        <p><strong>b.-</strong></p>
+        <pre><code>var a = [ [ 1, 2 ], [ 3, 4 ] ];
+a[ 1, 1 ] = 5;</code></pre>
+
+        <p><strong>Respuesta:</strong></p>
+        <p><strong>Error:</strong> El indexado de arreglos se realiza de manera incorrecta (la sintaxis <code>a[ 1, 1 ]</code> no es v&aacute;lida para arreglos bidimensionales en JavaScript).</p>
+        <p><strong>Correcci&oacute;n:</strong> Cambiar la instrucci&oacute;n a <code>a[ 1 ][ 1 ] = 5;</code>.</p>
+
+        <hr>
+
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

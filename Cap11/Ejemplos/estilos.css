@@ -1,0 +1,21 @@
+/* Fig. 4.7: estilos.css */
+/* Hoja de estilo externa. */
+body    { font-family: Arial, Helvetica, sans-serif; }
+a.nodec { text-decoration: none; }
+a:hover { text-decoration: underline; }
+li em   { font-weight: bold; }
+h1, em  { text-decoration: underline; }
+ul      { margin-left: 20px; }
+ul ul   { font-size: .8em; }
+p { margin: 0px; }
+#mensajeBienvenida { margin-bottom: 10px; font-weight: bold; }
+input[type = "text"] { width: 250px; }
+
+/* estilos de elementos de lista */
+span { margin-left: 10px; display: inline-block; width: 100px; }
+li { list-style-type: none; width: 220px; }
+li:first-child { border-top: 1px solid grey; }
+li:nth-child(even) { background-color: lightyellow; 
+   border-bottom: 1px solid grey; }
+li:nth-child(odd) { background-color: lightblue; 
+   border-bottom: 1px solid grey; }

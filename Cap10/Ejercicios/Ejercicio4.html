@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 4 autoevaluacion 10.4 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Autoevaluaci&oacute;n Cap&iacute;tulo 10 - Parte 4</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Autoevaluación Capítulo 10</strong></h1>
+        <h2><strong>10.4</strong></h2>
+
+        <p>Escriba instrucciones de JavaScript (con respecto al arreglo <code>tabla</code>) para realizar cada una de las siguientes tareas:</p>
+
+        <p><strong>a.-</strong> Declarar y crear el arreglo con tres filas y tres columnas.</p>
+        <p><strong>Respuesta:</strong> <code>var tabla = new Array( new Array( 3 ), new Array( 3 ), new Array( 3 ) );</code></p>
+
+        <p><strong>b.-</strong> Almacenar el número total de elementos en la variable <code>totalElementos</code>.</p>
+        <p><strong>Respuesta:</strong> <code>var totalElementos = tabla.length * tabla[ 0 ].length;</code></p>
+
+        <p><strong>c.-</strong> Usar una instrucción <code>for...in</code> para inicializar cada elemento del arreglo con la suma de sus índices de fila y de columna. Suponga que las variables <code>x</code> y <code>y</code> se declaran como variables de control.</p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>for ( var x in tabla )
+{
+   for ( var y in tabla[ x ] )
+   {
+      tabla[ x ][ y ] = x + y;
+   }
+}</code></pre>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

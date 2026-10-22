@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 13 - Capítulo 10: Ejercicio 10.13 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 10 - Ejercicio 10.13</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 10</strong></h1>
+        <h2><strong>10.13</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Etiquete los elementos del arreglo bidimensional de tres por cinco llamado <code>ventas</code> para indicar el orden en el que se deben establecer en cero mediante el siguiente segmento de programa:
+        </p>
+
+        <pre><code>for ( var fila in ventas )
+{
+   for ( var col in ventas[ fila ] )
+   {
+      ventas[ fila ][ col ] = 0;
+   }
+}</code></pre>
+
+        <p><strong>Respuesta:</strong></p>
+
+        <p>
+            El ciclo <code>for...in</code> externo itera secuencialmente a trav&eacute;s de las filas (de la fila 0 a la 2), mientras que el ciclo <code>for...in</code> interno itera a trav&eacute;s de las columnas de la fila actual (de la columna 0 a la 4). Por lo tanto, los elementos se asignan en cero por fila (de izquierda a derecha) en el siguiente orden:
+        </p>
+
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Fila \ Columna</th>
+                    <th>Columna 0</th>
+                    <th>Columna 1</th>
+                    <th>Columna 2</th>
+                    <th>Columna 3</th>
+                    <th>Columna 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Fila 0</th>
+                    <td>1&ordm;: <code>ventas[ 0 ][ 0 ]</code></td>
+                    <td>2&ordm;: <code>ventas[ 0 ][ 1 ]</code></td>
+                    <td>3&ordm;: <code>ventas[ 0 ][ 2 ]</code></td>
+                    <td>4&ordm;: <code>ventas[ 0 ][ 3 ]</code></td>
+                    <td>5&ordm;: <code>ventas[ 0 ][ 4 ]</code></td>
+                </tr>
+                <tr>
+                    <th>Fila 1</th>
+                    <td>6&ordm;: <code>ventas[ 1 ][ 0 ]</code></td>
+                    <td>7&ordm;: <code>ventas[ 1 ][ 1 ]</code></td>
+                    <td>8&ordm;: <code>ventas[ 1 ][ 2 ]</code></td>
+                    <td>9&ordm;: <code>ventas[ 1 ][ 3 ]</code></td>
+                    <td>10&ordm;: <code>ventas[ 1 ][ 4 ]</code></td>
+                </tr>
+                <tr>
+                    <th>Fila 2</th>
+                    <td>11&ordm;: <code>ventas[ 2 ][ 0 ]</code></td>
+                    <td>12&ordm;: <code>ventas[ 2 ][ 1 ]</code></td>
+                    <td>13&ordm;: <code>ventas[ 2 ][ 2 ]</code></td>
+                    <td>14&ordm;: <code>ventas[ 2 ][ 3 ]</code></td>
+                    <td>15&ordm;: <code>ventas[ 2 ][ 4 ]</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+
+        <p><strong>Secuencia cronol&oacute;gica de asignaci&oacute;n (del paso 1 al 15):</strong></p>
+        <ol>
+            <li><code>ventas[ 0 ][ 0 ] = 0;</code></li>
+            <li><code>ventas[ 0 ][ 1 ] = 0;</code></li>
+            <li><code>ventas[ 0 ][ 2 ] = 0;</code></li>
+            <li><code>ventas[ 0 ][ 3 ] = 0;</code></li>
+            <li><code>ventas[ 0 ][ 4 ] = 0;</code></li>
+            <li><code>ventas[ 1 ][ 0 ] = 0;</code></li>
+            <li><code>ventas[ 1 ][ 1 ] = 0;</code></li>
+            <li><code>ventas[ 1 ][ 2 ] = 0;</code></li>
+            <li><code>ventas[ 1 ][ 3 ] = 0;</code></li>
+            <li><code>ventas[ 1 ][ 4 ] = 0;</code></li>
+            <li><code>ventas[ 2 ][ 0 ] = 0;</code></li>
+            <li><code>ventas[ 2 ][ 1 ] = 0;</code></li>
+            <li><code>ventas[ 2 ][ 2 ] = 0;</code></li>
+            <li><code>ventas[ 2 ][ 3 ] = 0;</code></li>
+            <li><code>ventas[ 2 ][ 4 ] = 0;</code></li>
+        </ol>
+
+        <hr>
+
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

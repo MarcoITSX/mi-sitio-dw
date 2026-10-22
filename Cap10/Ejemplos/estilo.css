@@ -1,0 +1,24 @@
+/* estilotabla.css */
+/* Hoja de estilo para dar formato a las tablas de los ejemplos del Capítulo 10 */
+
+table {
+   border-collapse: collapse;  /* Fusiona los bordes adyacentes de las celdas */
+   margin-top: 10px;
+   margin-bottom: 20px;
+   width: 220px;
+}
+
+table, th, td {
+   border: 1px solid lightgray;  /* Borde delgado para la tabla y las celdas */
+   padding: 4px 8px;           /* Espaciado interno alrededor del contenido */
+}
+
+th {
+   background-color: blue;      /* Fondo azul para los encabezados */
+   color: white;                /* Texto blanco para los encabezados */
+   text-align: left;            /* Alineación del texto a la izquierda */
+}
+
+tbody tr:nth-child(even) {
+   background-color: lightblue;  /* Fondo gris claro alternado para las filas */
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 26 - Capítulo 11: Ejercicio 11.26 (Programa de conversión métrica) -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 11 - Ejercicio 11.26</title>
+        <script src="Ejercicio26.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 11</strong></h1>
+        <h2><strong>11.26 - Programa de conversión métrica</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Escriba una secuencia de comandos que ayude al usuario a realizar conversiones m&eacute;tricas. Su programa debe permitir al usuario especificar los nombres de las unidades como cadenas y responder a preguntas simples tales como:
+        </p>
+        <ul>
+            <li><code>"&iquest;Cu&aacute;ntas pulgadas hay en 2 metros?"</code></li>
+            <li><code>"&iquest;Cu&aacute;ntos litros hay en 10 cuartos?"</code></li>
+        </ul>
+        <p>
+            Su programa debe reconocer conversiones inv&aacute;lidas (por ejemplo, <code>"&iquest;Cu&aacute;ntos pies hay en 5 kilogramos?"</code> es incorrecta porque los <em>pies</em> son unidades de longitud y los <em>kilogramos</em> son unidades de masa).
+        </p>
+
+        <!-- Formulario principal con entrada en lenguaje natural -->
+        <form action="#">
+            <fieldset style="max-width: 650px;">
+                <legend><strong>Consulta en Lenguaje Natural:</strong></legend>
+                <p>
+                    <label for="preguntaInput">Escriba su pregunta de conversi&oacute;n:</label><br>
+                    <input id="preguntaInput" type="text" size="65" value="¿Cuántas pulgadas hay en 2 metros?">
+                    <input id="botonProcesarPregunta" type="button" value="Procesar consulta">
+                </p>
+                <p>
+                    <strong>Ejemplos rápidos para probar:</strong><br>
+                    <input type="button" class="btnEjemplo" value="¿Cuántas pulgadas hay en 2 metros?">
+                    <input type="button" class="btnEjemplo" value="¿Cuántos litros hay en 10 cuartos?">
+                    <input type="button" class="btnEjemplo" value="¿Cuántos pies hay en 5 kilogramos?">
+                </p>
+            </fieldset>
+
+            <br>
+
+            <!-- Formulario interactivo por selección de controles -->
+            <fieldset style="max-width: 650px;">
+                <legend><strong>Consulta mediante Selección Directa:</strong></legend>
+                <p>
+                    <label for="cantidadInput">Cantidad:</label>
+                    <input id="cantidadInput" type="number" step="any" value="10" style="width: 80px;">
+                    
+                    <label for="unidadOrigenSelect">De:</label>
+                    <select id="unidadOrigenSelect"></select>
+
+                    <label for="unidadDestinoSelect">A:</label>
+                    <select id="unidadDestinoSelect"></select>
+
+                    <input id="botonConvertirDirecto" type="button" value="Convertir">
+                </p>
+            </fieldset>
+        </form>
+
+        <h3>Resultado de la conversión:</h3>
+        <div id="resultados" style="min-height: 50px;"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

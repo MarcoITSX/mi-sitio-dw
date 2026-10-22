@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 10 - Capítulo 11: Ejercicio 11.10 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 11 - Ejercicio 11.10</title>
+        <script src="Ejercicio10.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 11</strong></h1>
+        <h2><strong>11.10 - Desglose de un número telefónico</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Escriba una aplicaci&oacute;n que reciba como entrada un n&uacute;mero telef&oacute;nico como una cadena de la forma <code>(555) 555-5555</code> o <code>(555)555-5555</code>. La aplicaci&oacute;n deber&aacute; utilizar el m&eacute;todo <code>String split</code> para extraer el c&oacute;digo de &aacute;rea como un token, los primeros tres d&iacute;gitos del n&uacute;mero telef&oacute;nico como otro token y los &uacute;ltimos cuatro d&iacute;gitos del n&uacute;mero telef&oacute;nico como otro token. Muestre en pantalla el c&oacute;digo de &aacute;rea en un campo de texto y el n&uacute;mero telef&oacute;nico de siete d&iacute;gitos en otro campo de texto.
+        </p>
+
+        <form action="#">
+            <p>
+                <label for="telefonoInput">Introduzca el n&uacute;mero telef&oacute;nico:</label><br>
+                <input id="telefonoInput" type="text" size="25" value="(555) 555-5555">
+                <input id="botonDesglosar" type="button" value="Desglosar número">
+            </p>
+
+            <fieldset style="max-width: 450px;">
+                <legend><strong>Resultados del desglose:</strong></legend>
+                <p>
+                    <label for="codigoArea">C&oacute;digo de &aacute;rea (3 d&iacute;gitos):</label><br>
+                    <input id="codigoArea" type="text" size="10" readonly>
+                </p>
+                <p>
+                    <label for="numeroSieteDigitos">N&uacute;mero telef&oacute;nico (7 d&iacute;gitos):</label><br>
+                    <input id="numeroSieteDigitos" type="text" size="15" readonly>
+                </p>
+            </fieldset>
+        </form>
+
+        <div id="mensajeError" style="color: red; margin-top: 10px;"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

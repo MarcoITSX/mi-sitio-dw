@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 4 - Capítulo 11: Ejercicio 11.4 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 11 - Ejercicio 11.4</title>
+        <script src="Ejercicio4.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 11</strong></h1>
+        <h2><strong>11.4 - Redondeo de números con Math.floor</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            <code>Math.floor</code> se puede usar para redondear un n&uacute;mero a un lugar decimal espec&iacute;fico. Por ejemplo, la instrucci&oacute;n:
+        </p>
+        <p><code>y = Math.floor( x * 10 + 0.5 ) / 10;</code></p>
+        <p>
+            redondea <code>x</code> a la posici&oacute;n de las d&eacute;cimas (el primer entero a la derecha del punto decimal). La instrucci&oacute;n:
+        </p>
+        <p><code>y = Math.floor( x * 100 + 0.5 ) / 100;</code></p>
+        <p>
+            redondea <code>x</code> a la posici&oacute;n de las cent&eacute;simas (el segundo n&uacute;mero a la derecha del punto decimal). Escriba una secuencia de comandos que defina cuatro funciones para redondear un n&uacute;mero <code>x</code> de varias formas:
+        </p>
+        <ul>
+            <li><strong>a)</strong> <code>redondearAEntero( numero )</code></li>
+            <li><strong>b)</strong> <code>redondearADecimas( numero )</code></li>
+            <li><strong>c)</strong> <code>redondearACentesimas( numero )</code></li>
+            <li><strong>d)</strong> <code>redondearAMilesimas( numero )</code></li>
+        </ul>
+        <p>
+            Para cada lectura, su secuencia de comandos debe mostrar el valor original, el n&uacute;mero redondeado al entero m&aacute;s cercano, el n&uacute;mero redondeado a la d&eacute;cima m&aacute;s cercana, el n&uacute;mero redondeado a la cent&eacute;sima m&aacute;s cercana y el n&uacute;mero redondeado a la mil&eacute;sima m&aacute;s cercana.
+        </p>
+
+        <form action="#">
+            <p>
+                <label>Introduzca un n&uacute;mero con decimales:
+                    <input id="numeroInput" type="number" step="any">
+                </label>
+                <input id="botonRedondear" type="button" value="Redondear">
+            </p>
+        </form>
+
+        <h3>Resultados del redondeo:</h3>
+        <div id="resultados"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

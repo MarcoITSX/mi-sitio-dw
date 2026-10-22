@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 10 - Capítulo 10: Ejercicio 10.10 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 10 - Ejercicio 10.10</title>
+        <script src="Ejercicio10.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 10</strong></h1>
+        <h2><strong>10.10 - Rango de salarios de vendedores</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Use un arreglo unidimensional para resolver el siguiente problema: una empresa paga a su personal de ventas con base en comisiones. El personal de ventas recibe $200 por semana m&aacute;s el 9 por ciento de sus ventas brutas para esa semana. Por ejemplo, un vendedor con ventas brutas de $5000 en una semana recibe $200 m&aacute;s el 9 por ciento de $5000, o un total de $650. Escriba una secuencia de comandos (usando un arreglo de contadores) que obtenga las ventas brutas para cada empleado por medio de un formulario de HTML5 y determine cu&aacute;ntos vendedores obtuvieron salarios en cada uno de los siguientes rangos (suponga que el salario de cada vendedor se trunca a un monto entero):
+        </p>
+        <ul>
+            <li>a) $200 a $299</li>
+            <li>b) $300 a $399</li>
+            <li>c) $400 a $499</li>
+            <li>d) $500 a $599</li>
+            <li>e) $600 a $699</li>
+            <li>f) $700 a $799</li>
+            <li>g) $800 a $899</li>
+            <li>h) $900 a $999</li>
+            <li>i) $1000 y m&aacute;s</li>
+        </ul>
+
+        <form action="#" onsubmit="return false;">
+            <p>
+                <label>Introduzca las ventas brutas del vendedor: $
+                    <input id="ventas" type="number" min="0" step="0.01">
+                </label>
+                <input id="botonCalcular" type="button" value="Añadir vendedor">
+            </p>
+        </form>
+
+        <h3>Resultados por rango de salario:</h3>
+        <div id="salida"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 17 - Capítulo 11: Ejercicio 11.17 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 11 - Ejercicio 11.17</title>
+        <script src="Ejercicio17.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 11</strong></h1>
+        <h2><strong>11.17 - Conversión de código entero a carácter</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Escriba una secuencia de comandos que reciba como entrada un c&oacute;digo entero para un car&aacute;cter y que muestre el car&aacute;cter correspondiente.
+        </p>
+
+        <form action="#">
+            <p>
+                <label for="codigoInput">Introduzca el c&oacute;digo entero del car&aacute;cter (ej. 65, 97, 64, 8364):</label><br>
+                <input id="codigoInput" type="number" min="0" max="65535" value="65">
+                <input id="botonConvertir" type="button" value="Mostrar carácter">
+            </p>
+
+            <fieldset style="max-width: 450px;">
+                <legend><strong>Resultado de la conversión:</strong></legend>
+                <p>
+                    <label for="caracterObtenido">Car&aacute;cter correspondiente:</label><br>
+                    <input id="caracterObtenido" type="text" size="10" readonly style="font-size: 1.3em; font-weight: bold; text-align: center;">
+                </p>
+                <p>
+                    <label for="notacionHex">Representaci&oacute;n Unicode / ASCII:</label><br>
+                    <input id="notacionHex" type="text" size="25" readonly>
+                </p>
+            </fieldset>
+        </form>
+
+        <div id="mensajeError" style="color: red; margin-top: 10px;"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

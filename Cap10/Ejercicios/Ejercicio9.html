@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 9 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 10 - Ejercicio 10.9</title>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 10</strong></h1>
+        <h2><strong>10.9</strong></h2>
+
+        <p>Considere un arreglo de dos por tres que almacena enteros.</p>
+
+        <p><strong>a.-</strong> Escriba una instrucción para declarar y crear el arreglo <code>t</code>.</p>
+        <p><strong>Respuesta:</strong> <code>var t = [ [ 0, 0, 0 ], [ 0, 0, 0 ] ];</code> (o bien <code>var t = new Array( new Array( 3 ), new Array( 3 ) );</code>)</p>
+
+        <p><strong>b.-</strong> ¿Cuántas filas tiene <code>t</code>?</p>
+        <p><strong>Respuesta: 2 filas.</strong></p>
+
+        <p><strong>c.-</strong> ¿Cuántas columnas tiene <code>t</code>?</p>
+        <p><strong>Respuesta: 3 columnas.</strong></p>
+
+        <p><strong>d.-</strong> ¿Cuántos elementos tiene <code>t</code>?</p>
+        <p><strong>Respuesta: 6 elementos</strong> (resultado de multiplicar 2 filas por 3 columnas).</p>
+
+        <p><strong>e.-</strong> Escriba los nombres de todos los elementos en la fila 1 de <code>t</code>.</p>
+        <p><strong>Respuesta:</strong> <code>t[ 1 ][ 0 ]</code>, <code>t[ 1 ][ 1 ]</code> y <code>t[ 1 ][ 2 ]</code></p>
+
+        <p><strong>f.-</strong> Escriba los nombres de todos los elementos en la tercera columna de <code>t</code>.</p>
+        <p><strong>Respuesta:</strong> <code>t[ 0 ][ 2 ]</code> y <code>t[ 1 ][ 2 ]</code></p>
+
+        <p><strong>g.-</strong> Escriba una sola instrucción para establecer el elemento de <code>t</code> en la fila 1 y la columna 2 en cero.</p>
+        <p><strong>Respuesta:</strong> <code>t[ 1 ][ 2 ] = 0;</code></p>
+
+        <p><strong>h.-</strong> Escriba una serie de instrucciones para inicializar cada elemento de <code>t</code> en cero.</p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>t[ 0 ][ 0 ] = 0;
+t[ 0 ][ 1 ] = 0;
+t[ 0 ][ 2 ] = 0;
+t[ 1 ][ 0 ] = 0;
+t[ 1 ][ 1 ] = 0;
+t[ 1 ][ 2 ] = 0;</code></pre>
+
+        <p><strong>i.-</strong> Escriba una instrucción <code>for</code> anidada para inicializar cada elemento de <code>t</code> en cero.</p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>for ( var i = 0; i &lt; t.length; ++i )
+{
+   for ( var j = 0; j &lt; t[ i ].length; ++j )
+   {
+      t[ i ][ j ] = 0;
+   }
+}</code></pre>
+
+        <p><strong>j.-</strong> Escriba una serie de instrucciones para determinar e imprimir el valor más pequeño en el arreglo <code>t</code>.</p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>var minimo = t[ 0 ][ 0 ];
+
+for ( var i in t )
+{
+   for ( var j in t[ i ] )
+   {
+      if ( t[ i ][ j ] &lt; minimo )
+      {
+         minimo = t[ i ][ j ];
+      }
+   }
+}
+
+document.writeln( "&lt;p&gt;El valor m&aacute;s peque&ntilde;o es: " + minimo + "&lt;/p&gt;" );</code></pre>
+
+        <p><strong>k.-</strong> Escriba una instrucción sin repetición para mostrar los elementos de la primera fila de <code>t</code>.</p>
+        <p><strong>Respuesta:</strong> <code>document.writeln( "&lt;p&gt;" + t[ 0 ][ 0 ] + " " + t[ 0 ][ 1 ] + " " + t[ 0 ][ 2 ] + "&lt;/p&gt;" );</code> (o bien <code>document.writeln( "&lt;p&gt;" + t[ 0 ].join( " " ) + "&lt;/p&gt;" );</code>)</p>
+
+        <p><strong>l.-</strong> Escriba una serie de instrucciones para imprimir el arreglo <code>t</code> en un formato tabular ordenado. Liste los índices de columnas como encabezados a lo largo de la parte superior y liste los índices de fila en la parte izquierda de cada fila.</p>
+        <p><strong>Respuesta:</strong></p>
+        <pre><code>document.writeln( "&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;0&lt;/th&gt;&lt;th&gt;1&lt;/th&gt;&lt;th&gt;2&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;" );
+
+for ( var i in t )
+{
+   document.write( "&lt;tr&gt;&lt;th&gt;" + i + "&lt;/th&gt;" );
+   for ( var j in t[ i ] )
+   {
+      document.write( "&lt;td&gt;" + t[ i ][ j ] + "&lt;/td&gt;" );
+   }
+   document.writeln( "&lt;/tr&gt;" );
+}
+
+document.writeln( "&lt;/tbody&gt;&lt;/table&gt;" );</code></pre>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

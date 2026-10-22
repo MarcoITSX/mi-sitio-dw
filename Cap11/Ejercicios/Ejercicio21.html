@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 21 - Capítulo 11: Ejercicio 11.21 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 11 - Ejercicio 11.21</title>
+        <script src="Ejercicio21.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 11</strong></h1>
+        <h2><strong>11.21 - Palabras de tres letras a partir de una palabra de cinco letras</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Escriba una secuencia de comandos que reciba como entrada una palabra de cinco letras y produzca todas las palabras posibles de tres letras basadas en las letras de la palabra de cinco letras. Muestre los resultados en un elemento <code>textarea</code> de HTML5.
+        </p>
+
+        <form action="#">
+            <p>
+                <label for="palabraInput">Introduzca una palabra de 5 letras:</label><br>
+                <input id="palabraInput" type="text" size="15" maxlength="5" value="ARBOL">
+                <input id="botonGenerar" type="button" value="Generar combinaciones">
+            </p>
+            <p>
+                <label for="salida"><strong>Palabras de 3 letras generadas:</strong></label><br>
+                <textarea id="salida" rows="18" cols="55" readonly placeholder="Las combinaciones aparecerán aquí..."></textarea>
+            </p>
+        </form>
+
+        <div id="mensajeError" style="color: red; margin-top: 10px;"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 15 - Capítulo 10: Ejercicio 10.15 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 10 - Ejercicio 10.15</title>
+        <script src="Ejercicio15.js"></script>
+        <style>
+            .tablero {
+                font-family: monospace;
+                line-height: 1.0;
+                font-size: 16px;
+                background-color: #f0f0f0;
+                padding: 10px;
+                border: 1px solid #ccc;
+                display: inline-block;
+                white-space: pre;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 10</strong></h1>
+        <h2><strong>10.15 - Gráficos de tortuga</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            El lenguaje Logo hizo famoso el concepto de los <em>gr&aacute;ficos de tortuga</em>. Imagine una tortuga mec&aacute;nica que camina sobre un piso representado por un arreglo de 20 por 20 inicializado en ceros. La tortuga sostiene una pluma en una de dos posiciones: arriba o abajo. Cuando la pluma est&aacute; abajo, la tortuga traza figuras a medida que se desplaza (marcando un 1 en el arreglo); cuando la pluma est&aacute; arriba, se mueve libremente sin escribir nada.
+        </p>
+
+        <h3>Comandos disponibles:</h3>
+        <ul>
+            <li><strong>1:</strong> Pluma arriba</li>
+            <li><strong>2:</strong> Pluma abajo</li>
+            <li><strong>3:</strong> Girar a la derecha</li>
+            <li><strong>4:</strong> Girar a la izquierda</li>
+            <li><strong>5, n:</strong> Avanzar <em>n</em> espacios</li>
+            <li><strong>6:</strong> Imprimir el arreglo de 20 por 20</li>
+            <li><strong>9:</strong> Fin de datos (centinela)</li>
+        </ul>
+
+        <form action="#">
+            <p>
+                <label for="programaSel">Seleccione un programa predefinido:</label>
+                <select id="programaSel">
+                    <option value="cuadrado">Cuadrado de 12 x 12 (Ejemplo del libro)</option>
+                    <option value="espiral">Espiral</option>
+                    <option value="triangulo">Triángulo escalonado</option>
+                </select>
+                <input id="botonEjecutar" type="button" value="Ejecutar comandos">
+            </p>
+            <p>
+                <label for="comandosTexto">O introduzca sus propios comandos (separados por comas):</label><br>
+                <input id="comandosTexto" type="text" size="60" value="2, 5,12, 3, 5,12, 3, 5,12, 3, 5,12, 1, 6, 9">
+            </p>
+        </form>
+
+        <h3>Lienzo de dibujo (20x20):</h3>
+        <div id="salida" class="tablero">Presione "Ejecutar comandos" para dibujar...</div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

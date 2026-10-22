@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 24 - Capítulo 11: Ejercicio 11.24 (Protección de cheques) -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 11 - Ejercicio 11.24</title>
+        <script src="Ejercicio24.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 11</strong></h1>
+        <h2><strong>11.24 - Protección de cheques</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Escriba una secuencia de comandos que reciba como entrada un monto a imprimir sobre un cheque y que lo escriba mediante el formato de protecci&oacute;n de cheques, con asteriscos al principio si es necesario. Suponga que existen nueve espacios disponibles para imprimir el monto.
+        </p>
+
+        <form action="#">
+            <p>
+                <label for="montoInput">Introduzca el monto del cheque (ej. 99.87, 1230.60):</label><br>
+                <input id="montoInput" type="number" step="0.01" value="99.87">
+                <input id="botonProteger" type="button" value="Aplicar protección">
+            </p>
+
+            <fieldset style="max-width: 480px;">
+                <legend><strong>Monto impreso protegido (9 espacios):</strong></legend>
+                <p>
+                    <label for="montoProtegido">Monto impreso en el cheque:</label><br>
+                    <input id="montoProtegido" type="text" size="15" readonly style="font-family: monospace; font-size: 1.2em; font-weight: bold; letter-spacing: 2px;">
+                </p>
+            </fieldset>
+        </form>
+
+        <div id="mensajeError" style="color: red; margin-top: 10px;"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

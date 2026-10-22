@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 7 - Capítulo 11: Ejercicio 11.7 -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 11 - Ejercicio 11.7</title>
+        <script src="Ejercicio7.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 11</strong></h1>
+        <h2><strong>11.7 - Generador de enunciados al azar</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Escriba una secuencia de comandos que utilice la generaci&oacute;n de n&uacute;meros aleatorios para crear enunciados. Use cuatro arreglos de cadenas llamados <code>articulo</code>, <code>sustantivo</code>, <code>verbo</code> y <code>preposicion</code>. Para crear un enunciado seleccione una palabra al azar de cada arreglo en el siguiente orden: <em>art&iacute;culo, sustantivo, verbo, preposici&oacute;n, art&iacute;culo y sustantivo</em>.
+        </p>
+        <p>
+            Cada enunciado debe comenzar con letra may&uacute;scula y terminar con un punto. El programa deber&aacute; generar 20 enunciados para formar una historia corta en un elemento <code>textarea</code> de HTML5, iniciando con &ldquo;Hab&iacute;a una vez...&rdquo; y terminando con &ldquo;FIN&rdquo;.
+        </p>
+
+        <form action="#">
+            <p>
+                <input id="botonGenerar" type="button" value="Generar historia al azar">
+            </p>
+            <p>
+                <label for="historia"><strong>Historia corta generada:</strong></label><br>
+                <textarea id="historia" rows="24" cols="80" readonly placeholder="Haga clic en 'Generar historia al azar' para crear un nuevo cuento..."></textarea>
+            </p>
+        </form>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

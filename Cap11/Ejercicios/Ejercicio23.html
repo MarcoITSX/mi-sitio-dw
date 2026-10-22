@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 23 - Capítulo 11: Ejercicio 11.23 (Análisis de textos) -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 11 - Ejercicio 11.23</title>
+        <script src="Ejercicio23.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 11</strong></h1>
+        <h2><strong>11.23 - Análisis de textos (Sección de proyectos desafiantes)</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Los investigadores han utilizado computadoras para buscar similitudes en los escritos de grandes autores (como William Shakespeare y Christopher Marlowe). En este ejercicio se examinan tres m&eacute;todos para analizar textos:
+        </p>
+        <ul>
+            <li><strong>a) Ocurrencias de cada letra:</strong> Determina la frecuencia de cada letra del alfabeto.</li>
+            <li><strong>b) Ocurrencias por longitud de palabra:</strong> Cuenta las palabras de una letra, dos letras, tres letras, etc.</li>
+            <li><strong>c) Ocurrencias de palabras distintas:</strong> Lista la frecuencia de cada palabra &uacute;nica en el texto (en orden de aparici&oacute;n y alfab&eacute;tico).</li>
+        </ul>
+
+        <form action="#">
+            <p>
+                <label for="textoInput"><strong>Introduzca el texto a analizar:</strong></label><br>
+                <textarea id="textoInput" rows="6" cols="80" placeholder="Escriba o pegue el texto aquí...">Ser o no ser: ese es el dilema:
+¿Qué es más noble para el espíritu?</textarea>
+            </p>
+            <p>
+                <input id="botonAnalizar" type="button" value="Ejecutar análisis completo">
+            </p>
+
+            <p>
+                <label for="salidaParteA"><strong>a) Frecuencia de letras del alfabeto:</strong></label><br>
+                <textarea id="salidaParteA" rows="12" cols="80" readonly placeholder="Resultados de la parte a..."></textarea>
+            </p>
+
+            <p>
+                <label for="salidaParteB"><strong>b) Frecuencia por longitud de palabra:</strong></label><br>
+                <textarea id="salidaParteB" rows="10" cols="80" readonly placeholder="Resultados de la parte b..."></textarea>
+            </p>
+
+            <p>
+                <label for="salidaParteC"><strong>c) Frecuencia de palabras distintas:</strong></label><br>
+                <textarea id="salidaParteC" rows="14" cols="80" readonly placeholder="Resultados de la parte c..."></textarea>
+            </p>
+        </form>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

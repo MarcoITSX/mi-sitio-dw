@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 17  -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 10 - Ejercicio 10.17</title>
+        <script src="Ejercicio17.js"></script>
+        <style>
+            .pista {
+                font-family: monospace;
+                white-space: pre;
+                background-color: #1e1e1e;
+                color: #00ff00;
+                padding: 10px;
+                border-radius: 5px;
+                max-height: 450px;
+                overflow-y: auto;
+                font-size: 13px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 10</strong></h1>
+        <h2><strong>10.17 - Simulación: La tortuga y la liebre</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Recree la cl&aacute;sica carrera entre la tortuga y la liebre mediante una simulaci&oacute;n por computadora. Los competidores empiezan en la posici&oacute;n 1 de una pista de 70 posiciones sobre una colina resbaladiza. La carrera termina cuando alguno de los competidores alcance o supere la posici&oacute;n 70.
+        </p>
+        <p>
+            Cada segundo (&ldquo;tic&rdquo; del reloj), la secuencia de comandos ajusta la posici&oacute;n de los animales seg&uacute;n porcentajes probabil&iacute;sticos generados con <code>Math.random()</code>:
+        </p>
+        <ul>
+            <li><strong>Tortuga:</strong> Gran paso (50%, +3), Resbal&oacute;n (20%, -6), Paso lento (30%, +1).</li>
+            <li><strong>Liebre:</strong> Duerme (20%, 0), Gran salto (20%, +9), Gran resbal&oacute;n (10%, -12), Peque&ntilde;o salto (30%, +1), Peque&ntilde;o resbal&oacute;n (20%, -2).</li>
+        </ul>
+
+        <form action="#">
+            <p>
+                <input id="botonIniciar" type="button" value="¡Iniciar Carrera!">
+            </p>
+        </form>
+
+        <h3>Desarrollo de la carrera:</h3>
+        <div id="pista" class="pista">Presione "¡Iniciar Carrera!" para comenzar...</div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>

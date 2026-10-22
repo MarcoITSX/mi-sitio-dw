@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<!-- Ejercicio 28 - Capítulo 11: Ejercicio 11.28 (Proyecto: Generador de crucigramas) -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicios Cap&iacute;tulo 11 - Ejercicio 11.28</title>
+        <style>
+            /* Estilos específicos para la cuadrícula interactiva del crucigrama */
+            table.crucigrama {
+                border-collapse: collapse;
+                margin: 15px 0;
+                background-color: #000;
+            }
+            table.crucigrama td {
+                width: 38px;
+                height: 38px;
+                text-align: center;
+                vertical-align: middle;
+                position: relative;
+                border: 1px solid #333;
+                background-color: #000;
+            }
+            table.crucigrama td.activa {
+                background-color: #fff;
+            }
+            table.crucigrama td .numero-celda {
+                position: absolute;
+                top: 2px;
+                left: 3px;
+                font-size: 9px;
+                font-weight: bold;
+                color: #333;
+            }
+            table.crucigrama td input {
+                width: 100%;
+                height: 100%;
+                border: none;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+                background: transparent;
+                box-sizing: border-box;
+                padding-top: 8px;
+            }
+            .contenedor-pistas {
+                display: flex;
+                gap: 20px;
+                max-width: 750px;
+                margin-top: 15px;
+            }
+            .columna-pistas {
+                flex: 1;
+                background-color: #f9f9f9;
+                border: 1px solid #ccc;
+                padding: 10px 15px;
+                border-radius: 5px;
+            }
+            .columna-pistas h4 {
+                margin-top: 5px;
+                border-bottom: 2px solid #2c3e50;
+                padding-bottom: 5px;
+            }
+            .columna-pistas ul {
+                padding-left: 20px;
+                font-size: 0.95em;
+            }
+            .columna-pistas li {
+                margin-bottom: 6px;
+            }
+        </style>
+        <script src="Ejercicio28.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Enlaces de navegación -->
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+        <hr>
+
+        <h1><strong>Ejercicios Capítulo 11</strong></h1>
+        <h2><strong>11.28 - Proyecto: Generador de crucigramas</strong></h2>
+
+        <!-- Instrucción del ejercicio -->
+        <p>
+            Desarrolle una aplicaci&oacute;n generadora de crucigramas. El programa utiliza un diccionario computarizado de palabras con sus respectivas pistas, construye din&aacute;micamente la cuadr&iacute;cula mediante algoritmos de intersecci&oacute;n de cadenas, numera las celdas de inicio e imprime la versi&oacute;n interactiva en blanco con las secciones de claves Horizontales y Verticales.
+        </p>
+
+        <!-- Controles de acción -->
+        <form action="#">
+            <p>
+                <input id="botonGenerar" type="button" value="Generar nuevo crucigrama">
+                <input id="botonVerificar" type="button" value="Verificar respuestas">
+                <input id="botonSolucion" type="button" value="Mostrar/Ocultar solución">
+            </p>
+        </form>
+
+        <!-- Área de renderizado del tablero -->
+        <div id="tableroCrucigrama"></div>
+
+        <!-- Panel de claves y pistas -->
+        <div class="contenedor-pistas">
+            <div class="columna-pistas">
+                <h4>Horizontales (Across)</h4>
+                <ul id="pistasHorizontales"></ul>
+            </div>
+            <div class="columna-pistas">
+                <h4>Verticales (Down)</h4>
+                <ul id="pistasVerticales"></ul>
+            </div>
+        </div>
+
+        <div id="resultados" style="margin-top: 15px;"></div>
+
+        <hr>
+        <p>
+            <a href="../Index.html">&larr; Volver a la p&aacute;gina anterior</a> | 
+            <a href="../../Index.html">Portal Principal</a>
+        </p>
+
+    </body>
+</html>
